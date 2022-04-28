@@ -1,0 +1,1937 @@
+<ResourceDictionary
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:c="http://schemas.telerik.com/2008/xaml/compile"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="c"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:mat="clr-namespace:Telerik.Windows.Controls.MaterialControls;assembly=Telerik.Windows.Controls"
+        xmlns:telerik1="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+        xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <telerik:MaterialResourceDictionary/>
+    </ResourceDictionary.MergedDictionaries>
+    <Geometry x:Key="ArrowTopRight8x8">M0,0 L8,0 8,8 z</Geometry>
+    <FontFamily x:Key="TelerikWebUI">/Telerik.Windows.Controls;component/Themes/Fonts/TelerikWebUI.ttf#TelerikWebUI</FontFamily>
+    <sys:String x:Key="GlyphArrow60Up"></sys:String>
+    <sys:String x:Key="GlyphArrow60Right"></sys:String>
+    <sys:String x:Key="GlyphArrow60Down"></sys:String>
+    <sys:String x:Key="GlyphArrow60Left"></sys:String>
+    <sys:String x:Key="GlyphMoreVertical"></sys:String>
+    <sys:String x:Key="GlyphMoreHorizontal"></sys:String>
+    <sys:String x:Key="GlyphCheck"></sys:String>
+    <ControlTemplate x:Key="ErrorTooltipTemplate" TargetType="ToolTip">
+        <Grid x:Name="RootVisual" HorizontalAlignment="Right" RenderTransformOrigin="0 0" Opacity="0" SnapsToDevicePixels="True">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="OpenStates">
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition GeneratedDuration="0"/>
+                        <VisualTransition To="Open" GeneratedDuration="0:0:0.3">
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="xform" Storyboard.TargetProperty="X" To="0" Duration="0:0:0.3">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BackEase Amplitude=".4" EasingMode="EaseOut"/>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetName="RootVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </VisualTransition>
+                    </VisualStateGroup.Transitions>
+                    <VisualState x:Name="Closed">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="RootVisual" Storyboard.TargetProperty="Opacity" To="0" Duration="0"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Open">
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="xform" Storyboard.TargetProperty="X" To="0" Duration="0"/>
+                            <DoubleAnimation Storyboard.TargetName="RootVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="xform" X="-25"/>
+            </Grid.RenderTransform>
+            <Border Background="{telerik1:MaterialResource ResourceKey=ValidationBrush}" Padding="1" Margin="5 0" UseLayoutRounding="True">
+                <ContentPresenter
+                        Content="{Binding ErrorContent}"
+                        Margin="16 10 16 9"
+                        TextBlock.Foreground="{telerik1:MaterialResource ResourceKey=MarkerInvertedBrush}"
+                        TextBlock.FontSize="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+            </Border>
+            <ContentControl/>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="StaticValidationTooltipTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Grid SnapsToDevicePixels="True" VerticalAlignment="Top">
+                <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Width="3" Height="3"/>
+                <AdornedElementPlaceholder x:Name="Holder"/>
+                <Border BorderBrush="{telerik1:MaterialResource ResourceKey=ValidationBrush}" BorderThickness="0 0 0 3"/>
+            </Grid>
+            <Grid>
+                <Border Background="{telerik1:MaterialResource ResourceKey=ValidationBrush}" Margin="10 0 0 0" MinHeight="36">
+                    <TextBlock x:Name="PART_ToolTip"
+                            FontSize="{telerik1:MaterialResource ResourceKey=FontSize}"
+                            FontFamily="{telerik1:MaterialResource ResourceKey=FontFamily}"
+                            Foreground="{telerik1:MaterialResource ResourceKey=MarkerInvertedBrush}"
+                            VerticalAlignment="Center"
+                            Padding="16 10 16 9"
+                            Text="{Binding ElementName=Holder, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}"/>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </ControlTemplate>
+    <sys:Double x:Key="RippleOpacity">1</sys:Double>
+    <Style TargetType="{x:Type mat:Shadow}" x:Key="ShadowStyle">
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background, Mode=OneWay}"/>
+        <Setter Property="ShadowDepth" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.ShadowDepth), Mode=OneWay, FallbackValue=Depth1}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+    <Style BasedOn="{StaticResource ShadowStyle}" TargetType="{x:Type mat:Shadow}"/>
+    <Style x:Key="MaterialControlStyle" TargetType="{x:Type mat:MaterialControl}">
+        <Setter Property="BorderThickness" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness, Mode=OneWay}"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalContentAlignment, Mode=OneWay}"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalContentAlignment, Mode=OneWay}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="RippleOpacity" Value="0.5"/>
+        <Setter Property="RippleBrush" Value="{telerik1:MaterialResource ResourceKey=RippleBrush}"/>
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type mat:MaterialControl}">
+                    <Grid Background="Transparent" Margin="{TemplateBinding BorderThickness}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="Normal" To="MousePressed">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseIn"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleY" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseIn"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="{StaticResource RippleOpacity}"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="MousePressed" To="MouseOut">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseIn"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleY" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseIn"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="MousePressed" To="Normal">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="PART_FeedbackElement">
+
+                                                <!-- PART_MousePressedToNormalScaleXKeyFrame EasingDoubleKeyFrame used in code -->
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value="1" x:Name="PART_MousePressedToNormalScaleXKeyFrame"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleY" Storyboard.TargetName="PART_FeedbackElement">
+
+                                                <!-- PART_MousePressedToNormalScaleYKeyFrame EasingDoubleKeyFrame used in code -->
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value="1" x:Name="PART_MousePressedToNormalScaleYKeyFrame"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_FeedbackElement">
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="{StaticResource RippleOpacity}"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.20" Value="{StaticResource RippleOpacity}"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value="0">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="PART_FeedbackElement" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" Storyboard.TargetName="PART_FeedbackElement" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_FeedbackElement" To="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MousePressed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="PART_FeedbackElement" To="1"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" Storyboard.TargetName="PART_FeedbackElement" To="1"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_FeedbackElement" To="{StaticResource RippleOpacity}"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOut">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="PART_FeedbackElement" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" Storyboard.TargetName="PART_FeedbackElement" To="0"/>
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_FeedbackElement" To="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <!-- Visuals used for animating interactions and in code -->
+                        <Rectangle x:Name="PART_BackgroundVisual" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed" Fill="{x:Null}"/>
+                        <Rectangle x:Name="PART_MouseOverVisual" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Fill="{TemplateBinding mat:MaterialAssist.MouseOverBrush}" Opacity="0"/>
+                        <Rectangle x:Name="PART_PressedVisual" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Fill="{TemplateBinding mat:MaterialAssist.PressedBrush}" Opacity="0"/>
+                        <Canvas IsHitTestVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="{TemplateBinding RippleOpacity}">
+
+                            <!-- this is the feedback element used in code -->
+                            <Ellipse x:Name="PART_FeedbackElement"
+                                    Fill="{TemplateBinding RippleBrush}"
+                                    Opacity="0"
+                                    Width="{TemplateBinding RippleSize}"
+                                    Height="{TemplateBinding RippleSize}"
+                                    Canvas.Left="{TemplateBinding RippleX}"
+                                    Canvas.Top="{TemplateBinding RippleY}"
+                                    RenderTransformOrigin=".5 .5">
+                                <Ellipse.RenderTransform>
+
+                                    <!-- PART_ScaleTransform ScaleTranform used in code -->
+                                    <ScaleTransform x:Name="PART_ScaleTransform" ScaleX="0" ScaleY="0"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                        </Canvas>
+                        <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="animation:AnimationManager.IsAnimationEnabled" Value="False">
+                            <Setter Property="IsRippleEnabled" Value="False"/>
+                            <Setter TargetName="PART_MouseOverVisual" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="PART_PressedVisual" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="PART_BackgroundVisual" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter Property="Visibility" TargetName="PART_BackgroundVisual" Value="Visible"/>
+                            <Setter Property="Fill" TargetName="PART_BackgroundVisual" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                        </Trigger>
+
+                        <!-- Interaction when animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Fill" TargetName="PART_BackgroundVisual" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Fill" TargetName="PART_BackgroundVisual" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+
+                        <!-- Interaction when animation enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_MouseOverVisual" From="0" To="1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_MouseOverVisual" From="1" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_PressedVisual" From="0" To="1"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_PressedVisual" From="1" To="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type mat:MaterialControl}" BasedOn="{StaticResource MaterialControlStyle}"/>
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=AlternativeBrush}"/>
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=ComplementaryBrush}"/>
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="mat:MaterialAssist.CornerRadius" Value="{telerik1:MaterialResource ResourceKey=CornerRadius}"/>
+        <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth1"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="16 10 16 9"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <mat:Shadow ShadowDepth="{TemplateBinding mat:MaterialAssist.ShadowDepth}" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}"/>
+                        <Border x:Name="BorderVisual"
+                                SnapsToDevicePixels="True"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}"/>
+                        <Border x:Name="FocusVisual"
+                                SnapsToDevicePixels="True"
+                                Opacity="0"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{x:Null}"
+                                Background="{TemplateBinding mat:MaterialAssist.FocusBrush}"
+                                CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}"/>
+                        <mat:MaterialControl CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}" IsSmartClipped="True">
+                            <ContentControl
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    x:Name="Content"
+                                    IsTabStop="False"
+                                    Focusable="False"
+                                    TextBlock.Foreground="{TemplateBinding Foreground}"
+                                    Margin="{TemplateBinding Padding}"
+                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                    Content="{TemplateBinding Content}"
+                                    Opacity="{telerik1:MaterialResource ResourceKey=PrimaryOpacity}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </mat:MaterialControl>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <!-- General IsKeyBoardFocused setters -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth3"/>
+                        </Trigger>
+
+                        <!-- Focused and animation enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="0" To="1" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="1" To="0" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <!-- Focused and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="BorderVisual" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+
+                        <!-- General IsMouseOver setters -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth2"/>
+                        </Trigger>
+
+                        <!-- General IsPressed setters -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth3"/>
+                        </Trigger>
+
+                        <!-- disabled and focused -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="FocusVisual" Property="Visibility" Value="Collapsed"/>
+                        </MultiTrigger>
+
+                        <!-- disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Content" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>
+    <Style x:Key="RepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=AlternativeBrush}"/>
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=ComplementaryBrush}"/>
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="mat:MaterialAssist.CornerRadius" Value="{telerik1:MaterialResource ResourceKey=CornerRadius}"/>
+        <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth1"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="16 10 16 9"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Grid>
+                        <mat:Shadow ShadowDepth="{TemplateBinding mat:MaterialAssist.ShadowDepth}" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}"/>
+                        <Border x:Name="BorderVisual"
+                                SnapsToDevicePixels="True"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}"/>
+                        <Border x:Name="FocusVisual"
+                                SnapsToDevicePixels="True"
+                                Opacity="0"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{x:Null}"
+                                Background="{TemplateBinding mat:MaterialAssist.FocusBrush}"
+                                CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}"/>
+                        <mat:MaterialControl CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}" IsSmartClipped="True">
+                            <ContentControl
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    x:Name="Content"
+                                    IsTabStop="False"
+                                    Focusable="False"
+                                    TextBlock.Foreground="{TemplateBinding Foreground}"
+                                    Margin="{TemplateBinding Padding}"
+                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                    Content="{TemplateBinding Content}"
+                                    Opacity="{telerik1:MaterialResource ResourceKey=PrimaryOpacity}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </mat:MaterialControl>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth3"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="0" To="1" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="1" To="0" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="BorderVisual" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth2"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth3"/>
+                        </Trigger>
+
+                        <!-- disabled and focused -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="FocusVisual" Property="Visibility" Value="Collapsed"/>
+                        </MultiTrigger>
+
+                        <!-- disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Content" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonStyle}"/>
+    <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="mat:MaterialAssist.CheckedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryNormalBrush}"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=IconBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="6 0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid HorizontalAlignment="Left" Width="28">
+                        <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="{telerik1:MaterialResource ResourceKey=CornerRadius}"/>
+                        <AdornedElementPlaceholder x:Name="Holder"/>
+                        <Grid VerticalAlignment="Center" HorizontalAlignment="Left" Height="20" Width="20" Margin="8 0 0 0">
+                            <Ellipse Stroke="{telerik1:MaterialResource ResourceKey=ValidationBrush}" StrokeThickness="2" Fill="{x:Null}" SnapsToDevicePixels="True" IsHitTestVisible="False"/>
+                        </Grid>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="PART_ToolTip"
+                                    Margin="0 2 0 0"
+                                    IsOpen="True"
+                                    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget.DataContext}"
+                                    Template="{StaticResource ErrorTooltipTemplate}"
+                                    Placement="Right"/>
+                        </ToolTipService.ToolTip>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid x:Name="templateRoot" Background="Transparent" UseLayoutRounding="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse x:Name="FocusEllipse"
+                                    Width="36"
+                                    Height="36"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Opacity="0"
+                                    Fill="{TemplateBinding mat:MaterialAssist.FocusBrush}"
+                                    IsHitTestVisible="False"
+                                    RenderTransformOrigin=".5 .5">
+                                <Ellipse.RenderTransform>
+                                    <ScaleTransform ScaleX="0" ScaleY="0"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                            <Ellipse x:Name="clipEllipse" Width="36" Height="36" VerticalAlignment="Center" HorizontalAlignment="Center" IsHitTestVisible="False" Panel.ZIndex="-1" Fill="{x:Null}"/>
+                            <mat:MaterialControl x:Name="Material"
+                                    BorderThickness="0"
+                                    IsRippleCentered="True"
+                                    RippleBrush="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"
+                                    IsSmartClipped="True"
+                                    CornerRadius="18"
+                                    Height="36"
+                                    Width="36"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    mat:MaterialAssist.MouseOverBrush="{x:Null}"
+                                    mat:MaterialAssist.PressedBrush="{x:Null}">
+                                <Grid>
+                                    <Ellipse x:Name="radioBorder"
+                                            Stroke="{TemplateBinding BorderBrush}"
+                                            Fill="{TemplateBinding Background}"
+                                            Width="20"
+                                            Height="20"
+                                            Opacity="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}"
+                                            StrokeThickness="2"/>
+                                    <Grid x:Name="markGrid" Background="Transparent">
+                                        <Ellipse x:Name="optionMark" Fill="{TemplateBinding Foreground}" Width="10" Height="10" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0"/>
+                                        <Ellipse x:Name="indeterminateMark"
+                                                HorizontalAlignment="Center"
+                                                Visibility="Collapsed"
+                                                Margin="1"
+                                                VerticalAlignment="Center"
+                                                StrokeThickness="3"
+                                                Stroke="{telerik1:MaterialResource ResourceKey=IconBrush}"
+                                                Height="10"
+                                                Width="10"/>
+                                    </Grid>
+                                </Grid>
+                            </mat:MaterialControl>
+                        </Grid>
+                        <ContentPresenter x:Name="contentPresenter"
+                                Grid.Column="1"
+                                Focusable="False"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <!-- Focused and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="clipEllipse" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush), Mode=OneWay}"/>
+                            <Setter TargetName="clipEllipse" Property="Opacity" Value=".3"/>
+                        </MultiTrigger>
+
+                        <!-- Focused and animation enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" From="0" To=".3" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation Duration="00:00:00.15" From="0" To="1" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                        <DoubleAnimation Duration="00:00:00.15" From="0" To="1" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleX">
+                                            <DiscreteDoubleKeyFrame KeyTime="00:00:00.25" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleY">
+                                            <DiscreteDoubleKeyFrame KeyTime="00:00:00.25" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="00:00:00.25" From="0.3" To="0" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <!-- IsChecked True -->
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="optionMark" Property="Opacity" Value="1"/>
+                            <Setter TargetName="radioBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="optionMark" Property="Fill" Value="{telerik1:MaterialResource ResourceKey=PrimaryNormalBrush}"/>
+                            <Setter TargetName="radioBorder" Property="Stroke" Value="{telerik1:MaterialResource ResourceKey=PrimaryNormalBrush}"/>
+                            <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=AccentHoverBrush}"/>
+                            <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=AccentPressedBrush}"/>
+                            <Setter TargetName="Material" Property="RippleBrush" Value="{telerik1:MaterialResource ResourceKey=AccentHoverBrush}"/>
+                        </Trigger>
+
+                        <!-- IsChecked Null -->
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="optionMark" Property="Opacity" Value="0"/>
+                            <Setter TargetName="indeterminateMark" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="indeterminateMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}"/>
+                            <Setter TargetName="radioBorder" Property="Fill" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+                            <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+                            <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+                        </Trigger>
+
+                        <!-- IsMouseOver -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="radioBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="radioBorder" Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                            <Setter TargetName="optionMark" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                            <Setter TargetName="indeterminateMark" Property="Stroke" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+                            <Setter TargetName="indeterminateMark" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="radioBorder" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+
+                        <!-- IsPressed -->
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="radioBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="radioBorder" Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+                            <Setter TargetName="optionMark" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+                            <Setter TargetName="indeterminateMark" Property="Stroke" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"/>
+                                <Condition Property="IsPressed" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="radioBorder" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="contentPresenter" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            <Setter TargetName="radioBorder" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            <Setter TargetName="markGrid" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                                <Condition Property="IsChecked" Value="{x:Null}"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="indeterminateMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="optionMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}"/>
+    <DataTemplate x:Key="RepeatButtonLineUpTemplate">
+        <TextBlock
+                FontFamily="{StaticResource TelerikWebUI}"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                telerik1:GlyphAdorner.ShowGlyphInDesignTime="True"
+                Foreground="{TemplateBinding TextElement.Foreground}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="13">
+            <Run Text="{StaticResource GlyphArrow60Up}"/>
+        </TextBlock>
+    </DataTemplate>
+    <DataTemplate x:Key="RepeatButtonLineDownTemplate">
+        <TextBlock
+                FontFamily="{StaticResource TelerikWebUI}"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                telerik1:GlyphAdorner.ShowGlyphInDesignTime="True"
+                Foreground="{TemplateBinding TextElement.Foreground}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="13">
+            <Run Text="{StaticResource GlyphArrow60Down}"/>
+        </TextBlock>
+    </DataTemplate>
+    <DataTemplate x:Key="RepeatButtonLineLeftTemplate">
+        <TextBlock
+                FontFamily="{StaticResource TelerikWebUI}"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                telerik1:GlyphAdorner.ShowGlyphInDesignTime="True"
+                Foreground="{TemplateBinding TextElement.Foreground}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="13">
+            <Run Text="{StaticResource GlyphArrow60Left}"/>
+        </TextBlock>
+    </DataTemplate>
+    <DataTemplate x:Key="RepeatButtonLineRightTemplate">
+        <TextBlock
+                FontFamily="{StaticResource TelerikWebUI}"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                telerik1:GlyphAdorner.ShowGlyphInDesignTime="True"
+                Foreground="{TemplateBinding TextElement.Foreground}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="13">
+            <Run Text="{StaticResource GlyphArrow60Right}"/>
+        </TextBlock>
+    </DataTemplate>
+    <Style x:Key="RepeatButtonLineBaseStyle" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonStyle}">
+        <Setter Property="mat:MaterialAssist.IsShadowDisabled" Value="True"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="mat:MaterialAssist.CornerRadius" Value="0"/>
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=IconBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=AlternativeBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerInvertedBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerInvertedBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="RepeatButtonLineUpStyle" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonLineBaseStyle}">
+        <Setter Property="ContentTemplate" Value="{StaticResource RepeatButtonLineUpTemplate}"/>
+    </Style>
+    <Style x:Key="RepeatButtonLineDownStyle" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonLineBaseStyle}">
+        <Setter Property="ContentTemplate" Value="{StaticResource RepeatButtonLineDownTemplate}"/>
+    </Style>
+    <Style x:Key="RepeatButtonLineLeftStyle" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonLineBaseStyle}">
+        <Setter Property="ContentTemplate" Value="{StaticResource RepeatButtonLineLeftTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="FlowDirection" Value="RightToLeft">
+                <Setter Property="ContentTemplate" Value="{StaticResource RepeatButtonLineRightTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="RepeatButtonLineRightStyle" TargetType="RepeatButton" BasedOn="{StaticResource RepeatButtonLineBaseStyle}">
+        <Setter Property="ContentTemplate" Value="{StaticResource RepeatButtonLineRightTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="FlowDirection" Value="RightToLeft">
+                <Setter Property="ContentTemplate" Value="{StaticResource RepeatButtonLineLeftTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="ThumbBaseStyle" TargetType="Thumb">
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=ComplementaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid Background="Transparent">
+                        <Border x:Name="Track"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <Border x:Name="MouseOverVisual"
+                                Opacity="0"
+                                Background="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"
+                                BorderBrush="{x:Null}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.20" From="0" To="1" Storyboard.TargetName="MouseOverVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.20" From="1" To="0" Storyboard.TargetName="MouseOverVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <Trigger Property="IsDragging" Value="True">
+                            <Setter TargetName="MouseOverVisual" Property="Background" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Track" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ThumbHorizontalStyle" TargetType="Thumb" BasedOn="{StaticResource ThumbBaseStyle}">
+        <Setter Property="Height" Value="13"/>
+    </Style>
+    <Style x:Key="ThumbVerticalStyle" TargetType="Thumb" BasedOn="{StaticResource ThumbBaseStyle}">
+        <Setter Property="Width" Value="13"/>
+    </Style>
+    <Style x:Key="RepeatButtonBlankStyle" TargetType="RepeatButton">
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Rectangle Fill="Transparent"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="ScrollBarHorizontalControlTemplate" TargetType="{x:Type ScrollBar}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="17"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition MaxWidth="17"/>
+            </Grid.ColumnDefinitions>
+            <Border
+                    Grid.ColumnSpan="3"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    Background="{TemplateBinding Background}"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                    Margin="0 -1 0 0"/>
+            <RepeatButton Style="{StaticResource RepeatButtonLineLeftStyle}" Command="{x:Static ScrollBar.LineLeftCommand}"/>
+            <Track Name="PART_Track" Grid.Column="1" Orientation="Horizontal">
+                <Track.Resources>
+                    <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}">17</sys:Double>
+                </Track.Resources>
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource RepeatButtonBlankStyle}" Command="{x:Static ScrollBar.PageLeftCommand}"/>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource RepeatButtonBlankStyle}" Command="{x:Static ScrollBar.PageRightCommand}"/>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource ThumbHorizontalStyle}"/>
+                </Track.Thumb>
+            </Track>
+            <RepeatButton Style="{StaticResource RepeatButtonLineRightStyle}" Grid.Column="2" Command="{x:Static ScrollBar.LineRightCommand}"/>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ScrollBarVerticalControlTemplate" TargetType="{x:Type ScrollBar}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="17"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition MaxHeight="17"/>
+            </Grid.RowDefinitions>
+            <Border
+                    Grid.RowSpan="3"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    Background="{TemplateBinding Background}"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                    Margin="-1 0 0 0"/>
+            <RepeatButton Style="{StaticResource RepeatButtonLineUpStyle}" Content="Up" Command="{x:Static ScrollBar.LineUpCommand}"/>
+            <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="True">
+                <Track.Resources>
+                    <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">17</sys:Double>
+                </Track.Resources>
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource RepeatButtonBlankStyle}" Command="{x:Static ScrollBar.PageUpCommand}"/>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource RepeatButtonBlankStyle}" Command="{x:Static ScrollBar.PageDownCommand}"/>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource ThumbVerticalStyle}"/>
+                </Track.Thumb>
+            </Track>
+            <RepeatButton Style="{StaticResource RepeatButtonLineDownStyle}" Grid.Row="2" Command="{x:Static ScrollBar.LineDownCommand}"/>
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="ScrollBarStyle" TargetType="{x:Type ScrollBar}">
+        <Setter Property="Template" Value="{StaticResource ScrollBarVerticalControlTemplate}"/>
+        <Setter Property="MinWidth" Value="17"/>
+        <Setter Property="MinHeight" Value="17"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=AlternativeBrush}"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="ClipToBounds" Value="True"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Horizontal">
+                <Setter Property="Template" Value="{StaticResource ScrollBarHorizontalControlTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <ControlTemplate x:Key="ScrollViewerControlTemplate" TargetType="{x:Type ScrollViewer}">
+        <Border
+                BorderThickness="{TemplateBinding BorderThickness}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                Background="{TemplateBinding Background}"
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                        CanContentScroll="{TemplateBinding CanContentScroll}"
+                        CanHorizontallyScroll="False"
+                        CanVerticallyScroll="False"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Content="{TemplateBinding Content}"
+                        Grid.Column="0"
+                        Margin="{TemplateBinding Padding}"
+                        Grid.Row="0"/>
+                <ScrollBar x:Name="PART_VerticalScrollBar"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        AutomationProperties.AutomationId="VerticalScrollBar"
+                        Cursor="Arrow"
+                        Grid.Column="1"
+                        Maximum="{TemplateBinding ScrollableHeight}"
+                        Minimum="0"
+                        Grid.Row="0"
+                        Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                        Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                        ViewportSize="{TemplateBinding ViewportHeight}"/>
+                <ScrollBar x:Name="PART_HorizontalScrollBar"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        AutomationProperties.AutomationId="HorizontalScrollBar"
+                        Cursor="Arrow"
+                        Grid.Column="0"
+                        Maximum="{TemplateBinding ScrollableWidth}"
+                        Minimum="0"
+                        Orientation="Horizontal"
+                        Grid.Row="1"
+                        Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                        Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                        ViewportSize="{TemplateBinding ViewportWidth}"/>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="ScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="Template" Value="{StaticResource ScrollViewerControlTemplate}"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+    <Style BasedOn="{StaticResource ScrollBarStyle}" TargetType="ScrollBar"/>
+    <Style BasedOn="{StaticResource ScrollViewerStyle}" TargetType="ScrollViewer"/>
+    <Style x:Key="ToolTipStyle" TargetType="ToolTip">
+        <Setter Property="mat:MaterialAssist.IsShadowDisabled" Value="False"/>
+        <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth1"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="16 10 16 9"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Grid Margin="5">
+                        <mat:Shadow
+                                Background="{TemplateBinding Background}"
+                                ShadowDepth="{TemplateBinding mat:MaterialAssist.ShadowDepth}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}"/>
+    <Style x:Key="TextBoxStyle" TargetType="TextBox">
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="SelectionBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="Padding" Value="8 10 8 9"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="CaretBrush" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource StaticValidationTooltipTemplate}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid x:Name="root">
+                        <Border x:Name="BorderVisual" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Border x:Name="ReadOnlyVisual"
+                                Background="{telerik1:MaterialResource ResourceKey=ReadOnlyBackgroundBrush}"
+                                BorderBrush="{x:Null}"
+                                Visibility="Collapsed"
+                                BorderThickness="0 0 0 3"/>
+                        <Border x:Name="FocusVisual" Background="{x:Null}" BorderBrush="{TemplateBinding mat:MaterialAssist.FocusBrush}" BorderThickness="0 0 0 3" RenderTransformOrigin="0.5 1">
+                            <Border.RenderTransform>
+                                <ScaleTransform ScaleX="0" ScaleY="1"/>
+                            </Border.RenderTransform>
+                        </Border>
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                Margin="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}"
+                                Foreground="{TemplateBinding Foreground}"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Opacity="{telerik1:MaterialResource ResourceKey=PrimaryOpacity}"
+                                Background="Transparent"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter TargetName="BorderVisual" Property="BorderThickness" Value="0 0 0 3"/>
+                            <Setter TargetName="ReadOnlyVisual" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="PART_ContentHost" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}"/>
+                        </Trigger>
+
+                        <!-- Focused and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BorderVisual" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush), Mode=OneWay}"/>
+                            <Setter TargetName="BorderVisual" Property="BorderThickness" Value="0 0 0 3"/>
+                        </MultiTrigger>
+
+                        <!-- Focused and animation Enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="FocusVisual">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="1">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="FocusVisual">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_ContentHost" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}"/>
+    <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="SelectionBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="Padding" Value="8 10 8 9"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="CaretBrush" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource StaticValidationTooltipTemplate}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Grid x:Name="root">
+                        <Border x:Name="BorderVisual"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <Border x:Name="FocusVisual" Background="{x:Null}" BorderBrush="{TemplateBinding mat:MaterialAssist.FocusBrush}" BorderThickness="0 0 0 3" RenderTransformOrigin="0.5 1">
+                            <Border.RenderTransform>
+                                <ScaleTransform ScaleX="0" ScaleY="1"/>
+                            </Border.RenderTransform>
+                        </Border>
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                Padding="0"
+                                Foreground="{TemplateBinding Foreground}"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <!-- Focused and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BorderVisual" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush)}"/>
+                            <Setter TargetName="BorderVisual" Property="BorderThickness" Value="0 0 0 3"/>
+                        </MultiTrigger>
+
+                        <!-- Focused and animation Enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="FocusVisual">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.12" Value="1">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="RenderTransform.ScaleX" Storyboard.TargetName="FocusVisual">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseIn"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_ContentHost" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="PasswordBox" BasedOn="{StaticResource PasswordBoxStyle}"/>
+    <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=ComplementaryBrush}"/>
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=AlternativeBrush}"/>
+        <Setter Property="mat:MaterialAssist.CheckedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryNormalBrush}"/>
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="Padding" Value="16 10 16 9"/>
+        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Grid>
+                        <Border x:Name="BorderVisual"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True"/>
+                        <Border x:Name="FocusVisual"
+                                BorderBrush="{x:Null}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding mat:MaterialAssist.FocusBrush}"
+                                SnapsToDevicePixels="True"
+                                Opacity="0"/>
+                        <Border x:Name="SelectedVisual"
+                                BorderBrush="{x:Null}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding mat:MaterialAssist.CheckedBrush}"
+                                SnapsToDevicePixels="True"
+                                Opacity="0"/>
+                        <mat:MaterialControl x:Name="Material" ClipToBounds="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <ContentControl x:Name="contentPresenter"
+                                    Margin="{TemplateBinding Padding}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    IsTabStop="False"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Content="{TemplateBinding Content}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                    FocusVisualStyle="{x:Null}"/>
+                        </mat:MaterialControl>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <!-- Focused and animation enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                                <Condition Property="IsSelected" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="0" To="1" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="1" To="0" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <!-- Focused and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                                <Condition Property="IsSelected" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BorderVisual" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+
+                        <!-- IsSelected general setters -->
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerInvertedBrush}"/>
+                            <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=AccentNormalBrush}"/>
+                        </Trigger>
+
+                        <!-- Selected and animation enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="0" To="1" Storyboard.TargetName="SelectedVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="00:00:00.20" From="1" To="0" Storyboard.TargetName="SelectedVisual" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <!-- Selected and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BorderVisual" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.CheckedBrush), Mode=OneWay}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsPressed" Value="True" SourceName="Material">
+                            <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="contentPresenter" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}" Property="Opacity"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+        <Setter Property="mat:MaterialAssist.CornerRadius" Value="0"/>
+        <Setter Property="mat:MaterialAssist.ShadowDepth" Value="Depth1"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Grid>
+                        <mat:Shadow ShadowDepth="{TemplateBinding mat:MaterialAssist.ShadowDepth}" CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}" Background="{TemplateBinding Background}"/>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding mat:MaterialAssist.CornerRadius}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="ScrollViewer"
+                                    Margin="0 8"
+                                    BorderBrush="{x:Null}"
+                                    BorderThickness="0"
+                                    Background="{TemplateBinding Background}"
+                                    Padding="{TemplateBinding Padding}"
+                                    ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                <ItemsPresenter ClipToBounds="True"/>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="ListBox" BasedOn="{StaticResource ListBoxStyle}"/>
+    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}"/>
+    <Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Setter Property="mat:MaterialAssist.FocusBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"/>
+        <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+        <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+        <Setter Property="mat:MaterialAssist.CheckedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryNormalBrush}"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=IconBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="0 0 6 0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid HorizontalAlignment="Left" Width="27">
+                        <Border Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="{telerik1:MaterialResource ResourceKey=CornerRadius}"/>
+                        <AdornedElementPlaceholder x:Name="Holder"/>
+                        <Grid VerticalAlignment="Center" HorizontalAlignment="Left" Height="18" Width="18" Margin="9 0 0 0">
+                            <Border
+                                    BorderBrush="{telerik1:MaterialResource ResourceKey=ValidationBrush}"
+                                    BorderThickness="2"
+                                    CornerRadius="{telerik1:MaterialResource ResourceKey=CornerRadius}"
+                                    SnapsToDevicePixels="True"
+                                    IsHitTestVisible="False"/>
+                            <Path
+                                    Data="{StaticResource ArrowTopRight8x8}"
+                                    Fill="{telerik1:MaterialResource ResourceKey=ValidationBrush}"
+                                    Stretch="None"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    SnapsToDevicePixels="True"/>
+                        </Grid>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="PART_ToolTip"
+                                    Margin="0 2 0 0"
+                                    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget.DataContext}"
+                                    Template="{StaticResource ErrorTooltipTemplate}"
+                                    Placement="Right"/>
+                        </ToolTipService.ToolTip>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse x:Name="FocusEllipse"
+                                    Width="36"
+                                    Height="36"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Opacity="0"
+                                    RenderTransformOrigin=".5 .5"
+                                    IsHitTestVisible="False"
+                                    Fill="{TemplateBinding mat:MaterialAssist.FocusBrush}">
+                                <Ellipse.RenderTransform>
+                                    <ScaleTransform ScaleX="0" ScaleY="0"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                            <Ellipse x:Name="clipEllipse" Width="36" Height="36" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="{x:Null}" Panel.ZIndex="-1" IsHitTestVisible="False"/>
+                            <mat:MaterialControl x:Name="Material"
+                                    BorderThickness="0"
+                                    IsRippleCentered="True"
+                                    RippleBrush="{telerik1:MaterialResource ResourceKey=PrimaryFocusBrush}"
+                                    IsSmartClipped="True"
+                                    CornerRadius="18"
+                                    mat:MaterialAssist.MouseOverBrush="{x:Null}"
+                                    mat:MaterialAssist.PressedBrush="{x:Null}"
+                                    VerticalContentAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Height="36"
+                                    Width="36">
+                                <Grid>
+                                    <Border x:Name="checkBoxBorder"
+                                            CornerRadius="2"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Background="{TemplateBinding Background}"
+                                            Opacity="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}"
+                                            Height="18"
+                                            Width="18">
+                                        <Grid x:Name="markGrid" Background="Transparent" Width="14" Height="14" Opacity="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}">
+                                            <TextBlock x:Name="optionMark"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    FontSize="13"
+                                                    Margin="1 1 0 0"
+                                                    telerik1:GlyphAdorner.ShowGlyphInDesignTime="True"
+                                                    Foreground="{telerik1:MaterialResource ResourceKey=IconBrush}"
+                                                    FontFamily="{StaticResource TelerikWebUI}"
+                                                    FontWeight="Normal"
+                                                    FontStyle="Normal"
+                                                    Opacity="0">
+                                                <Run Text="{StaticResource GlyphCheck}"/>
+                                            </TextBlock>
+                                            <Border x:Name="indeterminateMark"
+                                                    Background="{telerik1:MaterialResource ResourceKey=IconBrush}"
+                                                    CornerRadius="2"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Visibility="Collapsed"
+                                                    Width="10"
+                                                    Height="10"/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </mat:MaterialControl>
+                        </Grid>
+                        <ContentPresenter x:Name="contentPresenter"
+                                Grid.Column="1"
+                                Focusable="False"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+
+                        <!-- Focused and animation disabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="clipEllipse" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.FocusBrush), Mode=OneWay}"/>
+                            <Setter TargetName="clipEllipse" Property="Opacity" Value=".3"/>
+                        </MultiTrigger>
+
+                        <!-- Focused and animation enabled -->
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsKeyboardFocused" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="animation:AnimationManager.IsAnimationEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" From="0" To=".3" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation Duration="00:00:00.15" From="0" To="1" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                        <DoubleAnimation Duration="00:00:00.15" From="0" To="1" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleX">
+                                            <DiscreteDoubleKeyFrame KeyTime="00:00:00.25" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="RenderTransform.ScaleY">
+                                            <DiscreteDoubleKeyFrame KeyTime="00:00:00.25" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="00:00:00.25" From="0.3" To="0" Storyboard.TargetName="FocusEllipse" Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+
+                        <!-- IsChecked True -->
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="optionMark" Property="Opacity" Value="1"/>
+                            <Setter TargetName="checkBoxBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="optionMark" Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerInvertedBrush}"/>
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.CheckedBrush), Mode=OneWay}"/>
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.CheckedBrush), Mode=OneWay}"/>
+                            <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=AccentHoverBrush}"/>
+                            <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=AccentPressedBrush}"/>
+                            <Setter TargetName="Material" Property="RippleBrush" Value="{telerik1:MaterialResource ResourceKey=AccentHoverBrush}"/>
+                        </Trigger>
+
+                        <!-- IsChecked Null -->
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="optionMark" Property="Opacity" Value="0"/>
+                            <Setter TargetName="indeterminateMark" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+                            <Setter Property="mat:MaterialAssist.MouseOverBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+                            <Setter Property="mat:MaterialAssist.PressedBrush" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+                        </Trigger>
+
+                        <!-- IsMouseOver -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="checkBoxBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.MouseOverBrush), Mode=OneWay}"/>
+                            <Setter TargetName="optionMark" Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+                            <Setter TargetName="indeterminateMark" Property="Background" Value="{telerik1:MaterialResource ResourceKey=PrimaryHoverBrush}"/>
+                            <Setter TargetName="indeterminateMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}"/>
+                        </Trigger>
+
+                        <!-- IsPressed -->
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="checkBoxBorder" Property="Opacity" Value="1"/>
+                            <Setter TargetName="markGrid" Property="Opacity" Value="1"/>
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+                            <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mat:MaterialAssist.PressedBrush), Mode=OneWay}"/>
+                            <Setter TargetName="optionMark" Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+                            <Setter TargetName="indeterminateMark" Property="Background" Value="{telerik1:MaterialResource ResourceKey=PrimaryPressedBrush}"/>
+                            <Setter TargetName="indeterminateMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=SecondaryOpacity}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsChecked" Value="{x:Null}"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="checkBoxBorder" Property="Background" Value="{telerik1:MaterialResource ResourceKey=MainBrush}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="contentPresenter" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            <Setter TargetName="checkBoxBorder" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            <Setter TargetName="markGrid" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                                <Condition Property="IsChecked" Value="{x:Null}"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="indeterminateMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="False"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="optionMark" Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="CheckBox" BasedOn="{StaticResource CheckBoxStyle}"/>
+
+    <!-- Style for Separator which is not child of StatusBar (horizontal one) -->
+    <Style x:Key="SeparatorStyle" TargetType="Separator">
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="MinHeight" Value="1"/>
+        <Setter Property="Margin" Value="4 2"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Separator">
+                    <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style for Separator which is child of StatusBar (vertical one) -->
+    <Style x:Key="{x:Static StatusBar.SeparatorStyleKey}" TargetType="Separator">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="MinWidth" Value="1"/>
+        <Setter Property="Margin" Value="2 4"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Separator">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Style for StatusBarItem -->
+    <Style x:Key="StatusBarItemStyle" TargetType="StatusBarItem">
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="9 4"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="StatusBarItem">
+                    <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter x:Name="contentPresenter"
+                                SnapsToDevicePixels="true"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="Separator" BasedOn="{StaticResource {x:Static StatusBar.SeparatorStyleKey}}">
+                <Setter Property="Margin" Value="3 -1"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <!-- Style for StatusBar -->
+    <Style x:Key="StatusBarStyle" TargetType="StatusBar">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerSolidBrush}"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=AlternativeBrush}"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=MarkerBrush}"/>
+        <Setter Property="FontFamily" Value="{telerik1:MaterialResource ResourceKey=FontFamily}"/>
+        <Setter Property="FontSize" Value="{telerik1:MaterialResource ResourceKey=FontSize}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="StatusBar">
+                    <Grid>
+                        <Border
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Resources>
+            <Style TargetType="Separator" BasedOn="{StaticResource {x:Static StatusBar.SeparatorStyleKey}}"/>
+        </Style.Resources>
+    </Style>
+    <Style TargetType="StatusBar" BasedOn="{StaticResource StatusBarStyle}"/>
+    <Style TargetType="StatusBarItem" BasedOn="{StaticResource StatusBarItemStyle}"/>
+    <Style TargetType="Separator" BasedOn="{StaticResource SeparatorStyle}"/>
+    <Style x:Key="GridSplitterPreviewStyle">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Fill="#80000000"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GridSplitterStyle" TargetType="GridSplitter">
+        <Setter Property="MinWidth" Value="14"/>
+        <Setter Property="MinHeight" Value="14"/>
+        <Setter Property="MaxWidth" Value="14"/>
+        <Setter Property="Background" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="BorderBrush" Value="{telerik1:MaterialResource ResourceKey=DividerBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Foreground" Value="{telerik1:MaterialResource ResourceKey=IconBrush}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Cursor" Value="SizeWE"/>
+        <Setter Property="PreviewStyle" Value="{StaticResource GridSplitterPreviewStyle}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="GridSplitter">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock x:Name="grip"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="{TemplateBinding Foreground}"
+                                Margin="{TemplateBinding Padding}"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="Normal"
+                                FontStyle="Normal"
+                                telerik1:GlyphAdorner.ShowGlyphInDesignTime="True"
+                                FontFamily="{StaticResource TelerikWebUI}">
+                            <Run x:Name="gripRun" Text="{StaticResource GlyphMoreVertical}"/>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HorizontalAlignment" Value="Stretch">
+                            <Setter TargetName="gripRun" Property="Text" Value="{StaticResource GlyphMoreHorizontal}"/>
+                            <Setter Property="Cursor" Value="SizeNS"/>
+                            <Setter Property="MaxWidth" Value="{x:Static sys:Double.MaxValue}"/>
+                            <Setter Property="MaxHeight" Value="14"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="{telerik1:MaterialResource ResourceKey=DisabledOpacity}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type GridSplitter}" BasedOn="{StaticResource GridSplitterStyle}"/>
+</ResourceDictionary>

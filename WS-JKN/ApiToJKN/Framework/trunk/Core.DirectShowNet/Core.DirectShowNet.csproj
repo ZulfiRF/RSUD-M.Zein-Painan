@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE009BFA-5EF6-4153-B2A1-2FA79698A9AE}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>Core.DirectShowNET</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Core.DirectShowNET</RootNamespace>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AMMediaType.cs" />
+    <Compile Include="AMTunerEventType.cs" />
+    <Compile Include="AMTunerModeType.cs" />
+    <Compile Include="AMTunerSignalStrength.cs" />
+    <Compile Include="AMTunerSubChannel.cs" />
+    <Compile Include="AnalogVideoStandard.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CLSCTX.cs" />
+    <Compile Include="Clsid.cs" />
+    <Compile Include="DsBITMAPINFOHEADER.cs" />
+    <Compile Include="DsBugWO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DsCAUUID.cs" />
+    <Compile Include="IMediaControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DsHlp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DsDev.cs" />
+    <Compile Include="DsDevice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DvdRenderStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DsEvCode.cs" />
+    <Compile Include="ICaptureGraphBuilder2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DsOptInt64.cs" />
+    <Compile Include="DsOptIntPtr.cs" />
+    <Compile Include="DsPOINT.cs" />
+    <Compile Include="DsRECT.cs" />
+    <Compile Include="DsROT.cs" />
+    <Compile Include="DsUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FilterCategory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DvdAudioAppMode.cs" />
+    <Compile Include="DvdAudioAttr.cs" />
+    <Compile Include="DvdAudioCaps.cs" />
+    <Compile Include="DvdAudioFormat.cs" />
+    <Compile Include="DvdAudioLangExt.cs" />
+    <Compile Include="DvdCharSet.cs" />
+    <Compile Include="DvdCmdFlags.cs" />
+    <Compile Include="DvdDecoderCaps.cs" />
+    <Compile Include="DvdDiscSide.cs" />
+    <Compile Include="DvdDomain.cs" />
+    <Compile Include="DvdGraphFlags.cs" />
+    <Compile Include="DvdMenuAttr.cs" />
+    <Compile Include="DvdMenuID.cs" />
+    <Compile Include="DvdOptionFlag.cs" />
+    <Compile Include="DvdPlayLocation.cs" />
+    <Compile Include="DvdRelButton.cs" />
+    <Compile Include="DvdStreamFlags.cs" />
+    <Compile Include="DvdSubPicAttr.cs" />
+    <Compile Include="DvdSubPicCoding.cs" />
+    <Compile Include="DvdSubPicLangExt.cs" />
+    <Compile Include="DvdSubPicType.cs" />
+    <Compile Include="DvdTimeCode.cs" />
+    <Compile Include="DvdTitleAppMode.cs" />
+    <Compile Include="DvdTitleAttr.cs" />
+    <Compile Include="DvdVideoAttr.cs" />
+    <Compile Include="DvdVideoCompress.cs" />
+    <Compile Include="FilterInfo.cs" />
+    <Compile Include="FormatType.cs" />
+    <Compile Include="IAMCollection.cs" />
+    <Compile Include="IAMCopyCaptureFileProgress.cs" />
+    <Compile Include="IAMStreamConfig.cs" />
+    <Compile Include="IAMTuner.cs" />
+    <Compile Include="IAMTunerNotification.cs" />
+    <Compile Include="IAMTVTuner.cs" />
+    <Compile Include="IBaseFilter.cs" />
+    <Compile Include="IBasicAudio.cs" />
+    <Compile Include="IBasicVideo2.cs" />
+    <Compile Include="ICreateDevEnum.cs" />
+    <Compile Include="IDvdCmd.cs" />
+    <Compile Include="IDvdControl2.cs" />
+    <Compile Include="IDvdGraphBuilder.cs" />
+    <Compile Include="IDvdInfo2.cs" />
+    <Compile Include="IDvdState.cs" />
+    <Compile Include="IEnumFilters.cs" />
+    <Compile Include="IEnumPins.cs" />
+    <Compile Include="IFileSinkFilter.cs" />
+    <Compile Include="IFilterGraph.cs" />
+    <Compile Include="IGraphBuilder.cs" />
+    <Compile Include="IMediaEvent.cs" />
+    <Compile Include="IMediaEventEx.cs" />
+    <Compile Include="IMediaFilter.cs" />
+    <Compile Include="IMediaPosition.cs" />
+    <Compile Include="IMediaSample.cs" />
+    <Compile Include="IMediaSeeking.cs" />
+    <Compile Include="IPersist.cs" />
+    <Compile Include="IPin.cs" />
+    <Compile Include="IPropertyBag.cs" />
+    <Compile Include="IReferenceClock.cs" />
+    <Compile Include="ISampleGrabber.cs" />
+    <Compile Include="ISampleGrabberCB.cs" />
+    <Compile Include="ISpecifyPropertyPages.cs" />
+    <Compile Include="IVideoFrameStep.cs" />
+    <Compile Include="IVideoWindow.cs" />
+    <Compile Include="MediaSubType.cs" />
+    <Compile Include="MediaType.cs" />
+    <Compile Include="OptIDvdCmd.cs" />
+    <Compile Include="PinCategory.cs" />
+    <Compile Include="PinDirection.cs" />
+    <Compile Include="VideoInfoHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SeekingCapabilities.cs" />
+    <Compile Include="SeekingFlags.cs" />
+    <Compile Include="TunerInputType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

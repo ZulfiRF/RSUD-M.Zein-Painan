@@ -1,0 +1,2954 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA4A029E-BB2B-429C-BB5D-3637FC090489}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Framework.Windows</RootNamespace>
+    <AssemblyName>Core.Framework.Windows</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>..\..\..\Medifirst2000\packages\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\Medifirst2000\packages\Newtonsoft.Json.8.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\Medifirst2000\packages\MahApps.Metro.1.4.3\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Reporting">
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering">
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.Reporting.XpsRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf">
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.ReportViewer.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2017.3.913.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2017.3.913.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2017.3.913.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2017.3.913.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Medifirst2000\packages\Telerik 2017\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accent.cs" />
+    <Compile Include="Actions\CloseTabItemAction.cs" />
+    <Compile Include="Actions\SetFlyoutOpenAction.cs" />
+    <Compile Include="Adorners\AdornerBase.cs" />
+    <Compile Include="Adorners\ContentAdornerBase.cs" />
+    <Compile Include="Adorners\ResizingAdorner.cs" />
+    <Compile Include="Attr\NotViewInPropertyGridAttribute.cs" />
+    <Compile Include="Barcodes\aztec\AztecDetectorResult.cs" />
+    <Compile Include="Barcodes\aztec\AztecReader.cs" />
+    <Compile Include="Barcodes\aztec\AztecResultMetadata.cs" />
+    <Compile Include="Barcodes\aztec\AztecWriter.cs" />
+    <Compile Include="Barcodes\aztec\decoder\Decoder.cs" />
+    <Compile Include="Barcodes\aztec\detector\Detector.cs" />
+    <Compile Include="Barcodes\aztec\encoder\AztecCode.cs" />
+    <Compile Include="Barcodes\aztec\encoder\AztecEncodingOptions.cs" />
+    <Compile Include="Barcodes\aztec\encoder\BinaryShiftToken.cs" />
+    <Compile Include="Barcodes\aztec\encoder\Encoder.cs" />
+    <Compile Include="Barcodes\aztec\encoder\HighLevelEncoder.cs" />
+    <Compile Include="Barcodes\aztec\encoder\SimpleToken.cs" />
+    <Compile Include="Barcodes\aztec\encoder\State.cs" />
+    <Compile Include="Barcodes\aztec\encoder\Token.cs" />
+    <Compile Include="Barcodes\BarcodeFormat.cs" />
+    <Compile Include="Barcodes\BarcodeReader.cs" />
+    <Compile Include="Barcodes\BarcodeReaderGeneric.cs" />
+    <Compile Include="Barcodes\BarcodeWriter.cs" />
+    <Compile Include="Barcodes\BarcodeWriterGeneric.cs" />
+    <Compile Include="Barcodes\BarcodeWriterSvg.cs" />
+    <Compile Include="Barcodes\BaseLuminanceSource.cs" />
+    <Compile Include="Barcodes\Binarizer.cs" />
+    <Compile Include="Barcodes\BinaryBitmap.cs" />
+    <Compile Include="Barcodes\BitmapLuminanceSource.cs" />
+    <Compile Include="Barcodes\client\result\AbstractDoCoMoResultParser.cs" />
+    <Compile Include="Barcodes\client\result\AddressBookAUResultParser.cs" />
+    <Compile Include="Barcodes\client\result\AddressBookDoCoMoResultParser.cs" />
+    <Compile Include="Barcodes\client\result\AddressBookParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\BizcardResultParser.cs" />
+    <Compile Include="Barcodes\client\result\BookmarkDoCoMoResultParser.cs" />
+    <Compile Include="Barcodes\client\result\CalendarParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\EmailAddressParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\EmailAddressResultParser.cs" />
+    <Compile Include="Barcodes\client\result\EmailDoCoMoResultParser.cs" />
+    <Compile Include="Barcodes\client\result\ExpandedProductParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\ExpandedProductResultParser.cs" />
+    <Compile Include="Barcodes\client\result\GeoParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\GeoResultParser.cs" />
+    <Compile Include="Barcodes\client\result\ISBNParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\ISBNResultParser.cs" />
+    <Compile Include="Barcodes\client\result\optional\AbstractNDEFResultParser.cs" />
+    <Compile Include="Barcodes\client\result\optional\NDEFRecord.cs" />
+    <Compile Include="Barcodes\client\result\optional\NDEFSmartPosterParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\optional\NDEFSmartPosterResultParser.cs" />
+    <Compile Include="Barcodes\client\result\optional\NDEFTextResultParser.cs" />
+    <Compile Include="Barcodes\client\result\optional\NDEFURIResultParser.cs" />
+    <Compile Include="Barcodes\client\result\ParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\ParsedResultType.cs" />
+    <Compile Include="Barcodes\client\result\ProductParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\ProductResultParser.cs" />
+    <Compile Include="Barcodes\client\result\ResultParser.cs" />
+    <Compile Include="Barcodes\client\result\SMSMMSResultParser.cs" />
+    <Compile Include="Barcodes\client\result\SMSParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\SMSTOMMSTOResultParser.cs" />
+    <Compile Include="Barcodes\client\result\SMTPResultParser.cs" />
+    <Compile Include="Barcodes\client\result\TelParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\TelResultParser.cs" />
+    <Compile Include="Barcodes\client\result\TextParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\URIParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\URIResultParser.cs" />
+    <Compile Include="Barcodes\client\result\URLTOResultParser.cs" />
+    <Compile Include="Barcodes\client\result\VCardResultParser.cs" />
+    <Compile Include="Barcodes\client\result\VEventResultParser.cs" />
+    <Compile Include="Barcodes\client\result\VINParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\VINResultParser.cs" />
+    <Compile Include="Barcodes\client\result\WifiParsedResult.cs" />
+    <Compile Include="Barcodes\client\result\WifiResultParser.cs" />
+    <Compile Include="Barcodes\common\BitArray.cs" />
+    <Compile Include="Barcodes\common\BitMatrix.cs" />
+    <Compile Include="Barcodes\common\BitMatrix.Drawing.cs" />
+    <Compile Include="Barcodes\common\BitSource.cs" />
+    <Compile Include="Barcodes\common\CharacterSetECI.cs" />
+    <Compile Include="Barcodes\common\DecoderResult.cs" />
+    <Compile Include="Barcodes\common\DecodingOptions.cs" />
+    <Compile Include="Barcodes\common\DefaultGridSampler.cs" />
+    <Compile Include="Barcodes\common\DetectorResult.cs" />
+    <Compile Include="Barcodes\common\detector\MathUtils.cs" />
+    <Compile Include="Barcodes\common\detector\MonochromeRectangleDetector.cs" />
+    <Compile Include="Barcodes\common\detector\WhiteRectangleDetector.cs" />
+    <Compile Include="Barcodes\common\ECI.cs" />
+    <Compile Include="Barcodes\common\EncodingOptions.cs" />
+    <Compile Include="Barcodes\common\GlobalHistogramBinarizer.cs" />
+    <Compile Include="Barcodes\common\GridSampler.cs" />
+    <Compile Include="Barcodes\common\HybridBinarizer.cs" />
+    <Compile Include="Barcodes\common\PerspectiveTransform.cs" />
+    <Compile Include="Barcodes\common\reedsolomon\GenericGF.cs" />
+    <Compile Include="Barcodes\common\reedsolomon\GenericGFPoly.cs" />
+    <Compile Include="Barcodes\common\reedsolomon\ReedSolomonDecoder.cs" />
+    <Compile Include="Barcodes\common\reedsolomon\ReedSolomonEncoder.cs" />
+    <Compile Include="Barcodes\common\StringUtils.cs" />
+    <Compile Include="Barcodes\datamatrix\DataMatrixReader.cs" />
+    <Compile Include="Barcodes\datamatrix\DataMatrixWriter.cs" />
+    <Compile Include="Barcodes\datamatrix\decoder\BitMatrixParser.cs" />
+    <Compile Include="Barcodes\datamatrix\decoder\DataBlock.cs" />
+    <Compile Include="Barcodes\datamatrix\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="Barcodes\datamatrix\decoder\Decoder.cs" />
+    <Compile Include="Barcodes\datamatrix\decoder\Version.cs" />
+    <Compile Include="Barcodes\datamatrix\detector\Detector.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\ASCIIEncoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\Base256Encoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\C40Encoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\DatamatrixEncodingOptions.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\DataMatrixSymbolInfo144.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\DefaultPlacement.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\EdifactEncoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\Encodation.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\Encoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\EncoderContext.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\ErrorCorrection.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\HighLevelEncoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\SymbolInfo.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\SymbolShapeHint.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\TextEncoder.cs" />
+    <Compile Include="Barcodes\datamatrix\encoder\X12Encoder.cs" />
+    <Compile Include="Barcodes\DecodeHintType.cs" />
+    <Compile Include="Barcodes\Dimension.cs" />
+    <Compile Include="Barcodes\EncodeHintType.cs" />
+    <Compile Include="Barcodes\FormatException.cs" />
+    <Compile Include="Barcodes\IBarcodeReader.cs" />
+    <Compile Include="Barcodes\IBarcodeReaderGeneric.cs" />
+    <Compile Include="Barcodes\IBarcodeWriter.cs" />
+    <Compile Include="Barcodes\IBarcodeWriterGeneric.cs" />
+    <Compile Include="Barcodes\IMultipleBarcodeReader.cs" />
+    <Compile Include="Barcodes\IMultipleBarcodeReaderGeneric.cs" />
+    <Compile Include="Barcodes\InvertedLuminanceSource.cs" />
+    <Compile Include="Barcodes\LuminanceSource.cs" />
+    <Compile Include="Barcodes\maxicode\decoder\BitMatrixParser.cs" />
+    <Compile Include="Barcodes\maxicode\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="Barcodes\maxicode\decoder\Decoder.cs" />
+    <Compile Include="Barcodes\maxicode\MaxiCodeReader.cs" />
+    <Compile Include="Barcodes\MultiFormatReader.cs" />
+    <Compile Include="Barcodes\MultiFormatWriter.cs" />
+    <Compile Include="Barcodes\multi\ByQuadrantReader.cs" />
+    <Compile Include="Barcodes\multi\GenericMultipleBarcodeReader.cs" />
+    <Compile Include="Barcodes\multi\MultipleBarcodeReader.cs" />
+    <Compile Include="Barcodes\multi\qrcode\detector\MultiDetector.cs" />
+    <Compile Include="Barcodes\multi\qrcode\detector\MultiFinderPatternFinder.cs" />
+    <Compile Include="Barcodes\multi\qrcode\QRCodeMultiReader.cs" />
+    <Compile Include="Barcodes\NotFoundException.cs" />
+    <Compile Include="Barcodes\oned\CodaBarReader.cs" />
+    <Compile Include="Barcodes\oned\CodaBarWriter.cs" />
+    <Compile Include="Barcodes\oned\Code128EncodingOptions.cs" />
+    <Compile Include="Barcodes\oned\Code128Reader.cs" />
+    <Compile Include="Barcodes\oned\Code128Writer.cs" />
+    <Compile Include="Barcodes\oned\Code39Reader.cs" />
+    <Compile Include="Barcodes\oned\Code39Writer.cs" />
+    <Compile Include="Barcodes\oned\Code93Reader.cs" />
+    <Compile Include="Barcodes\oned\EAN13Reader.cs" />
+    <Compile Include="Barcodes\oned\EAN13Writer.cs" />
+    <Compile Include="Barcodes\oned\EAN8Reader.cs" />
+    <Compile Include="Barcodes\oned\EAN8Writer.cs" />
+    <Compile Include="Barcodes\oned\EANManufacturerOrgSupport.cs" />
+    <Compile Include="Barcodes\oned\ITFReader.cs" />
+    <Compile Include="Barcodes\oned\ITFWriter.cs" />
+    <Compile Include="Barcodes\oned\MSIReader.cs" />
+    <Compile Include="Barcodes\oned\MSIWriter.cs" />
+    <Compile Include="Barcodes\oned\MultiFormatOneDReader.cs" />
+    <Compile Include="Barcodes\oned\MultiFormatUPCEANReader.cs" />
+    <Compile Include="Barcodes\oned\OneDimensionalCodeWriter.cs" />
+    <Compile Include="Barcodes\oned\OneDReader.cs" />
+    <Compile Include="Barcodes\oned\PlesseyWriter.cs" />
+    <Compile Include="Barcodes\oned\rss\AbstractRSSReader.cs" />
+    <Compile Include="Barcodes\oned\rss\DataCharacter.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\BitArrayBuilder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AbstractExpandedDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI013103decoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI01320xDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI01392xDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI01393xDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI013x0x1xDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI013x0xDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI01AndOtherAIs.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI01decoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AI01weightDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\AnyAIDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\BlockParsedResult.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\CurrentParsingState.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\DecodedChar.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\DecodedInformation.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\DecodedNumeric.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\DecodedObject.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\FieldParser.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\decoders\GeneralAppIdDecoder.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\ExpandedPair.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\ExpandedRow.cs" />
+    <Compile Include="Barcodes\oned\rss\expanded\RSSExpandedReader.cs" />
+    <Compile Include="Barcodes\oned\rss\FinderPattern.cs" />
+    <Compile Include="Barcodes\oned\rss\Pair.cs" />
+    <Compile Include="Barcodes\oned\rss\RSS14Reader.cs" />
+    <Compile Include="Barcodes\oned\rss\RSSUtils.cs" />
+    <Compile Include="Barcodes\oned\UPCAReader.cs" />
+    <Compile Include="Barcodes\oned\UPCAWriter.cs" />
+    <Compile Include="Barcodes\oned\UPCEANExtension2Support.cs" />
+    <Compile Include="Barcodes\oned\UPCEANExtension5Support.cs" />
+    <Compile Include="Barcodes\oned\UPCEANExtensionSupport.cs" />
+    <Compile Include="Barcodes\oned\UPCEANReader.cs" />
+    <Compile Include="Barcodes\oned\UPCEANWriter.cs" />
+    <Compile Include="Barcodes\oned\UPCEReader.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\BarcodeMetadata.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\BarcodeValue.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\BoundingBox.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\Codeword.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\DetectionResult.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\DetectionResultColumn.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\DetectionResultRowIndicatorColumn.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\ec\ErrorCorrection.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\ec\ModulusGF.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\ec\ModulusPoly.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\PDF417CodewordDecoder.cs" />
+    <Compile Include="Barcodes\pdf417\decoder\PDF417ScanningDecoder.cs" />
+    <Compile Include="Barcodes\pdf417\detector\Detector.cs" />
+    <Compile Include="Barcodes\pdf417\detector\PDF417DetectorResult.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\BarcodeMatrix.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\BarcodeRow.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\Compaction.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\Dimensions.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\PDF417.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\PDF417EncodingOptions.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\PDF417ErrorCorrection.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\PDF417ErrorCorrectionLevel.cs" />
+    <Compile Include="Barcodes\pdf417\encoder\PDF417HighLevelEncoder.cs" />
+    <Compile Include="Barcodes\pdf417\PDF417Common.cs" />
+    <Compile Include="Barcodes\pdf417\PDF417Reader.cs" />
+    <Compile Include="Barcodes\pdf417\PDF417ResultMetadata.cs" />
+    <Compile Include="Barcodes\pdf417\PDF417Writer.cs" />
+    <Compile Include="Barcodes\PlanarYUVLuminanceSource.cs" />
+    <Compile Include="Barcodes\Properties\AssemblyInfo.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\BitMatrixParser.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\DataBlock.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\DataMask.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\DecodedBitStreamParser.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\Decoder.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\ErrorCorrectionLevel.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\FormatInformation.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\Mode.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\QRCodeDecoderMetaData.cs" />
+    <Compile Include="Barcodes\qrcode\decoder\Version.cs" />
+    <Compile Include="Barcodes\qrcode\detector\AlignmentPattern.cs" />
+    <Compile Include="Barcodes\qrcode\detector\AlignmentPatternFinder.cs" />
+    <Compile Include="Barcodes\qrcode\detector\Detector.cs" />
+    <Compile Include="Barcodes\qrcode\detector\FinderPattern.cs" />
+    <Compile Include="Barcodes\qrcode\detector\FinderPatternFinder.cs" />
+    <Compile Include="Barcodes\qrcode\detector\FinderPatternInfo.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\BlockPair.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\ByteMatrix.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\Encoder.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\MaskUtil.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\MatrixUtil.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\QRCode.cs" />
+    <Compile Include="Barcodes\qrcode\encoder\QrCodeEncodingOptions.cs" />
+    <Compile Include="Barcodes\qrcode\QRCodeReader.cs" />
+    <Compile Include="Barcodes\qrcode\QRCodeWriter.cs" />
+    <Compile Include="Barcodes\Reader.cs" />
+    <Compile Include="Barcodes\ReaderException.cs" />
+    <Compile Include="Barcodes\renderer\BitmapRenderer.cs" />
+    <Compile Include="Barcodes\renderer\IBarcodeRenderer.cs" />
+    <Compile Include="Barcodes\renderer\SVGRenderer.cs" />
+    <Compile Include="Barcodes\Result.cs" />
+    <Compile Include="Barcodes\ResultMetadataType.cs" />
+    <Compile Include="Barcodes\ResultPoint.cs" />
+    <Compile Include="Barcodes\ResultPointCallback.cs" />
+    <Compile Include="Barcodes\RGB565LuminanceSource.cs" />
+    <Compile Include="Barcodes\RGBLuminanceSource.cs" />
+    <Compile Include="Barcodes\SupportClass.cs" />
+    <Compile Include="Barcodes\Writer.cs" />
+    <Compile Include="Barcodes\WriterException.cs" />
+    <Compile Include="Behaviors\ContentDockBehavior.cs" />
+    <Compile Include="Behaviors\DockPointBehavior.cs" />
+    <Compile Include="Behaviors\LogicalParentBehavior.cs" />
+    <Compile Include="Behaviors\WindowsManagerBehavior.cs" />
+    <Compile Include="Behaviours\BorderlessWindowBehavior.cs" />
+    <Compile Include="Behaviours\GlowWindowBehavior.cs" />
+    <Compile Include="Behaviours\ReloadBehavior.cs" />
+    <Compile Include="Behaviours\StylizedBehaviorCollection.cs" />
+    <Compile Include="Behaviours\StylizedBehaviors.cs" />
+    <Compile Include="Behaviours\TextBoxInputMaskBehavior.cs" />
+    <Compile Include="Behaviours\TiltBehavior.cs" />
+    <Compile Include="Behaviours\WindowApplicationSettings.cs" />
+    <Compile Include="Behaviours\WindowSettings.cs" />
+    <Compile Include="Behaviours\WindowsSettingBehaviour.cs" />
+    <Compile Include="Clock\ClockSettings.cs" />
+    <Compile Include="Clock\ColorsSettings.cs" />
+    <Compile Include="Clock\MoonyClockCtrl.cs" />
+    <Compile Include="Clock\MoonyClockPlugin.cs" />
+    <Compile Include="Clock\Plugin\IPlugin.cs" />
+    <Compile Include="Clock\Plugin\SettingsTab.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Contracts\HandleArgs.cs" />
+    <Compile Include="Contracts\ICloseControl.cs" />
+    <Compile Include="Contracts\IControlAuthentication.cs" />
+    <Compile Include="Contracts\IControlToUseGenericCalling.cs" />
+    <Compile Include="Contracts\IDefaultVisibilityRepository.cs" />
+    <Compile Include="Contracts\IDisplyaValueElement.cs" />
+    <Compile Include="Contracts\IDoneLoad.cs" />
+    <Compile Include="Contracts\IFocusControl.cs" />
+    <Compile Include="Contracts\IFrameworkElementTag.cs" />
+    <Compile Include="Contracts\IGenericCalling.cs" />
+    <Compile Include="Contracts\IGenericForm.cs" />
+    <Compile Include="Contracts\IGridViewControl.cs" />
+    <Compile Include="Contracts\IMainWindow.cs" />
+    <Compile Include="Contracts\IManageView.cs" />
+    <Compile Include="Contracts\IMessageWindow.cs" />
+    <Compile Include="Contracts\IMultipleHeader.cs" />
+    <Compile Include="Contracts\IOtorisasiLogin.cs" />
+    <Compile Include="Contracts\IPassingView.cs" />
+    <Compile Include="Contracts\IRefreshData.cs" />
+    <Compile Include="Contracts\ITag.cs" />
+    <Compile Include="Contracts\IValidateControl.cs" />
+    <Compile Include="Contracts\IValueElement.cs" />
+    <Compile Include="Controls\AppBarButton.cs" />
+    <Compile Include="Controls\BusyDecorator.cs" />
+    <Compile Include="Controls\ClosingWindowEventHandlerArgs.cs" />
+    <Compile Include="Controls\CoreFlexGrid.cs" />
+    <Compile Include="Controls\CoreTabItem.cs" />
+    <Compile Include="Controls\CreateContentDelegate.cs" />
+    <Compile Include="Controls\Dialogs\BaseMetroDialog.cs" />
+    <Compile Include="Controls\Dialogs\MessageDialog.cs" />
+    <Compile Include="Controls\Dialogs\MessageDialogResult.cs" />
+    <Compile Include="Controls\Dialogs\MessageDialogStyle.cs" />
+    <Compile Include="Controls\Dialogs\MetroDialogColorScheme.cs" />
+    <Compile Include="Controls\Dialogs\MetroDialogSettings.cs" />
+    <Compile Include="Controls\Dialogs\MetroWindowDialogExtensions.cs" />
+    <Compile Include="Controls\Dialogs\ProgressDialog.cs" />
+    <Compile Include="Controls\Dialogs\ProgressDialogController.cs" />
+    <Compile Include="Controls\Dialogs\SimpleDialog.cs" />
+    <Compile Include="Controls\Flyout.cs" />
+    <Compile Include="Controls\FlyoutsControl.cs" />
+    <Compile Include="Controls\FlyoutTheme.cs" />
+    <Compile Include="Controls\Glow.cs" />
+    <Compile Include="Controls\GlowDirection.cs" />
+    <Compile Include="Controls\GlowWindow.cs">
+      <DependentUpon>GlowWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IconRemove.xaml.cs">
+      <DependentUpon>IconRemove.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IconClose.xaml.cs">
+      <DependentUpon>IconClose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IconClear.xaml.cs">
+      <DependentUpon>IconClear.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IconSave.xaml.cs">
+      <DependentUpon>IconSave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IPanoramaTile.cs" />
+    <Compile Include="Controls\ItemSelectionChangedEventArgs.cs" />
+    <Compile Include="Controls\ItemSelectionChangedEventHandler.cs" />
+    <Compile Include="Controls\IWindowPlacementSettings.cs" />
+    <Compile Include="Controls\LayoutInvalidationCatcher.cs" />
+    <Compile Include="Controls\MetroAnimatedSingleRowTabControl.cs" />
+    <Compile Include="Controls\MetroAnimatedTabControl.cs" />
+    <Compile Include="Controls\MetroContentControl.cs" />
+    <Compile Include="Controls\MetroImage.cs" />
+    <Compile Include="Controls\MetroProgressBar.cs" />
+    <Compile Include="Controls\MetroTabControl.cs" />
+    <Compile Include="Controls\MetroTabItem.cs" />
+    <Compile Include="Controls\MetroUserControl.cs" />
+    <Compile Include="Controls\MetroWindow.cs" />
+    <Compile Include="Controls\MetroWindowHelpers.cs" />
+    <Compile Include="Controls\NotificationToolTipContent.cs">
+      <DependentUpon>NotificationToolTipContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Panorama.cs" />
+    <Compile Include="Controls\PanoramaGroup.cs" />
+    <Compile Include="Controls\PanoramaTile.cs" />
+    <Compile Include="Controls\Pivot.cs" />
+    <Compile Include="Controls\PivotItem.cs" />
+    <Compile Include="Controls\Planerator.cs" />
+    <Compile Include="Controls\Position.cs" />
+    <Compile Include="Controls\ProgressIndicator.cs" />
+    <Compile Include="Controls\WidthPercentageConverter.cs">
+      <DependentUpon>ProgressIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProgressRing.cs" />
+    <Compile Include="Controls\RangeSelectionChangedEventArgs.cs" />
+    <Compile Include="Controls\RangeSelectionChangedEventHandler.cs" />
+    <Compile Include="Controls\RangeSlider.cs" />
+    <Compile Include="Controls\RevealImage.cs">
+      <DependentUpon>RevealImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SafeRaise.cs" />
+    <Compile Include="Controls\ScrollViewerOffsetMediator.cs" />
+    <Compile Include="Controls\StringEventArgs.cs" />
+    <Compile Include="Controls\TextboxHelper.cs" />
+    <Compile Include="Controls\ThreadedVisualHost.cs" />
+    <Compile Include="Controls\Tile.cs" />
+    <Compile Include="Controls\ToggleSwitch.cs" />
+    <Compile Include="Controls\ToggleSwitchButton.cs" />
+    <Compile Include="Controls\TransitioningContentControl.cs" />
+    <Compile Include="Controls\TreeHelper.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Controls\VisualTargetPresentationSource.cs" />
+    <Compile Include="Controls\WindowButtonCommands.cs" />
+    <Compile Include="Controls\WindowCommands.cs" />
+    <Compile Include="Controls\WindowSettings.cs" />
+    <Compile Include="Converters\BackgroundColorByStokConverter.cs" />
+    <Compile Include="Converters\BackgroundToForegroundConverter.cs" />
+    <Compile Include="Converters\BoolNullConverter.cs" />
+    <Compile Include="Converters\BrushToRadialGradientBrushConverter.cs" />
+    <Compile Include="Converters\CalendarDateCoalesceConverter.cs" />
+    <Compile Include="Converters\ClockItemIsCheckedConverter.cs" />
+    <Compile Include="Converters\ClockLineConverter.cs" />
+    <Compile Include="Converters\CollectionViewGroupCoverter.cs" />
+    <Compile Include="Converters\EnableDisableConverter.cs" />
+    <Compile Include="Converters\IsNotNullConverter.cs" />
+    <Compile Include="Converters\KondisiStokEnum.cs" />
+    <Compile Include="Converters\RupiahConventer.cs" />
+    <Compile Include="Converters\CurrencyConverter.cs" />
+    <Compile Include="Converters\EmptyPanelToVisibilityConverter.cs" />
+    <Compile Include="Converters\InverseBoolConverter.cs" />
+    <Compile Include="Converters\IsNullConverter.cs" />
+    <Compile Include="Converters\ListColoring.cs" />
+    <Compile Include="Converters\MarkupConverter.cs" />
+    <Compile Include="Converters\OffOnConverter.cs" />
+    <Compile Include="Converters\PanoramaGroupHeightConverter.cs" />
+    <Compile Include="Converters\PanoramaGroupWidthConverter.cs" />
+    <Compile Include="Converters\StarWidthConverter.cs" />
+    <Compile Include="Converters\StatusEnabledConverter.cs" />
+    <Compile Include="Converters\TextFieldHintVisibilityConverter.cs" />
+    <Compile Include="Converters\ThicknessLeftConverter.cs" />
+    <Compile Include="Converters\ThicknessToDoubleConverter.cs" />
+    <Compile Include="Converters\ByteToImageConverter.cs" />
+    <Compile Include="Converters\ToLowerConverter.cs" />
+    <Compile Include="Converters\ToUpperConverter.cs" />
+    <Compile Include="Converters\VisibilityConverter.cs" />
+    <Compile Include="Extensions\FrameworkElementExtensions.cs" />
+    <Compile Include="Framework\ObservableDependencyProperty.cs" />
+    <Compile Include="Framework\ObservableDependencyPropertyCollection.cs" />
+    <Compile Include="Helper\BarcodeGenerator.cs" />
+    <Compile Include="Helper\BaseFormHelper.cs" />
+    <Compile Include="Helper\CheckBoxListViewItem.cs" />
+    <Compile Include="Helper\ControlsHelper.cs" />
+    <Compile Include="Helper\DependencyWindow.cs" />
+    <Compile Include="Helper\DependencyValue.cs">
+      <DependentUpon>DependencyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DragDropFrameworkData\CanvasDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\IMoveObject.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\ListBoxDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\StackPanelDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\TabControlDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\ToolBarDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\TreeViewDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFramework\DataConsumerActions.cs" />
+    <Compile Include="Helper\DragDropFramework\DataProviderActions.cs" />
+    <Compile Include="Helper\DragDropFramework\IControlProvider.cs" />
+    <Compile Include="Helper\DragDropFramework\IDataConsumer.cs" />
+    <Compile Include="Helper\DragDropFramework\IDataProvider.cs" />
+    <Compile Include="Helper\FocusHelper.cs" />
+    <Compile Include="Helper\FormHelperUseCoreSettingListView.cs" />
+    <Compile Include="Helper\DispatcherHelper.cs" />
+    <Compile Include="Helper\Converters\BooleanToFontWeightConverter.cs" />
+    <Compile Include="Helper\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Helper\Converters\ToLowerConverter.cs" />
+    <Compile Include="Helper\Converters\ToUpperConverter.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\CanvasButtonToToolbarButton.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\CanvasDataProvider.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\FileDropConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\ListBoxDataProvider.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\ListBoxItemToTreeViewItem.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\StackPanelDataProvider.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\StringToCanvasTextBlock.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\TabControlDataProvider.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\ToolbarButtonToCanvasButton.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\ToolBarDataProvider.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\TrashConsumer.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\TreeViewDataProvider.cs" />
+    <Compile Include="Helper\DragDropFrameworkData\TreeViewItemToListBoxItem.cs" />
+    <Compile Include="Helper\DragDropFramework\DataConsumerBase.cs" />
+    <Compile Include="Helper\DragDropFramework\DataProviderBase.cs" />
+    <Compile Include="Helper\DragDropFramework\DefaultAdorner.cs" />
+    <Compile Include="Helper\DragDropFramework\DragManager.cs" />
+    <Compile Include="Helper\DragDropFramework\DropManager.cs" />
+    <Compile Include="Helper\DragDropFramework\Utility.cs" />
+    <Compile Include="Helper\FormGenericHelper.cs" />
+    <Compile Include="Helper\FormHelper.cs" />
+    <Compile Include="Helper\FormHelperMappingUseCoreSetting.cs" />
+    <Compile Include="Helper\FormHelperUseCoreSetting.cs" />
+    <Compile Include="Helper\VisibilityControl.cs" />
+    <Compile Include="Helper\GridHelper.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
+    <Compile Include="Helper\Manager.cs" />
+    <Compile Include="Helper\BoolToVisibilityConverter.cs" />
+    <Compile Include="Implementations\BorderSelectionLogic.cs" />
+    <Compile Include="Implementations\BusyIndicator.cs">
+      <DependentUpon>BusyIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\Calendar\CoreCalendar.cs" />
+    <Compile Include="Implementations\Calendar\Converters\DateConverter.cs" />
+    <Compile Include="Implementations\Calendar\Converters\DayBorderColorConverter.cs" />
+    <Compile Include="Implementations\Calendar\CoreCalenderTextBox.cs" />
+    <Compile Include="Implementations\Calendar\Day.cs" />
+    <Compile Include="Implementations\Calendar\DayChangedEventArgs.cs" />
+    <Compile Include="Implementations\Chart\ChartControls\ChartLegendItem.cs" />
+    <Compile Include="Implementations\Chart\ChartControls\ChartTitle.cs" />
+    <Compile Include="Implementations\Chart\ChartControls\PiePieceLabel.cs" />
+    <Compile Include="Implementations\Chart\ChartControls\PlotterArea.cs" />
+    <Compile Include="Implementations\Chart\Controls\AutoSizeTextBlock.cs" />
+    <Compile Include="Implementations\Chart\Controls\ColumnSeriesPanel.cs" />
+    <Compile Include="Implementations\Chart\Controls\EvenlyDistributedColumnsGrid.cs" />
+    <Compile Include="Implementations\Chart\Controls\EvenlyDistributedRowGrid.cs" />
+    <Compile Include="Implementations\Chart\Controls\FadingListView.cs" />
+    <Compile Include="Implementations\Chart\Controls\GridHelpers.cs" />
+    <Compile Include="Implementations\Chart\Controls\MinimalWidthTextBlock.cs" />
+    <Compile Include="Implementations\Chart\Controls\RowSeriesPanel.cs" />
+    <Compile Include="Implementations\Chart\Converters\DoubleToGridLengthPercent.cs" />
+    <Compile Include="Implementations\Chart\Core\BarPiece.cs" />
+    <Compile Include="Implementations\Chart\Core\ClusteredBarChart.cs" />
+    <Compile Include="Implementations\Chart\Core\StackedBar100Chart.cs" />
+    <Compile Include="Implementations\Chart\Core\StackedBarChart.cs" />
+    <Compile Include="Implementations\Chart\Core\ChartArea.cs" />
+    <Compile Include="Implementations\Chart\Core\ChartBase.cs" />
+    <Compile Include="Implementations\Chart\Core\ChartSeries.cs" />
+    <Compile Include="Implementations\Chart\Core\ChartLegendItemViewModel.cs" />
+    <Compile Include="Implementations\Chart\Core\ClusteredColumnChart.cs" />
+    <Compile Include="Implementations\Chart\Core\ColumnPiece.cs" />
+    <Compile Include="Implementations\Chart\Core\StackedColumn100Chart.cs" />
+    <Compile Include="Implementations\Chart\Core\StackedColumnChart.cs" />
+    <Compile Include="Implementations\Chart\Core\CustomWrapPanel.cs" />
+    <Compile Include="Implementations\Chart\Core\DataPoint.cs" />
+    <Compile Include="Implementations\Chart\Core\Extensions.cs" />
+    <Compile Include="Implementations\Chart\Core\DataPointGroup.cs" />
+    <Compile Include="Implementations\Chart\Core\Legend.cs" />
+    <Compile Include="Implementations\Chart\Core\PieChart.cs" />
+    <Compile Include="Implementations\Chart\Core\PiePiece.cs" />
+    <Compile Include="Implementations\Chart\Core\ResourceDictionaryCollection.cs" />
+    <Compile Include="Implementations\Clock.cs" />
+    <Compile Include="Implementations\ClockChoiceMadeEventArgs.cs" />
+    <Compile Include="Implementations\ClockChoiceMadeEventHandler.cs" />
+    <Compile Include="Implementations\ClockDisplayAutomation.cs" />
+    <Compile Include="Implementations\ClockDisplayMode.cs" />
+    <Compile Include="Implementations\ClockItemButton.cs" />
+    <Compile Include="Implementations\LevelToIndentConverter.cs" />
+    <Compile Include="Implementations\CoreBorderClose.cs" />
+    <Compile Include="Implementations\CoreDataGridTextBlockDynamic.cs" />
+    <Compile Include="Implementations\CoreComboBoxGrid.cs" />
+    <Compile Include="Implementations\CoreDatePickerMaterial.cs" />
+    <Compile Include="Implementations\CoreDataGridComboColumn.cs" />
+    <Compile Include="Implementations\CoreDataGridTextBlockTextColumn.cs" />
+    <Compile Include="Implementations\CoreGridAnimation.cs" />
+    <Compile Include="Implementations\CorePasswordBox.cs" />
+    <Compile Include="Implementations\CoreTreeViewItem.cs" />
+    <Compile Include="Implementations\Drag\AnonymousDisposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\CanvasOrganiser.cs" />
+    <Compile Include="Implementations\Drag\ContainerCustomisations.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\Converters\BooleanAndToVisibilityConverter.cs" />
+    <Compile Include="Implementations\Drag\Converters\EqualityToBooleanConverter.cs" />
+    <Compile Include="Implementations\Drag\Converters\EqualityToVisibilityConverter.cs" />
+    <Compile Include="Implementations\Drag\Core\CollectionTeaser.cs" />
+    <Compile Include="Implementations\Drag\Core\Extensions.cs" />
+    <Compile Include="Implementations\Drag\Core\FuncComparer.cs" />
+    <Compile Include="Implementations\Drag\Core\InterTabTransfer.cs" />
+    <Compile Include="Implementations\Drag\Core\InterTabTransferReason.cs" />
+    <Compile Include="Implementations\Drag\Core\MultiComparer.cs" />
+    <Compile Include="Implementations\Drag\Core\Native.cs" />
+    <Compile Include="Implementations\Drag\Core\SystemCommand.cs" />
+    <Compile Include="Implementations\Drag\Core\TabHeaderDragStartInformation.cs" />
+    <Compile Include="Implementations\Drag\Core\WindowMessage.cs" />
+    <Compile Include="Implementations\Drag\Core\WindowSizingMessage.cs" />
+    <Compile Include="Implementations\Drag\DefaultDisposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DefaultInterLayoutClient.cs" />
+    <Compile Include="Implementations\Drag\DefaultInterTabClient.cs" />
+    <Compile Include="Implementations\Drag\Disposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\Dockablz\Branch.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\BranchAccessor.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\BranchItem.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\ClosingFloatingItemCallback.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\CouldBeHeaderedStyleSelector.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\DropZone.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\DropZoneLocation.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\Extensions.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\FloatingItemSnapShot.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\FloatRequestedEventArgs.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\FloatRequestedEventHandler.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\FloatTransfer.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\Layout.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\LayoutAccessor.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\LocationSnapShot.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\NativeDrag.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\Tiler.cs" />
+    <Compile Include="Implementations\Drag\Dockablz\TilerCalculator.cs" />
+    <Compile Include="Implementations\Drag\DragablzColors.cs" />
+    <Compile Include="Implementations\Drag\DragablzDragCompletedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DragablzDragCompletedEventHandler.cs" />
+    <Compile Include="Implementations\Drag\DragablzDragDeltaEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DragablzDragDeltaEventHandler.cs" />
+    <Compile Include="Implementations\Drag\DragablzDragStartedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DragablzDragStartedEventHandler.cs" />
+    <Compile Include="Implementations\Drag\DragablzIcon.cs" />
+    <Compile Include="Implementations\Drag\DragablzItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DragablzItemEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DragablzItemEventHandler.cs" />
+    <Compile Include="Implementations\Drag\DragablzItemsControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\DragablzWindow.cs" />
+    <Compile Include="Implementations\Drag\HeaderedDragablzItem.cs" />
+    <Compile Include="Implementations\Drag\HeaderedItemViewModel.cs" />
+    <Compile Include="Implementations\Drag\HorizontalOrganiser.cs" />
+    <Compile Include="Implementations\Drag\HorizontalPositionMonitor.cs" />
+    <Compile Include="Implementations\Drag\ICancelable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\IInterLayoutClient.cs" />
+    <Compile Include="Implementations\Drag\IInterTabClient.cs" />
+    <Compile Include="Implementations\Drag\IItemsOrganiser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\IManualInterTabClient.cs" />
+    <Compile Include="Implementations\Drag\INewTabHost.cs" />
+    <Compile Include="Implementations\Drag\InterTabController.cs" />
+    <Compile Include="Implementations\Drag\ItemActionCallback.cs" />
+    <Compile Include="Implementations\Drag\ItemActionCallbackArgs.cs" />
+    <Compile Include="Implementations\Drag\LocationChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\NewTabHost.cs" />
+    <Compile Include="Implementations\Drag\OrderChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\PositionMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\Referenceless\AnonymousDisposable.cs" />
+    <Compile Include="Implementations\Drag\Referenceless\DefaultDisposable.cs" />
+    <Compile Include="Implementations\Drag\Referenceless\Disposable.cs" />
+    <Compile Include="Implementations\Drag\Referenceless\ICancelable.cs" />
+    <Compile Include="Implementations\Drag\Referenceless\SerialDisposable.cs" />
+    <Compile Include="Implementations\Drag\SerialDisposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\SizeGrip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\StackOrganiser.cs" />
+    <Compile Include="Implementations\Drag\StackPositionMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Drag\StoryboardCompletionListener.cs" />
+    <Compile Include="Implementations\Drag\StoryboardCompletionListenerExtension.cs" />
+    <Compile Include="Implementations\Drag\TabablzControl.cs" />
+    <Compile Include="Implementations\Drag\TabablzHeaderSizeConverter.cs" />
+    <Compile Include="Implementations\Drag\TabablzItemStyleSelector.cs" />
+    <Compile Include="Implementations\Drag\TabEmptiedResponse.cs" />
+    <Compile Include="Implementations\Drag\Themes\SystemCommandIcon.cs" />
+    <Compile Include="Implementations\Drag\Themes\SystemCommandType.cs" />
+    <Compile Include="Implementations\Drag\Trapezoid.cs" />
+    <Compile Include="Implementations\Drag\VerticalOrganiser.cs" />
+    <Compile Include="Implementations\Drag\VerticalPositionMonitor.cs" />
+    <Compile Include="Implementations\GridColumn.cs" />
+    <Compile Include="Implementations\InputGrid\LabelInfo.cs">
+      <DependentUpon>LabelInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\ISelectionStrategy.cs" />
+    <Compile Include="Implementations\LazyContent.cs" />
+    <Compile Include="Implementations\LazyGridViewColumn.cs" />
+    <Compile Include="Implementations\MaterialDateDisplay.cs" />
+    <Compile Include="Implementations\MultiSelectTreeView.cs" />
+    <Compile Include="Implementations\MultiSelectTreeViewAutomationPeer.cs" />
+    <Compile Include="Implementations\MultiSelectTreeViewItem.cs" />
+    <Compile Include="Implementations\MultiSelectTreeViewItemAutomationPeer.cs" />
+    <Compile Include="Implementations\MultiSelectTreeViewItemDataAutomationPeer.cs" />
+    <Compile Include="Implementations\NumericUpDownMetro.cs" />
+    <Compile Include="Implementations\NumericUpDownMetroChangedRoutedEventArgs.cs" />
+    <Compile Include="Implementations\NumericUpDownMetroChangedRoutedEventHandler.cs" />
+    <Compile Include="Helper\PrintToPrinter.cs" />
+    <Compile Include="Helper\SourceEventArgs.cs" />
+    <Compile Include="Helper\TextBoxHelper.cs" />
+    <Compile Include="Helper\Validate.cs" />
+    <Compile Include="Helper\MessageListener.cs" />
+    <Compile Include="Implementations\AutoSelectTextBox\Implementation\AutoSelectBehavior.cs" />
+    <Compile Include="Implementations\AutoSelectTextBox\Implementation\AutoSelectTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\AutoSelectTextBox\Implementation\QueryMoveFocusEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\AutoSelectTextBox\Implementation\QueryMoveFocusEventHandler.cs" />
+    <Compile Include="Implementations\ButtonChrome.cs" />
+    <Compile Include="Implementations\ButtonCommandTemplate.cs">
+      <DependentUpon>ButtonCommandTemplate.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ButtonSpinner\Implementation\ButtonSpinner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ButtonSpinner\Implementation\SpinDirection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ButtonSpinner\Implementation\SpinEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ButtonSpinner\Implementation\Spinner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ButtonSpinner\Implementation\ValidSpinDirections.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ChildWindow.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\CollectionControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\CollectionControlDialog.cs">
+      <DependentUpon>CollectionControlDialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\Converters\NewItemTypesComboBoxConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\ItemAddingEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\ItemDeletingEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\ItemEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CollectionControl\Implementation\PrimitiveTypeCollectionControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ColorCanvas\Implementation\ColorCanvas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ColorCanvas\Implementation\ColorSpectrumSlider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ColorPicker\Implementation\ColorItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ColorPicker\Implementation\ColorMode.cs" />
+    <Compile Include="Implementations\ColorPicker\Implementation\ColorPicker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ColorPicker\Implementation\ColorSorter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ColorPicker\Implementation\ColorSortingMode.cs" />
+    <Compile Include="Implementations\ComboBoxWriteColumn.cs" />
+    <Compile Include="Implementations\Common\CancelRoutedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\CancelRoutedEventHandler.cs" />
+    <Compile Include="Implementations\Common\Converters\BorderThicknessToStrokeThicknessConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\CalculatorMemoryToVisibilityConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\CenterTitleConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\ColorBlendConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\ColorToSolidColorBrushConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\IntToThicknessConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\InverseBoolConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\ObjectTypeToNameConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\RoundedValueConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\SolidColorBrushToColorConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\TimeFormatToDateTimeFormatConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\VisibilityToBoolConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\WindowContentBorderMarginConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\WindowControlBackgroundConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Converters\WizardPageButtonVisibilityConverter.cs" />
+    <Compile Include="Implementations\Common\ErrorMessages.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\IndexChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\IndexChangedEventHandler.cs" />
+    <Compile Include="Implementations\Common\Input\InputValidationErrorEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Input\InputValidationErrorEventHandler.cs" />
+    <Compile Include="Implementations\Common\Input\IValidateInput.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Input\KeyModifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Input\KeyModifierCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Input\KeyModifierCollectionConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\InvalidContentException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\InvalidTemplateException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Media\Animation\AnimationRate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Media\Animation\AnimationRateConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Media\Animation\IterativeAnimationEquationDelegate.cs" />
+    <Compile Include="Implementations\Common\Media\Animation\IterativeEquation.cs" />
+    <Compile Include="Implementations\Common\Media\Animation\IterativeEquationConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Media\Animation\PennerEquation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Media\Animation\PennerEquations.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Media\WindowColors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\CachedTextInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\DateTimeUpDownBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\HsvColor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\InputBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\ItemSelectionChangedEventArgs.cs" />
+    <Compile Include="Implementations\Common\Primitives\ItemSelectionChangedEventHandler.cs" />
+    <Compile Include="Implementations\Common\Primitives\MouseWheelActiveTrigger.cs" />
+    <Compile Include="Implementations\Common\Primitives\Selector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\SelectorItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\ShapeBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\UpDownBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\ValueRangeTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\WindowContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Primitives\WindowControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\PropertyChangedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\PropertyChangedEventHandler.cs" />
+    <Compile Include="Implementations\Common\QueryTextFromValueEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\QueryValueFromTextEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Themes\ResourceKeys.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\UIElementAdorner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ChangeTypeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ColorUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ContextMenuUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\DoubleHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\EllipseHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\FontUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\GeneralUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\KeyboardUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ListUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\PointHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\PropertyChangedExt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\RectHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ReflectionHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ResourceHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\RoutedEventHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\Segment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\TreeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\ValueChangeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\VisualTreeHelperEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\WeakEventListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\Utilities\WindowUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\VersionResourceDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Common\WeakCollectionChangedWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ContentConfirmation.cs">
+      <DependentUpon>ContentConfirmation.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ContentError.cs">
+      <DependentUpon>ContentError.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ContentMessage.cs">
+      <DependentUpon>ContentMessage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ContentInputDialog.cs">
+      <DependentUpon>ContentInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\CoreAutoComplete.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreAutoCompleteListView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreBorder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreCheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreComboBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreDataGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreDataGridTextBlockComboColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreDataGridComboColumn2.cs" />
+    <Compile Include="Implementations\CoreDataGridDateTimeColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreDataGridLabelColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreDataGridMultiLineTextEditor.cs" />
+    <Compile Include="Implementations\CoreDataGridTemplateColumn.cs" />
+    <Compile Include="Implementations\CoreDataGridTextColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreDatePicker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreExpander.cs" />
+    <Compile Include="Implementations\CoreGridViewColumn.cs" />
+    <Compile Include="Implementations\CoreListBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreListView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreListViewAsycn.cs" />
+    <Compile Include="Implementations\CoreMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreMenuItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CorePanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreRadioButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreScrollViewer.cs" />
+    <Compile Include="Implementations\CoreTabControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreTabItem.cs" />
+    <Compile Include="Implementations\CoreTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreToogleButton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreUserControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreUserControlUseExcel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\CoreWrapPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DateTimePicker\Implementation\DateTimePicker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DateTimeUpDown\Implementation\DateTimeFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DateTimeUpDown\Implementation\DateTimeInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DateTimeUpDown\Implementation\DateTimeParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DateTimeUpDown\Implementation\DateTimePart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DateTimeUpDown\Implementation\DateTimeUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DefaultComboBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DisplayTextBoxWithCheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DisplayWithCheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DisplayWithComboBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DisplayWithDateTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DisplayWithTextBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\DisplayWithTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\FormGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\HeaderDataArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\ICloseView.cs" />
+    <Compile Include="Implementations\InsertDataGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\KeyboardUtilities.cs" />
+    <Compile Include="Implementations\KeyValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\MaskedTextBox\Implementation\AutoCompletingMaskEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\MaskedTextBox\Implementation\InsertKeyMode.cs" />
+    <Compile Include="Implementations\MaskedTextBox\Implementation\MaskedTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\MaskedTextBox\Implementation\MaskFormat.cs" />
+    <Compile Include="Implementations\ModelItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\MultiLineTextEditor.cs" />
+    <Compile Include="Implementations\NumericUpDown\Implementation\AllowedSpecialValues.cs" />
+    <Compile Include="Implementations\NumericUpDown\Implementation\ByteUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\CommonNumericUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\DecimalUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\DoubleUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\IntegerUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\LongUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\NumericUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\SByteUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\ShortUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\SingleUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\UIntegerUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\ULongUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\NumericUpDown\Implementation\UShortUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PanelMetro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PreviewSelectionChangedEventArgs.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\CategoryOrderAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\ExpandableObjectAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\IItemsSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\Item.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\ItemCollection.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\ItemsSourceAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\NewItemTypesAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\PropertyOrderAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Attributes\UsageContextEnum.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Commands\PropertyGridCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Commands\PropertyItemCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\CommonPropertyExceptionValidationRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\ContainerHelperBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Converters\EditorTimeSpanConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Converters\ExpandableObjectMarginConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Converters\ListConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Converters\ObjectToUIElementConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Converters\SelectedObjectConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\CustomPropertyItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\DefinitionCollectionBase.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Definitions\DefinitionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Definitions\EditorDefinitionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Definitions\EditorTemplateDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Definitions\PropertyDefinitionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\DescriptorPropertyDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\DescriptorPropertyDefinitionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\EditorDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\EditorDefinitionCollection.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ByteUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\CheckBoxEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\CollectionEditor.cs">
+      <DependentUpon>CollectionEditor.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ColorEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ComboBoxEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\DateTimeUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\DecimalUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\DoubleUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\EnumComboBoxEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\FontComboBoxEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\IntegerUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ItemsSourceAttributeEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ITypeEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\LongUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\MaskedTextBoxEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PrimitiveTypeCollectionControl.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PrimitiveTypeCollectionEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorByteUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorCheckBox.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorColorPicker.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorComboBox.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorDateTimeUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorDecimalUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorDoubleUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorIntegerUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorLongUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorSByteUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorShortUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorSingleUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorTextBlock.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorTextBox.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorTimeSpanUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorUIntegerUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorULongUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\PropertyGridEditorUShortUpDown.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\SByteUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ShortUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\SingleUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\TextBlockEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\TextBoxEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\TimeSpanUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\TypeEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\UIntegerUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\ULongUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\UpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\Editors\UShortUpDownEditor.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\FilterInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\IPropertyContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\ObjectContainerHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\ObjectContainerHelperBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyDefinitionBaseCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyDefinitionCollection.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyGridUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyItemBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyItemCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyItemEventArgs.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyItemEventHandler.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyItemsControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyValueChangedEventArgs.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\PropertyValueChangedEventHandler.cs" />
+    <Compile Include="Implementations\PropertyGrid\Implementation\StringConstants.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\PropertyGrid\Implementation\TargetPropertyType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\RequiredGrid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\RowCountEventArgs.cs" />
+    <Compile Include="Implementations\SelectedControlArgs.cs" />
+    <Compile Include="Implementations\SelectionMultiple.cs" />
+    <Compile Include="Implementations\SortGridViewColumnHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\SourceKeyValues.cs" />
+    <Compile Include="Implementations\StatusEnabledConverBack.cs" />
+    <Compile Include="Implementations\TextField.cs" />
+    <Compile Include="Implementations\TextWriteColumn.cs" />
+    <Compile Include="Implementations\CoreTimePicker.cs" />
+    <Compile Include="Implementations\TimePicker\Implementation\TimeFormat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\TimePicker\Implementation\TimeItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\TimePicker\Implementation\TimePicker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\TimeSpanUpDown\Implementation\TimeSpanUpDown.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\TransparentAdorner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\TreeListViewItem.cs" />
+    <Compile Include="Implementations\TreeViewItemsCheckBox.cs" />
+    <Compile Include="Implementations\TreeGridViewColumn.cs" />
+    <Compile Include="Implementations\TreeListView.cs" />
+    <Compile Include="Implementations\VisualFeedbackContentControl.cs" />
+    <Compile Include="Implementations\WatermarkTextBox\Implementation\WatermarkTextBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implementations\Widget\ControlHariKemarinView.cs">
+      <DependentUpon>ControlHariKemarinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\Widget\ControlJumlahProgressView.cs">
+      <DependentUpon>ControlJumlahProgressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\Widget\ControlJumlahTerbanyakView.cs">
+      <DependentUpon>ControlJumlahTerbanyakView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Implementations\WriteDataGridColumn.cs" />
+    <Compile Include="Models\Win32\GWL.cs" />
+    <Compile Include="Models\Win32\HitTestValues.cs" />
+    <Compile Include="Models\Win32\NativeMethods.cs" />
+    <Compile Include="Models\Win32\SWP.cs" />
+    <Compile Include="Models\Win32\WM.cs" />
+    <Compile Include="Models\Win32\WS.cs" />
+    <Compile Include="Models\Win32\WSEX.cs" />
+    <Compile Include="Native\APPBARDATA.cs" />
+    <Compile Include="Native\Constants.cs" />
+    <Compile Include="Native\CREATESTRUCT.cs" />
+    <Compile Include="Native\MARGINS.cs" />
+    <Compile Include="Native\MINMAXINFO.cs" />
+    <Compile Include="Native\MONITORINFO.cs" />
+    <Compile Include="Native\POINT.cs" />
+    <Compile Include="Native\RECT.cs" />
+    <Compile Include="Native\UnsafeNativeMethods.cs" />
+    <Compile Include="Native\WINDOWPLACEMENT.cs" />
+    <Compile Include="OnThemeChangedEventArgs.cs" />
+    <Compile Include="Properties\CanBeNullAttribute.cs" />
+    <Compile Include="Properties\AspChildControlTypeAttribute.cs" />
+    <Compile Include="Properties\AspDataFieldAttribute.cs" />
+    <Compile Include="Properties\AspDataFieldsAttribute.cs" />
+    <Compile Include="Properties\AspMethodPropertyAttribute.cs" />
+    <Compile Include="Properties\AspMvcActionAttribute.cs" />
+    <Compile Include="Properties\AspMvcActionSelectorAttribute.cs" />
+    <Compile Include="Properties\AspMvcAreaAttribute.cs" />
+    <Compile Include="Properties\AspMvcAreaMasterLocationFormatAttribute.cs" />
+    <Compile Include="Properties\AspMvcAreaPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="Properties\AspMvcAreaViewLocationFormatAttribute.cs" />
+    <Compile Include="Properties\AspMvcControllerAttribute.cs" />
+    <Compile Include="Properties\AspMvcDisplayTemplateAttribute.cs" />
+    <Compile Include="Properties\AspMvcEditorTemplateAttribute.cs" />
+    <Compile Include="Properties\AspMvcMasterAttribute.cs" />
+    <Compile Include="Properties\AspMvcMasterLocationFormatAttribute.cs" />
+    <Compile Include="Properties\AspMvcModelTypeAttribute.cs" />
+    <Compile Include="Properties\AspMvcPartialViewAttribute.cs" />
+    <Compile Include="Properties\AspMvcPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="Properties\AspMvcSupressViewErrorAttribute.cs" />
+    <Compile Include="Properties\AspMvcTemplateAttribute.cs" />
+    <Compile Include="Properties\AspMvcViewAttribute.cs" />
+    <Compile Include="Properties\AspMvcViewLocationFormatAttribute.cs" />
+    <Compile Include="Properties\AspRequiredAttributeAttribute.cs" />
+    <Compile Include="Properties\AspTypePropertyAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssertionConditionAttribute.cs" />
+    <Compile Include="Properties\AssertionConditionType.cs" />
+    <Compile Include="Properties\AssertionMethodAttribute.cs" />
+    <Compile Include="Properties\BaseTypeRequiredAttribute.cs" />
+    <Compile Include="Properties\CannotApplyEqualityOperatorAttribute.cs" />
+    <Compile Include="Properties\CollectionAccessAttribute.cs" />
+    <Compile Include="Properties\CollectionAccessType.cs" />
+    <Compile Include="Properties\ContractAnnotationAttribute.cs" />
+    <Compile Include="Properties\HtmlAttributeValueAttribute.cs" />
+    <Compile Include="Properties\HtmlElementAttributesAttribute.cs" />
+    <Compile Include="Properties\ImplicitUseKindFlags.cs" />
+    <Compile Include="Properties\ImplicitUseTargetFlags.cs" />
+    <Compile Include="Properties\InstantHandleAttribute.cs" />
+    <Compile Include="Properties\InvokerParameterNameAttribute.cs" />
+    <Compile Include="Properties\ItemCanBeNullAttribute.cs" />
+    <Compile Include="Properties\ItemNotNullAttribute.cs" />
+    <Compile Include="Properties\LinqTunnelAttribute.cs" />
+    <Compile Include="Properties\LocalizationRequiredAttribute.cs" />
+    <Compile Include="Properties\MeansImplicitUseAttribute.cs" />
+    <Compile Include="Properties\NoEnumerationAttribute.cs" />
+    <Compile Include="Properties\NoReorder.cs" />
+    <Compile Include="Properties\NotifyPropertyChangedInvocatorAttribute.cs" />
+    <Compile Include="Properties\NotNullAttribute.cs" />
+    <Compile Include="Properties\PathReferenceAttribute.cs" />
+    <Compile Include="Properties\PublicAPIAttribute.cs" />
+    <Compile Include="Properties\PureAttribute.cs" />
+    <Compile Include="Properties\RazorHelperCommonAttribute.cs" />
+    <Compile Include="Properties\RazorImportNamespaceAttribute.cs" />
+    <Compile Include="Properties\RazorInjectionAttribute.cs" />
+    <Compile Include="Properties\RazorLayoutAttribute.cs" />
+    <Compile Include="Properties\RazorSectionAttribute.cs" />
+    <Compile Include="Properties\RazorWriteLiteralMethodAttribute.cs" />
+    <Compile Include="Properties\RazorWriteMethodAttribute.cs" />
+    <Compile Include="Properties\RazorWriteMethodParameterAttribute.cs" />
+    <Compile Include="Properties\RegexPatternAttribute.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\StringFormatMethodAttribute.cs" />
+    <Compile Include="Properties\TerminatesProgramAttribute.cs" />
+    <Compile Include="Properties\UsedImplicitlyAttribute.cs" />
+    <Compile Include="Properties\ValueProviderAttribute.cs" />
+    <Compile Include="Properties\XamlItemBindingOfItemsControlAttribute.cs" />
+    <Compile Include="Properties\XamlItemsControlAttribute.cs" />
+    <Compile Include="Resources\Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\CollectionExtensions.cs" />
+    <Compile Include="Ribbon\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Ribbon\Converters\DoubleMultiplier.cs" />
+    <Compile Include="Ribbon\Converters\NullToVisibleConverter.cs" />
+    <Compile Include="Ribbon\Converters\RibbonStateToVisibilityConverter.cs" />
+    <Compile Include="Ribbon\NotificationObject.cs" />
+    <Compile Include="Ribbon\PropertySupport.cs" />
+    <Compile Include="Ribbon\UI\ApplicationMenu.cs">
+      <DependentUpon>ApplicationMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\ApplicationMenuButton.cs">
+      <DependentUpon>ApplicationMenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\ApplicationMenuDetailHeader.cs">
+      <DependentUpon>ApplicationMenuDetailHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\ApplicationMenuItem.cs">
+      <DependentUpon>ApplicationMenuItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\ApplicationMenuSeparator.cs">
+      <DependentUpon>ApplicationMenuSeparator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\FrameworkElementExtensions.cs" />
+    <Compile Include="Ribbon\UI\IQuickAccessConform.cs" />
+    <Compile Include="Ribbon\UI\QuickAccessBar.cs">
+      <DependentUpon>QuickAccessBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\QuickAccessBarItem.cs">
+      <DependentUpon>QuickAccessBarItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\QuickAccessCollection.cs" />
+    <Compile Include="Ribbon\UI\QuickAccessRegistry.cs" />
+    <Compile Include="Ribbon\UI\Ribbon.cs">
+      <DependentUpon>Ribbon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\RibbonButton.cs">
+      <DependentUpon>RibbonButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\RibbonCommands.cs" />
+    <Compile Include="Ribbon\UI\RibbonGroup.cs">
+      <DependentUpon>RibbonGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\RibbonOption.cs" />
+    <Compile Include="Ribbon\UI\RibbonPage.cs">
+      <DependentUpon>RibbonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\RibbonState.cs" />
+    <Compile Include="Ribbon\UI\RibbonTab.cs">
+      <DependentUpon>RibbonTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\RibbonWindow.cs">
+      <DependentUpon>RibbonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\UI\StatusBarExtensions.cs" />
+    <Compile Include="Ribbon\UI\WindowCommands.cs" />
+    <Compile Include="Splasher.cs" />
+    <Compile Include="Windows\GrowlNotifiactions.cs">
+      <DependentUpon>GrowlNotifiactions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Theme.cs" />
+    <Compile Include="ThemeManager.cs" />
+    <Compile Include="Utilities\Validate.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\DialogWindow.cs" />
+    <Compile Include="WindowChrome.cs" />
+    <Compile Include="Windows\ContentDockPoint.cs" />
+    <Compile Include="Windows\CustomWindow.cs" />
+    <Compile Include="Windows\DockIllustrationGrid.cs" />
+    <Compile Include="Windows\DockPane.cs" />
+    <Compile Include="Windows\DockPaneState.cs" />
+    <Compile Include="Windows\DocumentContainer.cs" />
+    <Compile Include="Windows\DocumentContainerState.cs" />
+    <Compile Include="Windows\DocumentContent.cs" />
+    <Compile Include="Windows\Notification.cs" />
+    <Compile Include="Windows\Notifications.cs" />
+    <Compile Include="Windows\WindowsManager.cs">
+      <DependentUpon>WindowsManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowsManagerDeserializer.cs" />
+    <Compile Include="Windows\WindowsManagerSerializer.cs" />
+    <Compile Include="Windows\XmlWindowsManagerDeserializer.cs" />
+    <Compile Include="Windows\XmlWindowsManagerSerializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Clock\ClockSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Clock\ColorsSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Clock\MoonyClockCtrl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GlowWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IconRemove.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IconClose.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IconClear.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IconSave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NotificationToolTipContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ProgressIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RevealImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Helper\DependencyWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\BusyIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\ButtonCommandTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ButtonSpinner\Themes\GenericSpinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\Chart\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\ChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\CollectionControl\Implementation\CollectionControlDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\CollectionControl\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ColorCanvas\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ColorPicker\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\Common\Themes\Generic\SelectorItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\Common\Themes\Generic\WindowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ContentConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ContentError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ContentMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\ContentInputDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\DateTimePicker\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\DateTimeUpDown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\Drag\Themes\Dockablz.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\Drag\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\Drag\Themes\MahApps.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\Drag\Themes\MaterialDesign.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\InputGrid\LabelInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\NumericUpDown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\PropertyGrid\Implementation\Editors\CollectionEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\PropertyGrid\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\TimePicker\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\TimeSpanUpDown\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\TreeViewListItem\Aero.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\TreeViewListItem\TreeListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\WatermarkTextBox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Implementations\Widget\ControlHariKemarinView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\Widget\ControlJumlahProgressView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Implementations\Widget\ControlJumlahTerbanyakView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="Ribbon\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\ApplicationMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\ApplicationMenuButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\ApplicationMenuDetailHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\ApplicationMenuItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\ApplicationMenuSeparator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\QuickAccessBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\QuickAccessBarItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\Ribbon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\RibbonButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\RibbonGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\RibbonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\RibbonTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ribbon\UI\RibbonWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Medifirst.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\BlueWhite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Gray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Amber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.BlueGrey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Brown.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Cyan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.DeepOrange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.DeepPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Grey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Indigo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.LightBlue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.LightGreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Lime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Orange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Pink.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Teal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\MaterialDesign\MaterialDesignColor.Yellow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\BaseDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\BaseLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Green.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Orange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Purple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Accents\Red.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Colours.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Control.UserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.AnimatedSingleRowTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.AnimatedTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.ContextMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DateTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.GroupBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.ModernDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls.PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Scrollbars.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Slider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Toolbar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Tooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DisplayWithTextbox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.PanelMetro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DisplayWithComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Form.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DisplayWithCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DisplayWithDateTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DisplayWithTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Grid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.DisplayTextBoxWithCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.AutoComplete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\FlatButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls.Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MaterialDesignTheme.Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MaterialDesignTheme.Clock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MaterialDesignTheme.DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MaterialDesignTheme.Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MaterialDesignTheme.Shadows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\MaterialDesignTheme.TimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\ExpressionDark\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\ExpressionDark\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\ExpressionDark\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\ExpressionDark\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\ExpressionDark\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Green\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Green\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Green\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Green\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Green\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Material\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Material\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Material\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Material\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Material\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2013\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2013\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2013\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2013\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2013\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016Touch\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016Touch\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016Touch\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016Touch\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016Touch\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Office2016\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlack\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlack\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlack\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlack\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlack\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlue\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlue\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlue\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlue\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeBlue\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeSilver\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeSilver\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeSilver\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeSilver\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\OfficeSilver\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Summer\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Summer\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Summer\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Summer\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Summer\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Transparent\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Transparent\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Transparent\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Transparent\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Transparent\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Vista\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Vista\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Vista\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Vista\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Vista\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\VisualStudio2013\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\VisualStudio2013\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\VisualStudio2013\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\VisualStudio2013\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\VisualStudio2013\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows7\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows7\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows7\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows7\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows7\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8Touch\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8Touch\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8Touch\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8Touch\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8Touch\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8\System.Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8\Telerik.ReportViewer.Wpf.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8\Telerik.Windows.Controls.Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8\Telerik.Windows.Controls.Navigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Telerik\Windows8\Telerik.Windows.Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BusyDecorator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Dialogs\BaseMetroDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Dialogs\MessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Dialogs\ProgressDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\FlyoutsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic\Glyphs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\GrowlNotifiactions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Modern\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Modern\Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\Colours.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\ScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\VS\TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Aero.NormalColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\AppBarButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DockIllustrationAdorner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DockPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Flyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Glow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroAnimatedSingleRowTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroAnimatedTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroContentControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroTabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Panorama.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Pivot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ProgressRing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\RangeSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ResizableAdorner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TabItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Text.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Themes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Tile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ToggleSwitch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ToolTips.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\TransitioningContentControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\WindowParts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\WindowsManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Barcodes\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Entypo.ttf" />
+    <None Include="tools\install.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Barcodes\bin\Debug\Core.Framework.Barcodes.dll" />
+    <Content Include="Barcodes\bin\Debug\Core.Framework.Barcodes.pdb" />
+    <Content Include="Barcodes\obj\Debug\Core.Framework.Barcodes.csproj.FileListAbsolute.txt" />
+    <Content Include="Barcodes\obj\Debug\Core.Framework.Barcodes.dll" />
+    <Content Include="Barcodes\obj\Debug\Core.Framework.Barcodes.pdb" />
+    <Content Include="Clock\colors.png" />
+    <Content Include="Clock\settings.png" />
+    <Content Include="Implementations\CollectionControl\Images\Delete16.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\AdvancedProperties11.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\Categorize16.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\ClearFilter16.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\Database11.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\Inheritance11.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\Local11.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\Resource11.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\SortAscending16.png" />
+    <Resource Include="Implementations\PropertyGrid\Images\Style11.png" />
+    <Resource Include="Implementations\Drag\Images\MovePage.cur" />
+    <Resource Include="Implementations\Drag\Images\MovePageNot.cur" />
+    <Content Include="Resources\Notes16.png" />
+    <Content Include="Ribbon\Assets\autohide.png" />
+    <Content Include="Ribbon\Assets\back.png" />
+    <Content Include="Ribbon\Assets\close.png" />
+    <Content Include="Ribbon\Assets\help.png" />
+    <Content Include="Ribbon\Assets\maximize.png" />
+    <Content Include="Ribbon\Assets\minimize.png" />
+    <Content Include="Ribbon\Assets\restore.png" />
+    <Content Include="Ribbon\Assets\ribbon.png" />
+    <Content Include="Ribbon\Assets\show.tabs.commands.png" />
+    <Content Include="Ribbon\Assets\show.tabs.png" />
+    <Content Include="Themes\Generic\Images\close_hover.png" />
+    <Content Include="Themes\Generic\Images\close_inactive.png" />
+    <Content Include="Themes\Generic\Images\close_normal.png" />
+    <Content Include="Themes\Generic\Images\close_pressed.png" />
+    <Content Include="Themes\Generic\Images\close_rounded_hover.png" />
+    <Content Include="Themes\Generic\Images\close_rounded_inactive.png" />
+    <Content Include="Themes\Generic\Images\close_rounded_normal.png" />
+    <Content Include="Themes\Generic\Images\close_rounded_pressed.png" />
+    <Content Include="Themes\Generic\Images\close_toolwindow_hover.png" />
+    <Content Include="Themes\Generic\Images\close_toolwindow_inactive.png" />
+    <Content Include="Themes\Generic\Images\close_toolwindow_normal.png" />
+    <Content Include="Themes\Generic\Images\close_toolwindow_pressed.png" />
+    <Content Include="Themes\Generic\Images\maximize_disabled.png" />
+    <Content Include="Themes\Generic\Images\maximize_hover.png" />
+    <Content Include="Themes\Generic\Images\maximize_inactive.png" />
+    <Content Include="Themes\Generic\Images\maximize_normal.png" />
+    <Content Include="Themes\Generic\Images\maximize_pressed.png" />
+    <Content Include="Themes\Generic\Images\minimize_hover.png" />
+    <Content Include="Themes\Generic\Images\minimize_inactive.png" />
+    <Content Include="Themes\Generic\Images\minimize_normal.png" />
+    <Content Include="Themes\Generic\Images\minimize_pressed.png" />
+    <Content Include="Themes\Generic\Images\resize_grip.png" />
+    <Content Include="Themes\Generic\Images\restore_disabled.png" />
+    <Content Include="Themes\Generic\Images\restore_hover.png" />
+    <Content Include="Themes\Generic\Images\restore_inactive.png" />
+    <Content Include="Themes\Generic\Images\restore_normal.png" />
+    <Content Include="Themes\Generic\Images\restore_pressed.png" />
+    <Resource Include="Resources\notification-icon.png" />
+    <Resource Include="Resources\Close.png" />
+    <Resource Include="Resources\DockBottom.png" />
+    <Resource Include="Resources\DockCenter.png" />
+    <Resource Include="Resources\DockHexagon.png" />
+    <Resource Include="Resources\DockLeft.png" />
+    <Resource Include="Resources\DockRight.png" />
+    <Resource Include="Resources\DockTop.png" />
+    <Content Include="Resources\Entypo-license.txt" />
+    <Resource Include="Resources\Error.png" />
+    <Resource Include="Resources\Maximize.png" />
+    <Resource Include="Resources\Minimize.png" />
+    <Resource Include="Resources\NewProject.png" />
+    <Resource Include="Resources\Restore.png" />
+    <Resource Include="Resources\SplitBottom.png" />
+    <Resource Include="Resources\SplitLeft.PNG" />
+    <Resource Include="Resources\SplitRight.png" />
+    <Resource Include="Resources\SplitTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Implementations\Common\ErrorMessages.resx">
+      <DependentUpon>ErrorMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Barcodes\obj\Debug\TempPE\" />
+    <Folder Include="Implementations\Chart\Core\BarChart\" />
+    <Folder Include="Implementations\Chart\Core\ColumnChart\" />
+    <Folder Include="Implementations\Chart\Core\PieChart\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Framework.Helper\Core.Framework.Helper.csproj">
+      <Project>{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}</Project>
+      <Name>Core.Framework.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Framework.Model\Core.Framework.Model.csproj">
+      <Project>{CB08CF14-ED55-43C5-BC99-9477EEA3E426}</Project>
+      <Name>Core.Framework.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

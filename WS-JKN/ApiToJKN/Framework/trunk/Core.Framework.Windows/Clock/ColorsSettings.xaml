@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Core.Framework.Windows.Clock.ColorsSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:clock="clr-namespace:Core.Framework.Windows.Clock"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Unloaded="UserControl_Unloaded">
+    <Border VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <RadioButton
+                Grid.Row="0"
+                x:Name="LightColor"
+                IsChecked="True"
+                GroupName="Colors"
+                VerticalAlignment="Center"
+                Checked="LightColor_Checked">
+                <Border Background="#374E6B" Margin="0,0,0,7">
+                    <Viewbox Height="70" Margin="7">
+                        <clock:MoonyClockCtrl 
+                            x:Name="LightClock"
+                            ColorNum="0"
+                            Angle="0"></clock:MoonyClockCtrl>
+                    </Viewbox>
+                </Border>
+            </RadioButton>
+            <RadioButton
+                Grid.Row="1"
+                x:Name="DarkColor"
+                GroupName="Colors"
+                VerticalAlignment="Center"
+                Checked="DarkColor_Checked">
+                <Border Background="#D0E9FF">
+                    <Viewbox Height="70" Margin="7">
+                        <clock:MoonyClockCtrl 
+                            x:Name="DarkClock" 
+                            ColorNum="1"
+                            Angle="0"></clock:MoonyClockCtrl>
+                    </Viewbox>
+                </Border>
+            </RadioButton>
+        </Grid>
+    </Border>
+</UserControl>

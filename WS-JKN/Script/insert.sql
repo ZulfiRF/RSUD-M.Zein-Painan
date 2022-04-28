@@ -1,0 +1,1 @@
+insert into UserApiJkn values ('admin','123',1)

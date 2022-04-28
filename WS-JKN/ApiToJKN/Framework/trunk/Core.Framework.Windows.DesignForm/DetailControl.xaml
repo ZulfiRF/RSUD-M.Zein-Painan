@@ -1,0 +1,115 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Core_Framework_Windows_Implementations="clr-namespace:Core.Framework.Windows.Implementations;assembly=Core.Framework.Windows"
+	mc:Ignorable="d"
+	x:Class="Core.Framework.Windows.DesignForm.DetailControl"
+	x:Name="UserControl"
+	d:DesignWidth="300" d:DesignHeight="75" Height="Auto" Width="Auto">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.Background>
+			<SolidColorBrush Color="{DynamicResource AccentColor}"/>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="0.5*"/>
+		</Grid.RowDefinitions>
+		<ScrollViewer Margin="0" VerticalScrollBarVisibility="Auto">
+			<Grid>
+				<TextBlock x:Name="tbFormTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Configuration Form" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+				<Rectangle Height="5" VerticalAlignment="Top" Margin="0,22,0,0">
+					<Rectangle.Fill>
+						<SolidColorBrush Color="{DynamicResource AccentColor2}"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Grid Margin="0,31,0,0">
+					<StackPanel x:Name="stackPanelForm" Margin="0" d:LayoutOverrides="Width, Height">
+						<StackPanel Orientation="Horizontal">
+							<Grid Height="41.96">
+								<TextBlock TextWrapping="Wrap" Text="Use" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+								<Core_Framework_Windows_Implementations:CoreCheckBox x:Name="cbUse" Content="Use" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="" Margin="0,16,0,0"/>
+							</Grid>
+							<Grid Height="41.96" Margin="10,0,0,0">
+								<TextBlock TextWrapping="Wrap" Text="Primary Key" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+								<Core_Framework_Windows_Implementations:CoreCheckBox x:Name="cbPrimary" Content="Primary Key" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="FormInput-IsPrimary" Margin="0,16,0,0" IsEnabled="False"/>
+							</Grid>
+							<Grid Height="41.96" Margin="10,0,0,0">
+								<TextBlock TextWrapping="Wrap" Text="Required" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+								<Core_Framework_Windows_Implementations:CoreCheckBox x:Name="cbRequired" Content="Required" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="FormInput-IsRequired" Margin="0,16,0,0"/>
+							</Grid>
+						</StackPanel>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Ttile" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreTextBox x:Name="tbTitle" TextWrapping="Wrap" Margin="0,15.96,0,0" Tag="FormInput-Title" />
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="WaterMark" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreTextBox x:Name="tbWatermark" TextWrapping="Wrap" Margin="0,15.96,0,0" Tag="FormInput-Watermark" />
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Report Display" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreCheckBox x:Name="cbReportDisplay" Content="Is Report Display" HorizontalAlignment="Left" VerticalAlignment="Top" Tag="FormInput-ReportDisplay" Margin="0,16,0,0"/>
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Index" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreTextBox x:Name="TbIndex" TextWrapping="Wrap" Margin="0,15.96,0,0"  Mask="99" Tag="FormInput-Index" PrompChar="0" />
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Type Form" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:DefaultComboBox x:Name="cmbTypeForm" Margin="0,16,0,0" d:LayoutOverrides="Height" IsEditable="True" Tag="FormInput-Type" Foreground="White" Style="{DynamicResource MetroComboBoxClasic}"/>
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="ReadOnly" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:DefaultComboBox x:Name="cmbReadOnlyForm" Margin="0,16,0,0" d:LayoutOverrides="Height" IsEditable="True" Tag="FormInput-ReadOnly" Foreground="White" Style="{DynamicResource MetroComboBoxClasic}"/>
+						</Grid>
+						<Grid x:Name="gridTypeModel" Height="41.96" Margin="0,0,0,5" Visibility="Collapsed">
+							<TextBlock TextWrapping="Wrap" Text="Type Model" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:DefaultComboBox x:Name="cmbTypeModel" Margin="0,16,0,0" d:LayoutOverrides="Height" DisplayMemberPath="Value.FullName" IsEditable="True" Tag="FormInput-TypeModel" Foreground="White" ValuePath="Value.FullName"/>
+						</Grid>
+						<Grid x:Name="gridDisplayPath" Height="41.96" Margin="0,0,0,5" Visibility="Collapsed">
+							<TextBlock TextWrapping="Wrap" Text="Display Path" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:DefaultComboBox x:Name="cmbDisplayPath" Margin="0,16,0,0" DisplayMemberPath="Name" IsEditable="True" Tag="FormInput-DisplayPath" Foreground="White" ValuePath="Name"/>
+						</Grid>
+						<Grid x:Name="gridValuePath" Height="41.96" Margin="0,0,0,5" Visibility="Collapsed">
+							<TextBlock TextWrapping="Wrap" Text="Value Path" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:DefaultComboBox x:Name="cmbValuePath" Margin="0,16,0,0" DisplayMemberPath="Name" IsEditable="True" Tag="FormInput-ValuePath" Foreground="White" ValuePath="Name"/>
+						</Grid>
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</ScrollViewer>
+		<ScrollViewer Grid.Column="1" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+			<Grid>
+				<TextBlock x:Name="tbGridTitle" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Configuration Grid" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+				<Rectangle Height="5" VerticalAlignment="Top" Margin="0,22,0,0">
+					<Rectangle.Fill>
+						<SolidColorBrush Color="{DynamicResource AccentColor2}"/>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Grid Margin="0,31,0,0">
+					<StackPanel x:Name="stackPanelGrid" Margin="0" d:LayoutOverrides="Width, Height">
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Ttile" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreTextBox x:Name="tbTitleGrid" TextWrapping="Wrap" Margin="0,15.96,0,0" Tag="Grid-Title" />
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Index" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreTextBox x:Name="TbIndexGrid" TextWrapping="Wrap" Margin="0,15.96,0,0"  Mask="99" Tag="Grid-Index" PrompChar="0" />
+						</Grid>
+						<Grid Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Type Form" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:DefaultComboBox x:Name="cmbTypeGrid" Margin="0,16,0,0" d:LayoutOverrides="Height" IsEditable="True" Tag="Grid-Type" Foreground="White" Style="{DynamicResource MetroComboBoxClasic}"/>
+						</Grid>
+						<Grid x:Name="gridDisplayPathGrid" Height="41.96" Margin="0,0,0,5">
+							<TextBlock TextWrapping="Wrap" Text="Display Path" Foreground="White" VerticalAlignment="Top" FontFamily="Segoe UI Light"/>
+							<Core_Framework_Windows_Implementations:CoreTextBox x:Name="tbDsiplayPathGrid" TextWrapping="Wrap" Margin="0,15.96,0,0" Tag="Grid-DisplayPath"/>
+						</Grid>
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

@@ -1,0 +1,180 @@
+﻿<UserControl x:Class="Core.Framework.Windows.Clock.MoonyClockCtrl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="TimeStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#FF086F9E" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Trebuchet MS" />
+            <Setter Property="FontSize" Value="90" />
+        </Style>
+        <Style x:Key="TimeShadowStyle" BasedOn="{StaticResource TimeStyle}" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="{Binding Path=ShadowColor}" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DateStyle" BasedOn="{StaticResource TimeStyle}" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="DateShadowStyle" BasedOn="{StaticResource DateStyle}" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="{Binding Path=ShadowColor}" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid x:Name="ClockGrid" Panel.ZIndex="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TimeStyle}"
+                    Text="{Binding Path=Hours}"></TextBlock>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TimeStyle}"
+                    Margin="0,-15,0,0"
+                    Text=":"></TextBlock>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TimeStyle}"
+                    Margin="0,0,15,0"
+                    Text="{Binding Path=Minutes}"></TextBlock>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=DateStyle}"
+                    Margin="0,0,15,20"
+                    VerticalAlignment="Bottom"
+                    Text="{Binding Path=PmAm}"></TextBlock>
+                <Viewbox Grid.Column="1" Height="100" Width="100">
+                    <Grid>
+                        <Ellipse Width="220" Height="220" StrokeThickness="20">
+                            <Ellipse.Stroke>
+                                <SolidColorBrush Color="{Binding Path=MainColor2}" />
+                            </Ellipse.Stroke>
+                        </Ellipse>
+                        <Path Width="220" Height="220" StrokeThickness="20">
+                            <Path.Stroke>
+                                <SolidColorBrush Color="{Binding Path=MainColor}" />
+                            </Path.Stroke>
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="110 10" x:Name="pathF">
+                                        <ArcSegment 
+                                            x:Name="arc"
+                                            Size="100 100"
+                                            SweepDirection="Clockwise"
+                                            Point="110 210" />
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                        <TextBlock 
+                            Style="{StaticResource ResourceKey=TimeStyle}"
+                            FontSize="120"
+                            Text="{Binding Path=Seconds}"></TextBlock>
+                    </Grid>
+                </Viewbox>
+            </StackPanel>
+            <Grid
+                Grid.Row="1"
+                Margin="0,-15,90,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Row="0"
+                    Style="{StaticResource ResourceKey=DateStyle}"
+                    Text="{Binding Path=Date}">
+                </TextBlock>
+                <TextBlock
+                    Grid.Row="1"
+                    Margin="0,0,-27,0"
+                    Style="{StaticResource ResourceKey=DateStyle}"
+                    Text="{Binding Path=DayOfWeek}">
+                </TextBlock>
+            </Grid>
+        </Grid>
+        <Grid x:Name="shadow">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TimeShadowStyle}"
+                    Text="{Binding Path=Hours}"></TextBlock>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TimeShadowStyle}"
+                    Margin="0,-15,0,0"
+                    Text=":"></TextBlock>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TimeShadowStyle}"
+                    Margin="0,0,15,0"
+                    Text="{Binding Path=Minutes}"></TextBlock>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=DateShadowStyle}"
+                    Margin="0,0,15,20"
+                    VerticalAlignment="Bottom"
+                    Text="{Binding Path=PmAm}"></TextBlock>
+                <Viewbox Grid.Column="1" Height="100" Width="100">
+                    <Grid>
+                        <Ellipse Width="220" Height="220" StrokeThickness="20" Opacity="0.5">
+                            <Ellipse.Stroke>
+                                <SolidColorBrush Color="{Binding Path=ShadowColor}" />
+                            </Ellipse.Stroke>
+                        </Ellipse>
+                        <TextBlock 
+                            Style="{StaticResource ResourceKey=TimeShadowStyle}"
+                            FontSize="120"
+                            Text="{Binding Path=Seconds}"></TextBlock>
+                    </Grid>
+                </Viewbox>
+            </StackPanel>
+            <Grid 
+                Grid.Row="1"
+                Margin="0,-15,90,0"
+                HorizontalAlignment="Right">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Row="0"
+                    Style="{StaticResource ResourceKey=DateShadowStyle}"
+                    Text="{Binding Path=Date}">
+                </TextBlock>
+                <TextBlock
+                    Grid.Row="1"
+                    Margin="0,0,-27,0"
+                    Style="{StaticResource ResourceKey=DateShadowStyle}"
+                    Text="{Binding Path=DayOfWeek}">
+                </TextBlock>
+            </Grid>
+            <Grid.Effect>
+                <BlurEffect RenderingBias="Performance" KernelType="Box"></BlurEffect>
+            </Grid.Effect>
+        </Grid>
+        <Grid.LayoutTransform>
+            <RotateTransform Angle="{Binding Path=Angle}"></RotateTransform>
+        </Grid.LayoutTransform>
+    </Grid>
+</UserControl>

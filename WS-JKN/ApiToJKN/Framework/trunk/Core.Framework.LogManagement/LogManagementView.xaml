@@ -1,0 +1,69 @@
+﻿<Implementations:CoreUserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Core.Framework.LogManagement"
+             xmlns:Implementations="clr-namespace:Core.Framework.Windows.Implementations;assembly=Core.Framework.Windows" x:Class="Core.Framework.LogManagement.LogManagementView"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="1024" Height="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="246"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="227.841"/>
+        </Grid.ColumnDefinitions>
+        <Grid d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="0">
+                <Grid Margin="5">
+                    <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Tipe Pengiriman" VerticalAlignment="Top"/>
+                    <Implementations:CoreRadioButton Content="Email" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsChecked="True"/>
+                </Grid>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="0,5,0,0" Grid.Row="1">
+                <StackPanel Margin="5">
+                    <Grid Height="34.58" Margin="0,10,0,0">
+                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Nama Rumah Sakit" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TbNamaRs" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nama Rs" Margin="0,15.96,0,0" d:LayoutOverrides="Height" FontSize="14"/>
+                    </Grid>
+                    <Grid Height="34.58" Margin="0,10,0,0">
+                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Alamat" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TbAlamatRs" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Alamat Rs" Margin="0,15.96,0,0" d:LayoutOverrides="Height"/>
+                    </Grid>
+                    <Grid Height="34.58" Margin="0,10,0,0">
+                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TbEmailRs" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email Rs" d:LayoutOverrides="Height" Margin="0,15.96,0,0"/>
+                    </Grid>
+                    <Grid Height="50" Margin="0,10,0,0">
+                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
+                        <Implementations:CoreTextBox x:Name="TbUserName" TextWrapping="Wrap" Height="25" Margin="0,20,0,0"/>
+                    </Grid>
+                    <Grid Height="50" Margin="0,10,0,0">
+                        <TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+                        <PasswordBox x:Name="TbPassword" Margin="0,20,0,0" Height="25"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="105"/>
+            </Grid.RowDefinitions>
+            <Border Margin="5" BorderThickness="1" BorderBrush="Black">
+                <Implementations:CoreWrapPanel x:Name="WpLog" OrientationType="Vertical" Margin="5"/>
+            </Border>
+            <StackPanel Margin="5,0" Orientation="Vertical" Grid.Row="1" d:LayoutOverrides="Height">
+                <Implementations:CoreButton x:Name="BtnKirim" Content="_Kirim" Margin="0" d:LayoutOverrides="Width, Height, TopPosition, BottomPosition" Height="35"/>
+                <Implementations:CoreButton Content="Tutup"  IsClose="True" Height="35" d:LayoutOverrides="Width, Height" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Grid>
+        <RichTextBox VerticalScrollBarVisibility="Visible" x:Name="RtFile" Grid.Column="1" IsReadOnly="True" Margin="0,5" BorderBrush="Black" SelectionBrush="Black" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+            <FlowDocument/>
+        </RichTextBox>
+    </Grid>
+</Implementations:CoreUserControl>

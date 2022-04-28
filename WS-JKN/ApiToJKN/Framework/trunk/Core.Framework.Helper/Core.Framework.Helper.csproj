@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Framework.Helper</RootNamespace>
+    <AssemblyName>Core.Framework.Helper</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Optimize>false</Optimize>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\AddOnsAttribute.cs" />
+    <Compile Include="Attributes\AddonsType.cs" />
+    <Compile Include="Attributes\FirstLoadAttribute.cs" />
+    <Compile Include="Attributes\InformationModule.cs" />
+    <Compile Include="Attributes\InputTestAttribute.cs" />
+    <Compile Include="Attributes\MethodDeclarationAttribute.cs" />
+    <Compile Include="Attributes\ModuleAttribute.cs" />
+    <Compile Include="Attributes\NullAttribute.cs" />
+    <Compile Include="Attributes\OutPutAttribute.cs" />
+    <Compile Include="BaseDependency.cs" />
+    <Compile Include="BaseTest.cs" />
+    <Compile Include="CacheHelper.cs" />
+    <Compile Include="Collections\AsycnModel.cs" />
+    <Compile Include="Collections\AsyncVirtualizingCollection.cs" />
+    <Compile Include="Collections\IItemsProvider.cs" />
+    <Compile Include="Collections\ILoadModel.cs" />
+    <Compile Include="Collections\SampleClass.cs" />
+    <Compile Include="Collections\TreeNode.cs" />
+    <Compile Include="Collections\VirtualizingCollection.cs" />
+    <Compile Include="Commands\ICreateUpdateDeleteCommand.cs" />
+    <Compile Include="Commands\IReportPreviewCommand.cs" />
+    <Compile Include="Configuration\SettingXml.cs" />
+    <Compile Include="Configuration\SettingRegistry.cs" />
+    <Compile Include="ConnectionDomain.cs" />
+    <Compile Include="Contracts\AsalRujukan5Terbanyak.cs" />
+    <Compile Include="Contracts\Diagnosa5Terbanyak.cs" />
+    <Compile Include="Contracts\FilterQueryArgs.cs" />
+    <Compile Include="Contracts\IAddOnsInvokeItem.cs" />
+    <Compile Include="Contracts\IBackHistoryControl.cs" />
+    <Compile Include="Contracts\IBaseSearchFramework.cs" />
+    <Compile Include="Contracts\IClientMessaging.cs" />
+    <Compile Include="Contracts\ICommonModulePrintPreviewVisual.cs" />
+    <Compile Include="Contracts\IControlCommonRepository.cs" />
+    <Compile Include="Contracts\ICoreQueryable.cs" />
+    <Compile Include="Contracts\IErrorTemplate.cs" />
+    <Compile Include="Contracts\IFirstLoad.cs" />
+    <Compile Include="Contracts\IHierarchyItem.cs" />
+    <Compile Include="Contracts\IHistoryControl.cs" />
+    <Compile Include="Contracts\ILoadService.cs" />
+    <Compile Include="Contracts\ILogRepository.cs" />
+    <Compile Include="Contracts\IMainControl.cs" />
+    <Compile Include="Contracts\IModuleLoad.cs" />
+    <Compile Include="Contracts\IPrintPreviewVisualView.cs" />
+    <Compile Include="Contracts\IProfileRepository.cs" />
+    <Compile Include="Contracts\IReportPreviewView.cs" />
+    <Compile Include="Contracts\IServerMessaging.cs" />
+    <Compile Include="Contracts\IUploadFile.cs" />
+    <Compile Include="Contracts\KunjunganHariIni.cs" />
+    <Compile Include="Contracts\MappingValue.cs" />
+    <Compile Include="Contracts\MenuAttribute.cs" />
+    <Compile Include="Contracts\MenuHotkeyAutomaticAttribute.cs" />
+    <Compile Include="Contracts\Padding.cs" />
+    <Compile Include="Contracts\ProfileItem.cs" />
+    <Compile Include="Contracts\RawatInapHariIni.cs" />
+    <Compile Include="Contracts\RegisterDomain.cs" />
+    <Compile Include="Contracts\SearchType.cs" />
+    <Compile Include="Contracts\StartUpAttribute.cs" />
+    <Compile Include="CoreDictionary.cs" />
+    <Compile Include="CoreWebClient.cs" />
+    <Compile Include="DatabaseItem.cs" />
+    <Compile Include="Date\Age.cs" />
+    <Compile Include="Date\DateHelper.cs" />
+    <Compile Include="ExtensionCoreDictionary.cs" />
+    <Compile Include="ExtensionLinq.cs" />
+    <Compile Include="Extention\CollectionHelper.cs" />
+    <Compile Include="Extention\ConvertExtention.cs" />
+    <Compile Include="Extention\JsonExtention.cs" />
+    <Compile Include="Extention\QueryExtention.cs" />
+    <Compile Include="FormUpload.cs" />
+    <Compile Include="ItemsParameters.cs" />
+    <Compile Include="Logging\ErrorTemplate.cs" />
+    <Compile Include="Logging\LogInformation.cs" />
+    <Compile Include="Presenters\CommonExecuteAttribute.cs" />
+    <Compile Include="Presenters\CommonModuleExecuteAttribute.cs" />
+    <Compile Include="Presenters\IAttachRemovePresenter.cs" />
+    <Compile Include="Presenters\LoadAttribute.cs" />
+    <Compile Include="Presenters\MessageItem.cs" />
+    <Compile Include="Presenters\MessageType.cs" />
+    <Compile Include="Presenters\ReportPreviewPresenter.cs" />
+    <Compile Include="Services\ChooseArgs.cs" />
+    <Compile Include="Services\ICallBackService.cs" />
+    <Compile Include="Services\Message.cs" />
+    <Compile Include="Views\ICreateUpdateDeleteViews.cs" />
+    <Compile Include="WebClientWithCookies.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xml\XmlHelper.cs" />
+    <Compile Include="FtpClient.cs" />
+    <Compile Include="ISettingRepository.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\LogEventViewer.cs" />
+    <Compile Include="Logging\LogFile.cs" />
+    <Compile Include="ModuleItem.cs" />
+    <Compile Include="NetworkHelper.cs" />
+    <Compile Include="Presenters\PresenterNameAttribute.cs" />
+    <Compile Include="ProjectItem.cs" />
+    <Compile Include="Service References\ServiceQueue\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ItemEventArgs.cs" />
+    <Compile Include="MailClient.cs" />
+    <Compile Include="HelperManager.cs" />
+    <Compile Include="Presenters\BasePresenter.cs" />
+    <Compile Include="Presenters\BasePresenterView.cs" />
+    <Compile Include="Presenters\BasePresenterViewCommand.cs" />
+    <Compile Include="Presenters\IAttachPresenter.cs" />
+    <Compile Include="Presenters\IBasePresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Contracts\ISetting.cs" />
+    <Compile Include="Security\AesCryptographyAttribute.cs" />
+    <Compile Include="Security\Cryptography.cs" />
+    <Compile Include="Security\EncryptCoreAttribute.cs" />
+    <Compile Include="Security\Extension.cs" />
+    <Compile Include="Services\Handler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\IServiceQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\QueueService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\ServiceQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\SocketClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\SocketReciveItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\SocketServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\SocketStatusArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextHelper.cs" />
+    <Compile Include="Views\ICreateUpdateDeleteView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\ServiceQueue\Medifirst.Antrian.Domain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceQueue\Medifirst.Service.Queue.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceQueue\service.wsdl" />
+    <None Include="Service References\ServiceQueue\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceQueue\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceQueue\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceQueue\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceQueue\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceQueue\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

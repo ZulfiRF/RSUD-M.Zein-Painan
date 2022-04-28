@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Core.Framework.Windows.Controls.IconClear"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Core.Framework.Windows.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="15" Height="15">
+    <Grid>
+        <Viewbox x:Name="IcoSave" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Grid>
+                <Grid Name="backgroundGrid" Width="256" Height="256" Visibility="Collapsed" />
+                <Path Data="M15.994003,0C24.819954,-9.1655238E-08 32,7.1629951 32,15.967989 32,24.772006 24.819954,31.935002 15.994003,31.935002 7.3439871,31.935002 0.27899144,25.053988 0,16.492007L4.0790063,15.647005C4.0760156,15.755007 4.062008,15.859987 4.062008,15.967989 4.062008,22.530001 9.4149996,27.871005 15.994003,27.871005 22.573007,27.871005 27.925968,22.530001 27.925968,15.967989 27.925968,9.4039924 22.573007,4.0639956 15.994003,4.0639956 12.93999,4.0639956 10.163992,5.2300117 8.051994,7.1199958L11.938007,10.346009 0.70901443,12.959993 1.2480154,1.4729919 4.8850051,4.4920046C7.7659837,1.7149964,11.680989,-9.1655238E-08,15.994003,0z" Stretch="Uniform" Fill="#FFFFFFFF" Width="110" Height="110" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <TransformGroup.Children>
+                                <RotateTransform Angle="0" />
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </TransformGroup.Children>
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

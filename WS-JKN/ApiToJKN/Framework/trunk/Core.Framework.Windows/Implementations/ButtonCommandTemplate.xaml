@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Core.Framework.Windows.Implementations.ButtonCommandTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Implementations="clr-namespace:Core.Framework.Windows.Implementations" mc:Ignorable="d"
+             d:DesignHeight="40" d:DesignWidth="350">
+    <StackPanel x:Name="ContentPanel" Orientation="Horizontal" HorizontalAlignment="Right">
+        <Implementations:CoreButton x:Name="BtnSimpan" IsValidate="True" Content="Simpan" Width="100" Height="26"
+                                    Margin="5" />
+        <Implementations:CoreButton x:Name="BtnHapus" IsRemove="True" IsValidate="True" Content="Hapus" Width="100" Height="26"
+                                    Margin="5" />
+        <Implementations:CoreButton x:Name="BtnBatal" IsClearForm="True" Content="Batal" Width="100" Height="26" Margin="0" />
+        <Implementations:CoreButton x:Name="BtnTutup" IsClose="True"  Content="Tutup" Width="100" Height="26" Margin="5"
+                                     />
+
+    </StackPanel>
+</UserControl>

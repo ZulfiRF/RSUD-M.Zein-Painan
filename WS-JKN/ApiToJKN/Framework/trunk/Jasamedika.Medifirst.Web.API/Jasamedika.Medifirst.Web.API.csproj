@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{650EE53D-0676-45AC-97FB-05CFADD5676A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jasamedika.Medifirst.Web.API</RootNamespace>
+    <AssemblyName>Jasamedika.Medifirst.Web.API</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Medifirst">
+      <HintPath>..\..\..\Library Development\Medifirst\Medifirst.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.Exchange">
+      <HintPath>..\..\..\Library Development\Medifirst\Medifirst.Exchange.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.ISetting">
+      <HintPath>..\..\..\Library Development\Medifirst\Medifirst.ISetting.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.PointOfService">
+      <HintPath>..\..\..\Library Development\Medifirst\Medifirst.PointOfService.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.PointOfService.Impl">
+      <HintPath>..\..\..\Library Development\Medifirst\Medifirst.PointOfService.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.Queue.Handler">
+      <HintPath>..\..\..\Library Development\Service Data\Medifirst.Queue.Handler.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.Service.Impl">
+      <HintPath>..\..\..\Library Development\Service Data\Medifirst.Service.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Medifirst.Setting">
+      <HintPath>..\..\..\Library Development\Medifirst\Medifirst.Setting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Antrian.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Crypto.cs" />
+    <Compile Include="FileDelete.cs" />
+    <Compile Include="FileUpload.cs" />
+    <Compile Include="LoginAuth.cs" />
+    <Compile Include="Print.cs" />
+    <Compile Include="Retrive.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServicesPrinting\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Setting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicesPrinting\service.wsdl" />
+    <None Include="Service References\ServicesPrinting\service.xsd" />
+    <None Include="Service References\ServicesPrinting\service1.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicesPrinting\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicesPrinting\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicesPrinting\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicesPrinting\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DbContext\DbContext.csproj">
+      <Project>{ECB233D4-0D9B-46D8-9B90-CE43133ACF06}</Project>
+      <Name>DbContext</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

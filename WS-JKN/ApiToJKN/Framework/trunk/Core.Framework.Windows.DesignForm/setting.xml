@@ -1,0 +1,8 @@
+﻿<Setting>
+  <item key="connectionStringConfig" value="Core.Presentation.Connection.RegistryConnection" />
+  <item key="urlLiveUpdate" value="http://localhost:1105/" />
+  <item key="contextManagerEngine" value="Core.Framework.Model.Impl.SqlServer.SqlConnectionManager" />
+  <item key="noLoket" value="1"/>
+  <item key="ReBuildObjectModulAplikasi" value="0"/>
+  <item key="useLog" value="0" />
+</Setting>

@@ -1,0 +1,64 @@
+﻿<Application x:Class="Core.Framework.Windows.DesignForm.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>   	    	
+   	 <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Core.Framework.Windows;component/Styles/Colours.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Core.Framework.Windows;component/Styles/Fonts.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Core.Framework.Windows;component/Styles/Controls.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Core.Framework.Windows;component/Styles/VS/Colours.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Core.Framework.Windows;component/Styles/VS/Styles.xaml"/>
+                <!--<ResourceDictionary Source="/Core.Framework.Windows;component/Resources/ButtonStyle.xaml"/>-->
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Themes/FlyoutsControl.xaml"/>
+                <!--<ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenu.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenuButton.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenuItem.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenuSeparator.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/QuickAccessBar.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/QuickAccessBarItem.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/Ribbon.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonButton.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonGroup.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonPage.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonTab.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonWindow.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/Resources.xaml"/>-->
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/Dark.xaml"/>
+                <!--<ResourceDictionary Source="/Core.Framework.Windows;component/Styles/TreeViewItemsCheckBox.xaml"/>-->
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Implementations/TreeViewListItem/Aero.NormalColor.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Implementations/TreeViewListItem/TreeListView.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Implementations/Chart/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Amber.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Black.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Blue.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.BlueGrey.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Brown.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Cyan.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.DeepOrange.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.DeepPurple.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Green.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Grey.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Indigo.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.LightBlue.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.LightGreen.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Lime.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Orange.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Pink.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Purple.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Red.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Teal.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/Accents/MaterialDesign/MaterialDesignColor.Yellow.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/MaterialDesignTheme.Calendar.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/MaterialDesignTheme.Clock.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/MaterialDesignTheme.DatePicker.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/MaterialDesignTheme.Light.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/MaterialDesignTheme.Shadows.xaml"/>
+                <ResourceDictionary Source="/Core.Framework.Windows;component/Styles/MaterialDesignTheme.TimePicker.xaml"/>                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

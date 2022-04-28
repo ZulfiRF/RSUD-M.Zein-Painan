@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98BA77B8-4F29-49E6-BB00-2B4F06D8F995}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.Framework.Messaging</RootNamespace>
+    <AssemblyName>Core.Framework.Messaging</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\packages\RabbitMQ.Client.3.5.7\lib\net40\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\Medifirst2000\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessPolicyServer.cs" />
+    <Compile Include="Classes\Context.cs" />
+    <Compile Include="Classes\Header.cs" />
+    <Compile Include="Classes\ReceiveMessaging.cs" />
+    <Compile Include="Classes\Response.cs" />
+    <Compile Include="Classes\SendMessaging.cs" />
+    <Compile Include="Classes\UserContext.cs" />
+    <Compile Include="Clients\ByteOrder.cs" />
+    <Compile Include="Clients\CloseEventArgs.cs" />
+    <Compile Include="Clients\CloseStatusCode.cs" />
+    <Compile Include="Clients\ErrorEventArgs.cs" />
+    <Compile Include="Clients\Ext.cs" />
+    <Compile Include="Clients\Fin.cs" />
+    <Compile Include="Clients\Handshake.cs" />
+    <Compile Include="Clients\Mask.cs" />
+    <Compile Include="Clients\MessageEventArgs.cs" />
+    <Compile Include="Clients\Net\AuthenticationSchemes.cs" />
+    <Compile Include="Clients\Net\AuthenticationSchemeSelector.cs" />
+    <Compile Include="Clients\Net\ChunkedInputStream.cs" />
+    <Compile Include="Clients\Net\ChunkStream.cs" />
+    <Compile Include="Clients\Net\Cookie.cs" />
+    <Compile Include="Clients\Net\CookieCollection.cs" />
+    <Compile Include="Clients\Net\CookieException.cs" />
+    <Compile Include="Clients\Net\EndPointListener.cs" />
+    <Compile Include="Clients\Net\EndPointManager.cs" />
+    <Compile Include="Clients\Net\HttpConnection.cs" />
+    <Compile Include="Clients\Net\HttpHeaderInfo.cs" />
+    <Compile Include="Clients\Net\HttpHeaderType.cs" />
+    <Compile Include="Clients\Net\HttpListener.cs" />
+    <Compile Include="Clients\Net\HttpListenerContext.cs" />
+    <Compile Include="Clients\Net\HttpListenerException.cs" />
+    <Compile Include="Clients\Net\HttpListenerPrefixCollection.cs" />
+    <Compile Include="Clients\Net\HttpListenerRequest.cs" />
+    <Compile Include="Clients\Net\HttpListenerResponse.cs" />
+    <Compile Include="Clients\Net\HttpStatusCode.cs" />
+    <Compile Include="Clients\Net\HttpStreamAsyncResult.cs" />
+    <Compile Include="Clients\Net\HttpUtility.cs" />
+    <Compile Include="Clients\Net\HttpVersion.cs" />
+    <Compile Include="Clients\Net\ListenerAsyncResult.cs" />
+    <Compile Include="Clients\Net\ListenerPrefix.cs" />
+    <Compile Include="Clients\Net\RequestStream.cs" />
+    <Compile Include="Clients\Net\ResponseStream.cs" />
+    <Compile Include="Clients\Net\Security\SslStream.cs" />
+    <Compile Include="Clients\Net\WebHeaderCollection.cs" />
+    <Compile Include="Clients\Net\WebSockets\HttpListenerWebSocketContext.cs" />
+    <Compile Include="Clients\Net\WebSockets\TcpListenerWebSocketContext.cs" />
+    <Compile Include="Clients\Net\WebSockets\WebSocketContext.cs" />
+    <Compile Include="Clients\Opcode.cs" />
+    <Compile Include="Clients\PayloadData.cs" />
+    <Compile Include="Clients\RequestHandshake.cs" />
+    <Compile Include="Clients\ResponseHandshake.cs" />
+    <Compile Include="Clients\Rsv.cs" />
+    <Compile Include="Clients\WebSocketClient.cs" />
+    <Compile Include="Clients\WsFrame.cs" />
+    <Compile Include="Clients\WsReceivedTooBigMessageException.cs" />
+    <Compile Include="Clients\WsState.cs" />
+    <Compile Include="Clients\WsStream.cs" />
+    <Compile Include="Contracts\IReceiveMessaging.cs" />
+    <Compile Include="Contracts\ISendMessaging.cs" />
+    <Compile Include="Handlers\Authentication.cs" />
+    <Compile Include="Handlers\Handler.cs" />
+    <Compile Include="Handlers\IAuthentication.cs" />
+    <Compile Include="Handlers\WebSocket\DataFrame.cs" />
+    <Compile Include="Handlers\WebSocket\hybi00\Authentication.cs" />
+    <Compile Include="Handlers\WebSocket\hybi00\DataFrame.cs" />
+    <Compile Include="Handlers\WebSocket\hybi00\Handler.cs" />
+    <Compile Include="Handlers\WebSocket\hybi00\Handshakes.cs" />
+    <Compile Include="Handlers\WebSocket\rfc6455\Authentication.cs" />
+    <Compile Include="Handlers\WebSocket\rfc6455\DataFrame.cs" />
+    <Compile Include="Handlers\WebSocket\rfc6455\FrameHeader.cs" />
+    <Compile Include="Handlers\WebSocket\rfc6455\Handler.cs" />
+    <Compile Include="Handlers\WebSocket\rfc6455\Handshakes.cs" />
+    <Compile Include="Handlers\WebSocket\WebSocketHandler.cs" />
+    <Compile Include="ISubscribeValue.cs" />
+    <Compile Include="PublishToGroupArgs.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubscribeAttribute.cs" />
+    <Compile Include="TCPServer.cs" />
+    <Compile Include="View\CountView.xaml.cs">
+      <DependentUpon>CountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NotifyView.xaml.cs">
+      <DependentUpon>NotifyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebSocketServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Medifirst2000\Domain\Medifirst.Domain.Common\Medifirst.Domain.Common.csproj">
+      <Project>{999ab9dc-cf95-4783-b52f-086b545d76ea}</Project>
+      <Name>Medifirst.Domain.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Framework.Helper\Core.Framework.Helper.csproj">
+      <Project>{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}</Project>
+      <Name>Core.Framework.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="View\CountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NotifyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Converters="clr-namespace:Core.Framework.Windows.Converters">
+
+    <Converters:ToUpperConverter x:Key="ToUpperConverter" />
+
+    <Style x:Key="MetroGroupBox"
+           TargetType="{x:Type GroupBox}">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Foreground" Value="{DynamicResource IdealForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupBox}">
+                    <Grid x:Name="GroupBoxRoot">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              ContentSource="Header"
+                                              RecognizesAccessKey="True">
+                                <ContentPresenter.Resources>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground" Value="{DynamicResource IdealForegroundColorBrush}" /> 
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                    </Style>
+                                </ContentPresenter.Resources>
+                                <ContentPresenter.Content>
+                                    <Binding Converter="{StaticResource ToUpperConverter}"
+                                             Path="Header"
+                                             RelativeSource="{RelativeSource TemplatedParent}" />
+                                </ContentPresenter.Content>
+                            </ContentPresenter>
+                        </Border>
+                        <Border Grid.Row="1"
+                                Background="Transparent"
+                                BorderThickness="1,0,1,1" BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Cursor="{TemplateBinding Cursor}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

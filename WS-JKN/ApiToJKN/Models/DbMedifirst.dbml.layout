@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DbMedifirst">
+  <DataContextMoniker Name="/DbMedifirstDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fd4e8212-d150-4324-9272-7a34ed7dc3ab" absoluteBounds="1.5, 2.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DbMedifirstDataContext/Login" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cc3f0eb-c96f-4e57-88da-559ac3a4b573" absoluteBounds="1.5150000000000001, 2.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2134d89e-b39e-417d-93bf-8943edeaa946" absoluteBounds="3.375, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DbMedifirstDataContext/ReservasiLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5530834c-d203-4754-8e47-859c52934977" absoluteBounds="3.39, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="545c20b7-a18d-4f72-80db-b1590a68b507" absoluteBounds="6.125, 3, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DbMedifirstDataContext/UserApiJkn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0aaea20-5439-454c-bb98-7d73e8b5d997" absoluteBounds="6.14, 3.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

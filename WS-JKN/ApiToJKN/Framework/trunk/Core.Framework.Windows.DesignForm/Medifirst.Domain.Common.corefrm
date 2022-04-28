@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tables>
+  <Table Key="Medifirst.Domain.Common.Departemen">
+    <Design>
+      <Property Key="KdDepartemen">
+        <FormInput>
+          <Title>
+            Kode Departemen
+          </Title>
+          <Index>
+            1
+          </Index>
+          <Type>
+            TextBoxWithCheckBox
+          </Type>
+        </FormInput>
+        <Grid>
+          <Title>
+            Kode Departemen
+          </Title>
+          <Index>
+            1
+          </Index>
+        </Grid>
+      </Property>
+
+      <Property Key="NamaDepartemen">
+        <FormInput>
+          <Title>
+            Nama Departemen
+          </Title>
+          <Index>
+            2
+          </Index>
+          <Type>
+            TextBox
+          </Type>
+        </FormInput>
+        <Grid>
+          <Title>
+            Nama Departemen
+          </Title>
+          <Index>
+            2
+          </Index>
+        </Grid>
+      </Property>
+
+      <Property Key="ReportDisplay">
+        <FormInput>
+          <Title>
+            Report Display
+          </Title>
+          <Index>
+            3
+          </Index>
+          <Type>
+            TextBox
+          </Type>
+        </FormInput>
+        <Grid>
+          <Title>
+            Report Display
+          </Title>
+          <Index>
+            3
+          </Index>
+        </Grid>
+      </Property>
+
+      <Property Key="KodeExternal">
+        <FormInput>
+          <Title>
+            Kode External
+          </Title>
+          <Index>
+            4
+          </Index>
+          <Type>
+            TextBox
+          </Type>
+        </FormInput>
+        <Grid>
+          <Title>
+            Kode External
+          </Title>
+          <Index>
+            4
+          </Index>
+        </Grid>
+      </Property>
+
+      <Property Key="NamaExternal">
+        <FormInput>
+          <Title>
+            Nama External
+          </Title>
+          <Index>
+            5
+          </Index>
+          <Type>
+            TextBox
+          </Type>
+        </FormInput>
+        <Grid>
+          <Title>
+            Nama External
+          </Title>
+          <Index>
+            5
+          </Index>
+        </Grid>
+      </Property>
+
+      <Property Key="KdJenisPerawatan">
+        <FormInput>
+          <Title>
+            Jenis Perawatan
+          </Title>
+          <Index>
+            6
+          </Index>
+          <Type>
+            ListItem
+          </Type>
+          <TypeModel>
+            Medifirst.Domain.Common.JenisPerawatanPasien
+          </TypeModel>
+          <DisplayPath>
+            NamaJenisPerawatanPasien
+          </DisplayPath>
+          <ValuePath>
+            KdJenisPerawatan
+          </ValuePath>
+        </FormInput>
+        <Grid>
+          <Title>
+            Kode Departemen
+          </Title>
+          <Index>
+            1
+          </Index>
+          <DisplayPath>
+            JenisPerawatanPasien.NamaJenisPerawatanPasien
+          </DisplayPath>
+        </Grid>
+      </Property>
+
+
+
+    </Design>
+    <Search>
+      <Property Key="JenisPerawatanPasien">
+        <Title>
+          Nama Jenis Perawatan
+        </Title>
+      </Property>
+    </Search>
+  </Table>
+</Tables>

@@ -1,0 +1,21 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Core_Framework_Windows_Implementations="clr-namespace:Core.Framework.Windows.Implementations"
+	xmlns:Core_Framework_Windows="clr-namespace:Core.Framework.Windows"
+	xmlns:Widget="clr-namespace:Core.Framework.Windows.Implementations.Widget" mc:Ignorable="d"
+	x:Class="Core.Framework.Windows.Implementations.Widget.ControlJumlahTerbanyakView"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480" Width="300" Height="180">
+	<Grid Width="300" Height="180" Margin="2,2,-2,-2">
+        <Border Margin="2,2,5,5" BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush}">
+			<StackPanel x:Name="SpContainer" Orientation="Vertical">
+                <Grid Height="19" Background="{DynamicResource AccentColorBrush}" Margin="0,0,0,2">
+					<TextBlock x:Name="TbTitle" Margin="0" TextWrapping="Wrap" Text="Tittle" d:LayoutOverrides="Width, Height" Foreground="White" HorizontalAlignment="Center"/>
+				</Grid>
+			</StackPanel>
+		</Border>
+	</Grid>
+</UserControl>

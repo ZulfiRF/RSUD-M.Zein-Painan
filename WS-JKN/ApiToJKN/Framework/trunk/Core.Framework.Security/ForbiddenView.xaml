@@ -1,0 +1,56 @@
+<implementations:CoreUserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:implementations="clr-namespace:Core.Framework.Windows.Implementations;assembly=Core.Framework.Windows"
+             x:Class="Core.Framework.Security.ForbiddenView" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="Auto" Height="Auto" MinWidth="1024" MinHeight="600">
+    <implementations:RequiredGrid Background="White">
+    	<StackPanel Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+    		<Border BorderThickness="2" BorderBrush="#FFFF7A5C">
+    			<StackPanel Orientation="Vertical" Margin="5,0">
+    				<TextBlock Text="PERHATIAN" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="13.333" FontFamily="Segoe UI Symbol" Foreground="#FFFF7A5C" FontWeight="Bold"/>
+    				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" >
+    					<Grid>
+    						<Grid Visibility="Visible">
+    							<Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" Stretch="Fill" Fill="#FFFB9983" x:Name="Stroke" Visibility="Visible" />
+    						</Grid>
+    						<Path Data="M35.296474,36.151999C35.296474,36.151999,50.11659,39.681278,51.529001,53.798998L0,53.798998C0,53.798998,4.2392921,38.271786,16.942831,36.859095L20.384258,51.594011 22.913481,51.572889 25.790185,44.031549 23.103999,39.375 28.471001,39.375 25.897191,44.146589 29.178051,51.520578 31.149942,51.50411z M47.350904,17.971639C45.871427,17.971639 44.667745,19.170275 44.667745,20.652821 44.667745,21.646953 45.209337,22.510879 46.011724,22.973194L46.011724,28.813174C46.011724,29.431694 46.610415,29.931009 47.350904,29.931009 48.092093,29.931009 48.690683,29.431694 48.690683,28.813174L48.690683,22.973194C49.493471,22.510879 50.035164,21.646953 50.035164,20.652821 50.035164,19.170275 48.833282,17.971639 47.350904,17.971639z M36.129765,13.525001L59.194824,13.525001C60.08061,13.525,60.798,14.249622,60.798,15.132451L60.798,31.326952C60.798,32.215679,60.08061,32.935001,59.194824,32.935001L36.129765,32.935001C35.241409,32.935001,34.521999,32.215679,34.522,31.326952L34.522,15.132451C34.521999,14.249622,35.241409,13.525,36.129765,13.525001z M25.409004,6.0289993C29.230525,6.0289993 32.690354,7.542696 35.246,9.9951291 32.914049,10.546679 31.168285,12.635216 31.168285,15.13266L31.168285,31.326944C31.168285,31.949955 31.296882,32.537867 31.491478,33.093975 29.646216,33.970192 27.586959,34.476 25.409004,34.476 17.553268,34.476 11.185999,28.106788 11.185999,20.25115 11.185999,12.395611 17.553268,6.0289993 25.409004,6.0289993z M47.919189,0C53.73023,0,58.441999,4.7095451,58.441999,10.521999L55.986267,10.521999C55.986267,6.0643916 52.372168,2.4543266 47.919189,2.4543266 43.466143,2.4543266 39.851312,6.0643916 39.851311,10.521999L37.395999,10.521999C37.395999,4.7095451,42.1032,0,47.919189,0z" Stretch="Uniform" Fill="#FFFB9983" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+    							<Path.RenderTransform>
+    								<TransformGroup>
+    									<RotateTransform Angle="0" />
+    									<ScaleTransform ScaleX="1" ScaleY="1" />
+    								</TransformGroup>
+    							</Path.RenderTransform>
+    						</Path>
+    					</Grid>
+    				</Viewbox>
+    				<TextBlock Text="Anda Tidak Mempunyai Akses" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" FontSize="13.333" FontFamily="Segoe UI Symbol" Foreground="#FFFF7A5C" FontWeight="Bold"/>
+    				<TextBlock Text="Untuk Membuka Halaman Ini" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" FontFamily="Segoe UI Symbol" Foreground="#FFFF7A5C" FontWeight="Bold" Margin="0"/>
+                    <TextBlock x:Name="TbHunbungi" Text="Hubungi" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="13.333" FontFamily="Segoe UI Symbol" Foreground="#FFFF7A5C" FontWeight="Bold" Margin="54.071,0,54.071,10"/>
+                </StackPanel>
+    		</Border>
+    		<StackPanel Orientation="Vertical" Height="90" Margin="0,18,0,0">
+    			<Grid  Margin="0,0,0,0">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="0.3*"/>
+    					<ColumnDefinition Width="0.7*"/>
+    				</Grid.ColumnDefinitions>
+    				<implementations:CoreTextBox x:Name="TbUsername" HorizontalAlignment="Stretch" Margin="0" Width="Auto" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+    				<TextBlock TextWrapping="Wrap" Text="User Id" VerticalAlignment="Center" Margin="0,0,5,0" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+    			</Grid>
+    			<Grid Margin="0,5,0,0">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="0.3*"/>
+    					<ColumnDefinition Width="0.7*"/>
+    				</Grid.ColumnDefinitions>
+    				<implementations:CorePasswordBox x:Name="TbPassword" HorizontalAlignment="Stretch" Margin="0" Width="Auto" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1"/>
+    				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kata Sandi" VerticalAlignment="Center" Margin="0,0,5,0"/>
+    			</Grid>
+    			<implementations:CoreButton x:Name="BtnLogin" Height="30" Margin="0,5,0,0" Content="Login"/>
+    		</StackPanel>
+    	</StackPanel>
+    </implementations:RequiredGrid>
+</implementations:CoreUserControl>

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/Resources.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenu.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenuItem.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenuSeparator.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/ApplicationMenuButton.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonGroup.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonPage.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonButton.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/Ribbon.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonTab.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/QuickAccessBarItem.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/QuickAccessBar.xaml" />
+        <ResourceDictionary Source="/Core.Framework.Windows;component/Ribbon/UI/RibbonWindow.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Setting>
+  <item key="header" value="namespace {0}" />
+  <item key="content" value="{0}" />
+</Setting>

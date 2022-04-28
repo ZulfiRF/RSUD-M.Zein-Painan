@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiToJKN", "ApiToJKN\ApiToJKN.csproj", "{11389D27-D168-4F3F-9E12-E4E0FDFBB298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Framework.Helper", "Framework\trunk\Core.Framework.Helper\Core.Framework.Helper.csproj", "{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasamedika.Sdk.Vclaim", "VClaim\Source\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj", "{E054B432-1F68-4682-A9C8-287806E11A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Framework.Model", "Framework\trunk\Core.Framework.Model\Core.Framework.Model.csproj", "{CB08CF14-ED55-43C5-BC99-9477EEA3E426}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Debug|x86.Build.0 = Debug|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Release|x86.ActiveCfg = Release|Any CPU
+		{11389D27-D168-4F3F-9E12-E4E0FDFBB298}.Release|x86.Build.0 = Release|Any CPU
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Debug|x86.ActiveCfg = Debug|x86
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Debug|x86.Build.0 = Debug|x86
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Release|x86.ActiveCfg = Release|x86
+		{E90948B9-3CEB-444A-B067-C63EFCFA4FDD}.Release|x86.Build.0 = Release|x86
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Debug|x86.Build.0 = Debug|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Release|x86.ActiveCfg = Release|Any CPU
+		{E054B432-1F68-4682-A9C8-287806E11A2C}.Release|x86.Build.0 = Release|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Debug|x86.Build.0 = Debug|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Release|x86.ActiveCfg = Release|Any CPU
+		{CB08CF14-ED55-43C5-BC99-9477EEA3E426}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.0.1:8080/tfs/simrs%20.net
+		SccProjectUniqueName0 = Framework\\trunk\\Core.Framework.Helper\\Core.Framework.Helper.csproj
+		SccProjectName0 = $/Production/Project2016/Framework/trunk/Core.Framework.Helper
+		SccAuxPath0 = http://192.168.0.1:8080/tfs/simrs%20.net
+		SccLocalPath0 = Framework\\trunk\\Core.Framework.Helper
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = VClaim\\Source\\Jasamedika.Sdk.Vclaim\\Jasamedika.Sdk.Vclaim\\Jasamedika.Sdk.Vclaim.csproj
+		SccProjectName1 = $/Production/VClaim/Source/Jasamedika.Sdk.Vclaim/Jasamedika.Sdk.Vclaim
+		SccAuxPath1 = http://192.168.0.1:8080/tfs/simrs%20.net
+		SccLocalPath1 = VClaim\\Source\\Jasamedika.Sdk.Vclaim\\Jasamedika.Sdk.Vclaim
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = Framework\\trunk\\Core.Framework.Model\\Core.Framework.Model.csproj
+		SccProjectName2 = $/Production/Project2016/Framework/trunk/Core.Framework.Model
+		SccAuxPath2 = http://192.168.0.1:8080/tfs/simrs%20.net
+		SccLocalPath2 = Framework\\trunk\\Core.Framework.Model
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

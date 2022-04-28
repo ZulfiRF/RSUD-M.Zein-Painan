@@ -1,0 +1,841 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Core.Framework.Model.ActiveTable" Collapsed="true">
+    <Position X="10.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ActiveTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.BaseItem" Collapsed="true">
+    <Position X="11.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAggAABAAAgAAgAgIAAAAABEgAAABIQAAEEAQABAAAA=</HashCode>
+      <FileName>BaseItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.ContextManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKQJIkAgECijA0MElKKAFeUEhQikliUAZaAABUiACKw=</HashCode>
+      <FileName>ContextManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.CoreContext" Collapsed="true">
+    <Position X="6.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAgAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CoreContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.CoreContext&lt;TEntity&gt;" Collapsed="true">
+    <Position X="6.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAEAAIACBBAAACAAAAAAwEgAEIAAAAABkQAQABEAA=</HashCode>
+      <FileName>CoreContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.CoreObjectable&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIQAAgIIABAAABQAEAAAAAQAAAEIAAAEAABAQAAAwAA=</HashCode>
+      <FileName>CoreObjectable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.CoreQueryable&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIQABAIIgBgEABVAEBAAAASAAAEIACBUAAhBQQAAyBA=</HashCode>
+      <FileName>CoreQueryable.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.CoreQueryHelper" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>CoreQueryable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.FilterQuery" Collapsed="true">
+    <Position X="30" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>FilterQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.ModelExt" Collapsed="true">
+    <Position X="30" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ModelExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.ProfileTable" Collapsed="true">
+    <Position X="10.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>ProfileTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.ReferenceManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReferenceManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.Table&lt;TEntity&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Table.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.TableItem" Collapsed="true">
+    <Position X="10.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASYABAUQAEkDABEXgBQQCxESYBkgAQBAUEAAeGAnhA=</HashCode>
+      <FileName>TableItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.TableItemWithOutManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAy4ABBUQAkEDgBkfgBQQCxEyYBkgIQBAUEAAeFAlhA=</HashCode>
+      <FileName>TableItemWithOutManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.ViewItem" Collapsed="true">
+    <Position X="12.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACYABAUAAAEBABEXABQQCwESYBEgAQBAQEAAeEAlhA=</HashCode>
+      <FileName>ViewItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.AliasAttribute" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Attr\AliasAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.AutoGenerateDateTimeYYMMAttribute" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAgAABAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Attr\AutoGenerateDateTimeYYMMAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.AutoGenerateDateTimeYYMMAttributeCode" Collapsed="true">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAgAABAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Attr\AutoGenerateDateTimeYYMMAttributeCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.ByteToBoolConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\ByteToBoolConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.CharecterSpesialAttribute" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\CharecterSpesialAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.ConnectionArgs" Collapsed="true">
+    <Position X="24.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\ConnectionArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.CoreInputAttribute" Collapsed="true">
+    <Position X="6.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAQAAAAEAAAAAAAAAAAQAAABAAAQEAAAAAAAA=</HashCode>
+      <FileName>Attr\CoreInputAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.CustomAttribute" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\CustomAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.CustomCharAutoIncrement" Collapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\CustomCharAutoIncrement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.CustomIntAutoIncrement" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\CustomIntAutoIncrement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.DisplayFormAttribute" Collapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\DisplayFormAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.EncrypteAttribute" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABAABAgAAAAQBAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\EncrypteAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.EnumAttribute" Collapsed="true">
+    <Position X="24.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Attr\EnumAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.FieldAttribute" Collapsed="true">
+    <Position X="28.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAACAAAAAAAAAEAAABAAACAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Attr\FieldAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.FormAttribute" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\FormAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.FormInputAttribute" Collapsed="true">
+    <Position X="5.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Attr\FormInputAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.GridAttribute" Collapsed="true">
+    <Position X="7.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\GridAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.GroupByAttribute" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\GroupByAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.InitOnLoad" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\InitOnLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.ModelAttribute" Collapsed="true">
+    <Position X="28.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Attr\ModelAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.PrimaryKeyAttribute" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\PrimaryKeyAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.QueryArgs" Collapsed="true">
+    <Position X="24.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\QueryArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.RealtionStringAndSparatorAutoIncrementAttribute" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACAAA=</HashCode>
+      <FileName>Attr\RealtionStringAndSparatorAutoIncrementAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.RealtionStringAutoIncrementAttribute" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Attr\RealtionStringAutoIncrementAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.ReferenceApiAttribute" Collapsed="true">
+    <Position X="26.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAACAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Attr\ReferenceApiAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.ReferenceAttribute" Collapsed="true">
+    <Position X="28.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAACAAAAEAAAABAAAAAAAQAAAAE=</HashCode>
+      <FileName>Attr\ReferenceAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.ReferenceItem" Collapsed="true">
+    <Position X="30" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Attr\ReferenceItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.SearchAttribute" Collapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAEAAAABAAAAgIAAAAAAA=</HashCode>
+      <FileName>Attr\SearchAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.SizeAttribute" Collapsed="true">
+    <Position X="24.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\SizeAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.SkipAttribute" Collapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\SkipAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.TableAttribute" Collapsed="true">
+    <Position X="23" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\TableAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.TableAutoIncrement" Collapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\TableAutoIncrement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.TableItemArgs" Collapsed="true">
+    <Position X="26.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\TableItemArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Attr.TriggerAttribute" Collapsed="true">
+    <Position X="30" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\TriggerAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Error.ErrorArgs" Collapsed="true">
+    <Position X="26.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Error\ErrorArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Error.OverloadPrimaryException" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Error\OverloadPrimaryException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Extention.ModelExt" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extention\ModelExt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Helper.SqlFunctionHelper" Collapsed="true">
+    <Position X="26.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAEAAAAAACAAAAAAAABQ=</HashCode>
+      <FileName>Helper\CoreHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Helper.CoreHelper" Collapsed="true">
+    <Position X="28.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAwAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\CoreHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Helper.MessageArgs" Collapsed="true">
+    <Position X="26.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Helper\MessageArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Helper.OdataGeneratorFilter" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\OdataGeneratorFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Helper.Odata.ResultQuery" Collapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\Odata\ResultQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.BaseConnectionManager" Collapsed="true">
+    <Position X="6.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YCCAAAAAEAAAAAEExAAABAAEAiEAAAAgQSqAAQRQgCA=</HashCode>
+      <FileName>Impl\BaseConnectionManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.Informix.BaseInformixConnectionManager" Collapsed="true">
+    <Position X="11" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICCAAAAAAAAAAAEAhAABBAAEAiAEAAAwQSqAAQRQgCA=</HashCode>
+      <FileName>Impl\Informix\BaseInformixConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.Informix.OdbcConnectionManager" Collapsed="true">
+    <Position X="12.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAEAAAAABAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Impl\Informix\OdbcConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.Informix.OleDbConnectionManager" Collapsed="true">
+    <Position X="10" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAEAAAAABAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Impl\Informix\OleDbConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.MySql.MySqlConnectionManager" Collapsed="true">
+    <Position X="1" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICCAAAAAAAAAAAEAhAABBAAEAiAEAAAwQSqAAQRQgCA=</HashCode>
+      <FileName>Impl\MySql\MySqlConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.Postgresql.PostgreConnection" Collapsed="true">
+    <Position X="3.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICCAAAAAAAAAAAEAhAABBAAEAiAAAAAgQSqAAQRQgCA=</HashCode>
+      <FileName>Impl\Postgresql\PostgreConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.SqlServer.SqlConnectionManager" Collapsed="true">
+    <Position X="5.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICCAAAAAAAAAAAEEhAABBAAEAiAEAAAwQSqAAQRQgCA=</HashCode>
+      <FileName>Impl\SqlServer\SqlConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.WepApi.WebApiCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACQIAAAQCAAQCWAAAAAAEAAAAAAAAABAIAAAAAQAAA=</HashCode>
+      <FileName>Impl\WepApi\WebApiCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.WepApi.WebApiConnection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIABAGAAIAAAAAAEAAAAAAAAAAAAACAABECAAAA=</HashCode>
+      <FileName>Impl\WepApi\WebApiConnection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.WepApi.WebApiManager" Collapsed="true">
+    <Position X="7.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICCAAAAAEAAAAAEAxAABBAAEAiEEAAAwQSqAAQRQgCA=</HashCode>
+      <FileName>Impl\WepApi\WebApiManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Impl.WepApi.WebApiReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BACQAAAgMCgAAAgBAAAABCYgAAJEAEUwIBQCAACAJEA=</HashCode>
+      <FileName>Impl\WepApi\WebApiReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Adapter.SqlAdapterBase" Collapsed="true">
+    <Position X="1.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider\Adapter\SqlAdapterBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Adapter.SqlServer2008Adapter" Collapsed="true">
+    <Position X="2.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider\Adapter\SqlServer2008Adapter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Adapter.SqlServer2012Adapter" Collapsed="true">
+    <Position X="0.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider\Adapter\SqlServer2012Adapter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Adapter.SqlServerAdapterBase" Collapsed="true">
+    <Position X="1.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAEAQAAAAQQIAAAAQAAAAAAQAAAACgAA=</HashCode>
+      <FileName>Provider\Adapter\SqlServerAdapterBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Builder.SqlQueryBuilder" Collapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YKdwEjCiAxBwCEoYgRFDBAgPWDAIAQBwQI0AURFCQCA=</HashCode>
+      <FileName>Provider\Builder\SqlQueryBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.ExpressionTree.LikeNode" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAACAA=</HashCode>
+      <FileName>Provider\Resolver\ExpressionTree\LikeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.ExpressionTree.MemberNode" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Provider\Resolver\ExpressionTree\MemberNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.ExpressionTree.Node" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider\Resolver\ExpressionTree\Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.ExpressionTree.OperationNode" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAIAA=</HashCode>
+      <FileName>Provider\Resolver\ExpressionTree\OperationNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.ExpressionTree.SingleOperationNode" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Provider\Resolver\ExpressionTree\SingleOperationNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.ExpressionTree.ValueNode" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Provider\Resolver\ExpressionTree\ValueNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.Resolver.LambdaResolver" Collapsed="true">
+    <Position X="24.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAIACABIAQCY2AAASAAABAAAAAAAAQAAGASECAKBg=</HashCode>
+      <FileName>Provider\Resolver\LambdaResolver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.SqlLam&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIBEAACBCAAAIAkAAAAAAAAAgAEAAAAgAABAQQAAAAA=</HashCode>
+      <FileName>Provider\SqlLam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.SqlLamBase" Collapsed="true">
+    <Position X="0.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAEQAAAAACABEEAAAAAAAAABAAAACCA=</HashCode>
+      <FileName>Provider\SqlLamBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.Provider.SqlLamColumnAttribute" Collapsed="true">
+    <Position X="28.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider\SqlLamColumnAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.QueryBuilder.BaseQueryBuilder" Collapsed="true">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQFAAAGgABAgKCAAAAAAAAAEAQGIAEEQAIBAAACEAwA=</HashCode>
+      <FileName>QueryBuilder\BaseQueryBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.QueryBuilder.SqlLiteral" Collapsed="true">
+    <Position X="30" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAE=</HashCode>
+      <FileName>QueryBuilder\SqlLiteral.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.QueryBuilder.SqlServerQueryBuilder" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQFAAACAABAgKCAAAAAAAAAEAQGIAEEQAAAAAAAEAAA=</HashCode>
+      <FileName>QueryBuilder\SqlServerQueryBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Core.Framework.Model.QueryBuilder.Clausa.WhereClause" Collapsed="true">
+    <Position X="24.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAIAAAQAQAAEASAAAAAAAAkAAAAAAA=</HashCode>
+      <FileName>QueryBuilder\Clausa\WhereClause.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core.Framework.Model.QueryBuilder.Clausa.WhereStatement" Collapsed="true">
+    <Position X="26.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAgIAAAQAAAAAgAAAAAAAEgAIAAAAAAAQAAAACAA=</HashCode>
+      <FileName>QueryBuilder\Clausa\WhereStatement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Core.Framework.Model.QueryBuilder.Clausa.OrderByClause" Collapsed="true">
+    <Position X="19.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueryBuilder\Clausa\OrderByClause.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Core.Framework.Model.QueryBuilder.Clausa.TopClause" Collapsed="true">
+    <Position X="21.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>QueryBuilder\Clausa\TopClause.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Core.Framework.Model.IHistoryLoginRepository" Collapsed="true">
+    <Position X="24.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAACAAAAEA=</HashCode>
+      <FileName>IHistoryLoginRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Attr.IConverter" Collapsed="true">
+    <Position X="19.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\IConverter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Attr.IEncrypteAttribute" Collapsed="true">
+    <Position X="23" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Attr\IEncrypteAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Contract.IConnectionManager" Collapsed="true">
+    <Position X="3.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAEAAAAAEAxAAABAAEAgEAAAAAQCgAAAAAAAA=</HashCode>
+      <FileName>Contract\IConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Contract.ICoreContext&lt;TEntity&gt;" Collapsed="true">
+    <Position X="21.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAABBAAAAAAAAAAQEAAEIAAAAABEAAAAAEAA=</HashCode>
+      <FileName>Contract\ICoreContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Contract.ILinks&lt;TLink&gt;" Collapsed="true">
+    <Position X="26.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract\ILinks.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Contract.ILinks" Collapsed="true">
+    <Position X="28.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract\ILinks.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Contract.IPrepareTable" Collapsed="true">
+    <Position X="30" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Contract\IPrepareTable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Contract.IQueryBuilder" Collapsed="true">
+    <Position X="19.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQFAAACAABAgKCAAAAAAAAAEAQGIAEEQAAAAAACEAAA=</HashCode>
+      <FileName>Contract\IQueryBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Helper.Odata.IOdataQuery" Collapsed="true">
+    <Position X="3.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICAAAAAAAAAAAAAAgAAAAAAAACAAAAAgAQKAAQRQgCA=</HashCode>
+      <FileName>Helper\Odata\IOdataQuery.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Core.Framework.Model.Provider.Adapter.ISqlAdapter" Collapsed="true">
+    <Position X="21.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAEAQAAAAQQIBAAAQAAAAAAQAAAACgAA=</HashCode>
+      <FileName>Provider\Adapter\ISqlAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Core.Framework.Model.RowType" Collapsed="true">
+    <Position X="30" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>RowType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.TypeValueString" Collapsed="true">
+    <Position X="28.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAFAAAAACAAAAAAAAIAAACAAAIAA=</HashCode>
+      <FileName>TypeValueString.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Attr.FormType" Collapsed="true">
+    <Position X="21.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAEAIAAAAAAQAAAAAAAAAAAAQAAAAQAAAAAAA=</HashCode>
+      <FileName>Attr\FormType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Attr.SpesicicationType" Collapsed="true">
+    <Position X="23" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Attr\SpesicicationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Attr.UpdateTableType" Collapsed="true">
+    <Position X="30" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Attr\UpdateTableType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Provider.ValueObjects.FunctionMethod" Collapsed="true">
+    <Position X="23" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Provider\ValueObjects\FunctionMethod.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Provider.ValueObjects.LikeMethod" Collapsed="true">
+    <Position X="26.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAAAYgCA=</HashCode>
+      <FileName>Provider\ValueObjects\LikeMethod.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Provider.ValueObjects.SelectFunction" Collapsed="true">
+    <Position X="19.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAEBAAAAACAAAAAAIABA=</HashCode>
+      <FileName>Provider\ValueObjects\SelectFunction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.Provider.ValueObjects.SqlAdapter" Collapsed="true">
+    <Position X="24.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCAAAAAAAAA=</HashCode>
+      <FileName>Provider\ValueObjects\SqlAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.QueryBuilder.Enums.Comparison" Collapsed="true">
+    <Position X="19.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAgIAAAAAAAAAAAEAAAAAAAAQBACE=</HashCode>
+      <FileName>QueryBuilder\Enums\Comparison.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.QueryBuilder.Enums.JoinType" Collapsed="true">
+    <Position X="24.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAAAACACAAA=</HashCode>
+      <FileName>QueryBuilder\Enums\JoinType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.QueryBuilder.Enums.LogicOperator" Collapsed="true">
+    <Position X="28.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>QueryBuilder\Enums\LogicOperator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.QueryBuilder.Enums.Sorting" Collapsed="true">
+    <Position X="21.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueryBuilder\Enums\Sorting.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Core.Framework.Model.QueryBuilder.Enums.TopUnit" Collapsed="true">
+    <Position X="26.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>QueryBuilder\Enums\TopUnit.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Core.Framework.Model.ConnectionHandler" Collapsed="true">
+    <Position X="19.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConnectionHandler.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

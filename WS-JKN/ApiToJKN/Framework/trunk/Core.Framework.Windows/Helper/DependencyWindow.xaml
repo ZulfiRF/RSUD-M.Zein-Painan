@@ -1,0 +1,52 @@
+﻿<controls:MetroWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="clr-namespace:Core.Framework.Windows.Controls"
+	xmlns:Implementations="clr-namespace:Core.Framework.Windows.Implementations"
+	x:Class="Core.Framework.Windows.Helper.DependencyWindow"
+	x:Name="Window"
+	Title="DependencyWindow"
+	Width="640" Height="480" WindowState="Maximized">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="415*"/>
+			<ColumnDefinition Width="217*"/>
+		</Grid.ColumnDefinitions>
+		<Implementations:CoreListView x:Name="listMain" Margin="3,3,5,3" BorderBrush="{x:Null}">
+			<Implementations:CoreListView.View>
+				<GridView>
+					<GridViewColumn Header="Key" DisplayMemberBinding="{Binding Key}" Width="Auto"/>
+					<GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}" Width="Auto"/>
+				</GridView>
+			</Implementations:CoreListView.View>
+		</Implementations:CoreListView>
+		<GroupBox Header="Dependency Setting" Margin="3" Grid.Column="1">
+			<StackPanel Margin="0">
+				<StackPanel Margin="0,0,0,3">
+					<TextBlock TextWrapping="Wrap" Text="Key"/>
+					<Implementations:CoreComboBox x:Name="cbKey" DisplayMemberPath="FullName"/>
+				</StackPanel>
+				<StackPanel Margin="0,0,0,3">
+					<TextBlock TextWrapping="Wrap" Text="Value"/>
+					<Implementations:CoreComboBox x:Name="cbValue" DisplayMemberPath="FullName"/>
+				</StackPanel>
+				<Implementations:InsertDataGrid x:Name="gridCondition" AllowAddRows="True">
+					<Implementations:InsertDataGrid.Columns>
+						<Implementations:CoreDataGridTextBlockTextColumn x:Name="dgcKey" DisplayMemberPath="Key" Width="150" Header="Key" SelectedValuePath="Key"/>
+						<Implementations:CoreDataGridTextBlockTextColumn x:Name="dgcValue" DisplayMemberPath="Value" Width="150" Header="Value" SelectedValuePath="Value" />
+					</Implementations:InsertDataGrid.Columns>
+				</Implementations:InsertDataGrid>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="50*"/>
+						<ColumnDefinition Width="50*"/>
+					</Grid.ColumnDefinitions>
+					<Implementations:CoreButton x:Name="btnSave" Content="Simpan" VerticalAlignment="Center" Margin="5"/>
+					<Implementations:CoreButton x:Name="btnDelete" Content="Hapus" VerticalAlignment="Center" Grid.Column="1" Margin="5"/>
+				</Grid>
+			</StackPanel>
+		</GroupBox>
+		<GridSplitter Width="2" Foreground="{x:Null}" Background="{DynamicResource AccentColorBrush}" />
+	</Grid>
+</controls:MetroWindow>
