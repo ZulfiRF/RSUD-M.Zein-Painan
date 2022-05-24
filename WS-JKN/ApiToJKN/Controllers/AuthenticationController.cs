@@ -29,7 +29,7 @@ namespace ApiToJKN.Controllers
         public JsonResult<AuthenticationResponse> Authentication()
         {
             AuthenticationResponse result;
-            var connection = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+            var connection = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
             using (var db = new DbMedifirstDataContext(connection))
             {
 
@@ -86,7 +86,7 @@ namespace ApiToJKN.Controllers
         public JsonResult<AuthenticationResponse> Authentication([FromBody] AuthenticationRequest request)
         {
             AuthenticationResponse result;
-            var connection = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+            var connection = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
             using (var db = new DbMedifirstDataContext(connection))
             {
 
@@ -134,7 +134,7 @@ namespace ApiToJKN.Controllers
         public JsonResult<SlotingResponse> CheckDataSloting([FromBody] ChekSlotingReques request)
         {
             DateTime LastUpdate = DateTime.Now;
-            var connection = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+            var connection = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
             var sloting = new slotingModel();
             var pasien = new PasienModel();
             var lastupdateUse = "";
@@ -364,7 +364,7 @@ namespace ApiToJKN.Controllers
             DateTime LastUpdate = DateTime.Now;
             var pasien = new PasienModel();
             var IdPenjamin = ConfigurationManager.AppSettings["KodeJenisPasien"];
-            var connection = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+            var connection = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
             var sloting = new slotingModel();
 
 
@@ -1106,7 +1106,7 @@ namespace ApiToJKN.Controllers
             DateTime LastUpdate = DateTime.Now;
             var PasienDaftar = new PasienDaftarModel();
             var jadwal = new JadwalOprasiResponse();
-            var connection = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+            var connection = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
             var kdRuanganBedah = ConfigurationManager.AppSettings["KodeRuanganBedah"];
             var list = new List<JadwalOprasiResponse>();
 
@@ -1255,7 +1255,7 @@ namespace ApiToJKN.Controllers
             DateTime LastUpdate = DateTime.Now;
             var PasienDaftar = new PasienDaftarModel();
             var jadwal = new JadwalOprasiResponseall();
-            var connection = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+            var connection = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
             var kdRuanganBedah = ConfigurationManager.AppSettings["KodeRuanganBedah"];
             var PenjaminBpjs = ConfigurationManager.AppSettings["KodeJenisPasien"];
             var list = new List<JadwalOprasiResponseall>();
@@ -1415,7 +1415,7 @@ namespace ApiToJKN.Controllers
                 var tgl = DateTime.Now.ToString("yyyy-MM-dd 00.00.00");
                 var tglAwal = tglReservasi.Value.ToString("yyyy-MM-dd 00:00:00");
                 var tglAkhir = tglReservasi.Value.ToString("yyyy-MM-dd 23:59:59");
-                using (var context = new ContextManager(ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString))
+                using (var context = new ContextManager(ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString))
                 {
                     var query = "select max(NoReservasi) as NoAntrian from reservasi " +
                         "where TglReservasi between '" + tglAwal + "' " +

@@ -11,9 +11,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Results;
+using NLog;
 
 namespace ApiToJKN.Controllers
 {
@@ -21,10 +23,10 @@ namespace ApiToJKN.Controllers
     public class WsRsV2Controller : ApiController
     {
         private string noAntrianJoin;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public WsRsV2Controller()
         {
-
         }
 
         /// <summary>
@@ -318,6 +320,7 @@ namespace ApiToJKN.Controllers
         [Route("api/V2/AmbilAntrean")]
         public JsonResult<AmbilAntrianRespone> AmbilAntrian([FromBody] AmbilAntrianRequest request)
         {
+            var kodeBooking = "";
             try
             {
                 VerifyToken();
@@ -377,6 +380,9 @@ namespace ApiToJKN.Controllers
                 var temp = new List<string>();
                 var list = new List<string[]>();
                 var dict = new Dictionary<string, object>();
+
+                #region comment
+
 
                 //foreach (var str in context.CariPesertaByNoKartuBpjs(request.NomorKartu, DateTime.Now.ToString("yyyy-MM-dd")))
                 //{
@@ -579,10 +585,11 @@ namespace ApiToJKN.Controllers
                     //{
                     //    throw new Exception("tanggal rujukan tidak aktif / lebih dari 90 hari");
                     //}
+                    #endregion
 
                     using (var db = new ContextManager(Connection))
                     {
-                        var chekPesertaByNoKartu = "select NoCm from PemakaianAsuransi where IdAsuransi = '" + request.NomorKartu + "'";
+                        var chekPesertaByNoKartu = "select top 1 NoCm from PemakaianAsuransi where IdAsuransi = '" + request.NomorKartu + "'";
                         var readerChekPeserta = db.ExecuteQuery(chekPesertaByNoKartu);
                         while (readerChekPeserta.Read())
                         {
@@ -718,7 +725,7 @@ namespace ApiToJKN.Controllers
                             //}
 
                             var countNoantrian = GetNoReservasi(Convert.ToDateTime(tglReservasi));
-                            var kodeBooking = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10);
+                            kodeBooking = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10);
                             var totalDaftar = "";
 
                             sql = "select top 1 TglReservasi from Reservasi " +
@@ -757,6 +764,8 @@ namespace ApiToJKN.Controllers
                                 "'" + KdRuanganPoli + "')";
                             db.ExecuteNonQuery(sql);
 
+                            logger.Info($"INSERT Reservasi --> KodeBooking {kodeBooking} Ok");
+
                             sql =
                                 "insert into DetailReservasi(KodeBooking,NoCM,NoIdentitas,NamaLengkap,Alamat,NoTelp,Email,KdRuangan,IdPegawai,KdKelompokWaktu,JenisPasien,StatusPasien) values " +
                                 "('" + kodeBooking + "'," +
@@ -774,9 +783,13 @@ namespace ApiToJKN.Controllers
 
                             db.ExecuteNonQuery(sql);
 
+                            logger.Info($"INSERT DetailReservasi --> KodeBooking {kodeBooking} Ok");
+
                             //[20211228] ER
                             sql = "INSERT INTO ReservasiMobileJKN VALUES ('" + kodeBooking + "')";
                             db.ExecuteNonQuery(sql);
+
+                            logger.Info($"INSERT ReservasiMobileJKN --> KodeBooking {kodeBooking} Ok");
 
                             //request.NomorReferensi = kodeBooking;
 
@@ -816,15 +829,19 @@ FROM            Reservasi INNER JOIN
                                 var hrIni = DateTime.Now;
                                 short noAntrianTemp = 0;
                                 var kdAntrian = 0;
+                                var statusPasien = "0";
+                                if (!string.IsNullOrEmpty(request.NoRm))
+                                    statusPasien = "1";
+
                                 var queryAntrian = @"select * from antrianpasienregistrasi 
-where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "'";
+where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "' and statuspasien = " + statusPasien + "";
                                 var readerAntrian = db.ExecuteQuery(queryAntrian);
                                 while (readerAntrian.Read())
                                 {
                                     noAntrianTemp = Convert.ToInt16(readerAntrian["NoAntrian"]);
                                 }
 
-                                queryAntrian = @"select * from antrianpasienregistrasi";
+                                queryAntrian = @"select MAX(KdAntrian) KdAntrian from antrianpasienregistrasi";
                                 readerAntrian = db.ExecuteQuery(queryAntrian);
                                 while (readerAntrian.Read())
                                 {
@@ -834,6 +851,16 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                 var noAntrianIncrement = noAntrianTemp + 1;
                                 var noAntrianJoin = aliasDokter + "-" + noAntrianIncrement.ToString("D3");
                                 //var noAntrianJoin = aliasDokter + "-" + Convert.ToInt32(noAntrian).ToString("D3");
+
+                                if (string.IsNullOrEmpty(request.NoRm))
+                                {
+                                    var jenisPasien = "A";
+                                    if (!string.IsNullOrEmpty(request.NomorKartu))
+                                        jenisPasien = "B";
+                                    noAntrianJoin = jenisPasien + "-" + noAntrianIncrement.ToString("D3");
+                                }
+
+                                logger.Info($"Nomor Antrian : {noAntrianJoin} --> KodeBooking {kodeBooking}");
 
                                 var kdAntrianIncrement = kdAntrian + 1;
                                 var queryAddAntrian = @"INSERT INTO [dbo].[AntrianPasienRegistrasi]
@@ -864,8 +891,8 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                            ",'02'" +
                                            ",'" + (string.IsNullOrEmpty(request.NomorKartu) ? "02" : "01") + "'" +
                                            ",'" + IdDokter + "'" +
-                                           ",'" + kodeBooking + "'" +
                                            ",''" +
+                                           ",'" + kodeBooking + "'" +
                                            ",''" +
                                            ",1" +
                                            ",'" + IdDokter + "'" +
@@ -873,6 +900,8 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                            ",null" +
                                            ",'" + (string.IsNullOrEmpty(request.NomorKartu) ? "UMUM" : "JKN") + "')";
                                 db.ExecuteNonQuery(queryAddAntrian);
+
+                                logger.Info($"INSERT AntrianPasienRegistrasi --> KodeBooking {kodeBooking} Ok");
 
                                 var result = new AmbilAntrianRespone()
                                 {
@@ -911,6 +940,8 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                       "'" + kuota + "','" + sisaKuota + "','" + kuota + "','peserta harap 60 menit lebih awal guna pencatatan administrasi',NULL,NULL)";
                                 db.ExecuteNonQuery(sql);
 
+                                logger.Info($"INSERT AntrianOnline --> KodeBooking {kodeBooking} Ok");
+
                                 return Json(result);
                             }
                             else
@@ -923,6 +954,8 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
             }
             catch (Exception e)
             {
+                logger.Error($"Error KodeBooking {kodeBooking} --> {e.Message}");
+                logger.Error(e);
                 return ResultAmbil(e.Message, 201);
             }
         }
@@ -1371,7 +1404,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
             }
         }
 
-        private string Connection { get; } = ConfigurationManager.ConnectionStrings["BKMM3ConnectionString"].ConnectionString;
+        private string Connection { get; } = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
 
         private string ConsumerId { get; } = ConfigurationManager.AppSettings["ConsumerId"];
 

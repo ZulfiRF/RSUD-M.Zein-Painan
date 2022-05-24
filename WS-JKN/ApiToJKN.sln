@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Framework.Helper", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Framework.Model", "..\Core.Framework.Model\Core.Framework.Model.csproj", "{CB08CF14-ED55-43C5-BC99-9477EEA3E426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasamedika.Sdk.Vclaim", "..\..\WS-BPJS\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj", "{7BC3C7C4-72AA-4353-BB13-6B9092503D44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasamedika.Sdk.Vclaim", "..\..\..\..\WS BPJS\WS-BPJS\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj", "{7BC3C7C4-72AA-4353-BB13-6B9092503D44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
