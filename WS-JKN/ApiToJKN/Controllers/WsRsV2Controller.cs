@@ -193,13 +193,13 @@ namespace ApiToJKN.Controllers
                     var totalAntrian = 0;
 
                     //[20211228] ER
-                    var IdDokter = IdPegawai;
+                    var idDokter = "";
                     var namaDokter = "";
                     sql = "SELECT IdPegawai,NamaDokterHFIZ FROM DokterHFIZ WHERE KdDokterHFIZ='" + request.KodeDokter + "'";
                     var readerDokter = db.ExecuteQuery(sql);
                     while (readerDokter.Read())
                     {
-                        IdDokter = readerDokter["IdPegawai"].ToString();
+                        idDokter = readerDokter["IdPegawai"].ToString();
                         namaDokter = readerDokter["NamaDokterHFIZ"].ToString();
                     }
 
@@ -236,7 +236,8 @@ namespace ApiToJKN.Controllers
                         kuota = Convert.ToInt32(reader["Slotting"]);
                     }
 
-                    var sqlTotal = "SELECT dbo.Jumlah_Pasien_Terdaftar('" + request.TanggalPeriksa + "'," + KodeKelompokWaktu + ",'" + kdRuangan + "') AS JumlahPasienTerdaftar";
+                    //var sqlTotal = "SELECT dbo.Jumlah_Pasien_Terdaftar('" + request.TanggalPeriksa + "'," + KodeKelompokWaktu + ",'" + kdRuangan + "') AS JumlahPasienTerdaftar";
+                    var sqlTotal = "SELECT dbo.Jumlah_Pasien_Terdaftar_v2('" + request.TanggalPeriksa + "'," + KodeKelompokWaktu + ",'" + kdRuangan + "','" + idDokter + "') AS JumlahPasienTerdaftar";
                     var readerTotal = db.ExecuteQuery(sqlTotal);
                     while (readerTotal.Read())
                     {
@@ -272,7 +273,8 @@ namespace ApiToJKN.Controllers
                           "WHERE YEAR(TglReservasi)= '" + Convert.ToDateTime(request.TanggalPeriksa).Year + "' " +
                           "AND MONTH(TglReservasi)= '" + Convert.ToDateTime(request.TanggalPeriksa).Month + "' " +
                           "AND DAY(TglReservasi)= '" + Convert.ToDateTime(request.TanggalPeriksa).Day + "' " +
-                          "AND StatusPasien = 'Y'";
+                          "AND StatusPasien = 'Y' " +
+                          "AND DetailReservasi.IdPegawai = '" + IdPegawai + "'";
                     var readerAntrian = db.ExecuteQuery(sql);
                     while (readerAntrian.Read())
                     {
@@ -834,7 +836,7 @@ FROM            Reservasi INNER JOIN
                                     statusPasien = "1";
 
                                 var queryAntrian = @"select * from antrianpasienregistrasi 
-where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "' and statuspasien = " + statusPasien + "";
+where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "'";
                                 var readerAntrian = db.ExecuteQuery(queryAntrian);
                                 while (readerAntrian.Read())
                                 {
@@ -852,13 +854,13 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                 var noAntrianJoin = aliasDokter + "-" + noAntrianIncrement.ToString("D3");
                                 //var noAntrianJoin = aliasDokter + "-" + Convert.ToInt32(noAntrian).ToString("D3");
 
-                                if (string.IsNullOrEmpty(request.NoRm))
-                                {
-                                    var jenisPasien = "A";
-                                    if (!string.IsNullOrEmpty(request.NomorKartu))
-                                        jenisPasien = "B";
-                                    noAntrianJoin = jenisPasien + "-" + noAntrianIncrement.ToString("D3");
-                                }
+                                //if (string.IsNullOrEmpty(request.NoRm))
+                                //{
+                                //    var jenisPasien = "A";
+                                //    if (!string.IsNullOrEmpty(request.NomorKartu))
+                                //        jenisPasien = "B";
+                                //    noAntrianJoin = jenisPasien + "-" + noAntrianIncrement.ToString("D3");
+                                //}
 
                                 logger.Info($"Nomor Antrian : {noAntrianJoin} --> KodeBooking {kodeBooking}");
 
@@ -908,7 +910,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                     Response = new AmbilAntrianDetail()
                                     {
                                         NomorAntrian = noAntrianJoin,
-                                        AngkaAntrian = Convert.ToInt32(noAntrian),
+                                        AngkaAntrian = Convert.ToInt32(noAntrianIncrement),
                                         KodeBooking = kodeBooking,
                                         EstimasiDilayani = Convert.ToInt64(estimasi),
                                         NamaPoli = namaPoli,
@@ -936,7 +938,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                       "VALUES ('" + kodeBooking + "','JKN','" + request.NomorKartu + "','" + request.Nik + "','" + request.NoHp + "'," +
                                       "'" + request.KodePoli + "','" + namaPoli + "','','" + noRm + "','" + tglReservasi.ToString("yyyy/MM/dd HH:mm:ss") + "'," +
                                       "'" + request.KodeDokter + "','" + namaDokter + "','" + request.JamPraktek + "','" + request.JenisKunjungan + "'," +
-                                      "'" + request.NomorReferensi + "','" + noAntrianJoin + "','" + Convert.ToInt32(noAntrian) + "','" + estimasi + "','" + sisaKuota + "'," +
+                                      "'" + request.NomorReferensi + "','" + noAntrianJoin + "','" + Convert.ToInt32(noAntrianIncrement) + "','" + estimasi + "','" + sisaKuota + "'," +
                                       "'" + kuota + "','" + sisaKuota + "','" + kuota + "','peserta harap 60 menit lebih awal guna pencatatan administrasi',NULL,NULL)";
                                 db.ExecuteNonQuery(sql);
 
