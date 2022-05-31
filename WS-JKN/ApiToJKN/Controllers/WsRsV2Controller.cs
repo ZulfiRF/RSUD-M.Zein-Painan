@@ -1026,6 +1026,12 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                     comm.ExecuteNonQuery();
                                     trans.Commit();
                                     conn.Close();
+
+                                    var update = $"update AntrianOnline set NoPendaftaran = '{noPendaftaran}' where kodeBooking = '{kodeBooking}'";
+                                    db.ExecuteNonQuery(update);
+
+                                    var addMap = $"insert into MapAntrianToAntrianOnline values ('{kdAntrianIncrement}','{kodeBooking}','MobileJkn')";
+                                    db.ExecuteNonQuery(addMap);
                                 }
 
                                 return Json(result);
