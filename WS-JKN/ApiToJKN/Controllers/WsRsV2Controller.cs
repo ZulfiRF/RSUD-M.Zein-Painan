@@ -712,7 +712,8 @@ namespace ApiToJKN.Controllers
                             var noRm = "";
                             var PasienBaru = "0";
                             if (string.IsNullOrEmpty(noCm))
-                            {//noRm = request.NoRm;
+                            {
+                                //noRm = request.NoRm;
                                 noRm = "000000";
                             }
                             else
@@ -832,7 +833,7 @@ FROM            Reservasi INNER JOIN
                                 short noAntrianTemp = 0;
                                 var kdAntrian = 0;
                                 var statusPasien = "0";
-                                if (!string.IsNullOrEmpty(request.NoRm))
+                                if (!string.IsNullOrEmpty(noCm))
                                     statusPasien = "1";
 
                                 var queryAntrian = @"select * from antrianpasienregistrasi 
@@ -887,7 +888,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                            (" + kdAntrianIncrement + "" +
                                            ",'" + hrIni.ToString("yyy-MM-dd HH:mm:ss") + "'" +
                                            "," + noAntrianIncrement + "" +
-                                           "," + (string.IsNullOrEmpty(request.NoRm) ? "0" : "1") + "" +
+                                           "," + (string.IsNullOrEmpty(noCm) ? "0" : "1") + "" +
                                            ",'" + request.NoRm + "'" +
                                            ",'" + KdRuanganPoli + "'" +
                                            ",'02'" +
@@ -936,13 +937,96 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                       "TglPeriksa,KodeDokter,NamaDokter,JamPraktek,JenisKunjungan,NomorReferensi,NoAntrian, " +
                                       "AngkaAntrian,EstimasiDilayani,SisaKuotaJKN,KuotaJKN,SisaKuotaNonJKN,KuotaNonJKN,Keterangan,NoPendaftaran,TaskID) " +
                                       "VALUES ('" + kodeBooking + "','JKN','" + request.NomorKartu + "','" + request.Nik + "','" + request.NoHp + "'," +
-                                      "'" + request.KodePoli + "','" + namaPoli + "','','" + noRm + "','" + tglReservasi.ToString("yyyy/MM/dd HH:mm:ss") + "'," +
+                                      "'" + request.KodePoli + "','" + namaPoli + "','" + (string.IsNullOrEmpty(noCm) ? "0" : "1") + "','" + noRm + "','" + tglReservasi.ToString("yyyy/MM/dd HH:mm:ss") + "'," +
                                       "'" + request.KodeDokter + "','" + namaDokter + "','" + request.JamPraktek + "','" + request.JenisKunjungan + "'," +
                                       "'" + request.NomorReferensi + "','" + noAntrianJoin + "','" + Convert.ToInt32(noAntrianIncrement) + "','" + estimasi + "','" + sisaKuota + "'," +
                                       "'" + kuota + "','" + sisaKuota + "','" + kuota + "','peserta harap 60 menit lebih awal guna pencatatan administrasi',NULL,NULL)";
                                 db.ExecuteNonQuery(sql);
 
                                 logger.Info($"INSERT AntrianOnline --> KodeBooking {kodeBooking} Ok");
+
+                                if (!string.IsNullOrEmpty(noCm))
+                                {
+                                    var kdSubInst = "";
+                                    var qSubInstalasi = $@"select * from SubInstalasiRuangan where KdRuangan = '{KdRuanganPoli}'";
+                                    var readerSubInst = db.ExecuteQuery(qSubInstalasi);
+                                    while (readerSubInst.Read())
+                                    {
+                                        kdSubInst = readerSubInst["KdSubInstalasi"].ToString();
+                                    }
+
+                                    var nonKelas = ConfigurationManager.AppSettings["NonKelas"];
+                                    var idUser = ConfigurationManager.AppSettings["IdPegawai"];
+                                    var kelompokPasienBpjs = ConfigurationManager.AppSettings["KelompokPasienBpjs"];
+                                    var kelompokPasienNonBpjs = ConfigurationManager.AppSettings["KelompokPasienNonBpjs"];
+                                    var rujukanAsalSendiri = ConfigurationManager.AppSettings["RujukanAsalSendiri"];
+                                    var rujukanAsalPuskesmas = ConfigurationManager.AppSettings["RujukanAsalPuskesmas"];
+                                    var kdDetailJenisJasaPelayanan = ConfigurationManager.AppSettings["KdDetailJenisJasaPelayanan"];
+
+                                    var registrasiMrs = new List<SqlParameter>(){
+                                        new SqlParameter("@NoCM", SqlDbType.VarChar, 12){Value = noRm},
+                                        new SqlParameter("@KdSubInstalasi", SqlDbType.Char, 3){Value = kdSubInst},
+                                        new SqlParameter("@KdRuangan", SqlDbType.Char, 3){Value = KdRuanganPoli},
+                                        new SqlParameter("@TglPendaftaran", SqlDbType.DateTime){Value = request.TanggalPeriksa},
+                                        new SqlParameter("@TglMasuk", SqlDbType.DateTime){Value = request.TanggalPeriksa},
+                                        new SqlParameter("@KdKelas", SqlDbType.Char, 2){Value = nonKelas},
+                                        new SqlParameter("@KdKelompokPasien", SqlDbType.Char, 2){Value = string.IsNullOrEmpty(request.NomorKartu) ? kelompokPasienNonBpjs:kelompokPasienBpjs},
+                                        new SqlParameter("@IdPegawai", SqlDbType.Char, 10){Value = idUser},
+                                        new SqlParameter("@OutputNoPendaftaran", SqlDbType.Char, 10){Direction = ParameterDirection.Output},
+                                        new SqlParameter("@OutputNoAntrian", SqlDbType.Char, 3){Direction = ParameterDirection.Output},
+                                        new SqlParameter("@KdDetailJenisJasaPelayanan", SqlDbType.Char, 2){Value = kdDetailJenisJasaPelayanan},
+                                        new SqlParameter("@KdPaket", SqlDbType.VarChar, 3){Value = DBNull.Value},
+                                        new SqlParameter("@KdRujukanAsal", SqlDbType.Char, 2){Value = string.IsNullOrEmpty(request.NomorKartu) ? rujukanAsalSendiri:rujukanAsalPuskesmas},
+                                        new SqlParameter("@IdDokter", SqlDbType.Char, 10){Value = IdDokter},
+                                    };
+
+                                    var conn = new SqlConnection(Connection);
+                                    conn.Open();
+                                    var trans = conn.BeginTransaction();
+                                    var comm = conn.CreateCommand();
+                                    comm.CommandType = CommandType.StoredProcedure;
+                                    comm.CommandText = "Add_RegistrasiPasienMRS";
+                                    comm.Connection = conn;
+                                    comm.Parameters.AddRange(registrasiMrs.ToArray());
+                                    comm.Transaction = trans;
+                                    comm.CommandTimeout = 0;
+                                    comm.ExecuteNonQuery();
+                                    trans.Commit();
+                                    conn.Close();
+
+                                    var noPendaftaran = "";
+                                    var outputNoPendaftaran = registrasiMrs.FirstOrDefault(n => n.ParameterName == "@OutputNoPendaftaran");
+                                    if (outputNoPendaftaran != null)
+                                    {
+                                        noPendaftaran = outputNoPendaftaran.Value.ToString();
+                                    }
+
+                                    var biaya = new List<SqlParameter>(){
+                                        new SqlParameter("@NoPendaftaran", SqlDbType.VarChar, 10){Value = noPendaftaran},
+                                        new SqlParameter("@KdSubInstalasi", SqlDbType.Char, 3){Value = kdSubInst},
+                                        new SqlParameter("@KdRuangan", SqlDbType.Char, 3){Value = KdRuanganPoli},
+                                        new SqlParameter("@TglMasuk", SqlDbType.DateTime){Value = request.TanggalPeriksa},
+                                        new SqlParameter("@KdKelas", SqlDbType.Char, 2){Value = nonKelas},
+                                        new SqlParameter("@KdKelasPel", SqlDbType.Char, 2){Value = nonKelas},
+                                        new SqlParameter("@NoLab_Rad", SqlDbType.Char, 10){Value = DBNull.Value},
+                                        new SqlParameter("@IdPegawai", SqlDbType.Char, 10){Value = idUser},
+                                        new SqlParameter("@Status", SqlDbType.Char, 1){Value = "AL"},
+                                    };
+
+                                    conn = new SqlConnection(Connection);
+                                    conn.Open();
+                                    trans = conn.BeginTransaction();
+                                    comm = conn.CreateCommand();
+                                    comm.CommandType = CommandType.StoredProcedure;
+                                    comm.CommandText = "Add_BiayaPelayananOtomatis";
+                                    comm.Connection = conn;
+                                    comm.Parameters.AddRange(registrasiMrs.ToArray());
+                                    comm.Transaction = trans;
+                                    comm.CommandTimeout = 0;
+                                    comm.ExecuteNonQuery();
+                                    trans.Commit();
+                                    conn.Close();
+                                }
 
                                 return Json(result);
                             }
