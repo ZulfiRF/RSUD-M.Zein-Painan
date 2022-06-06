@@ -146,11 +146,11 @@ namespace ApiToJKN.Controllers
                     }
                 }
 
-                return Result("OK", 200);
+                return ResultBatal("OK", 200);
             }
             catch (Exception e)
             {
-                return Result(e.Message, 201);
+                return ResultBatal(e.Message, 201);
             }
         }
 
@@ -1020,7 +1020,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                                     comm.CommandType = CommandType.StoredProcedure;
                                     comm.CommandText = "Add_BiayaPelayananOtomatis";
                                     comm.Connection = conn;
-                                    comm.Parameters.AddRange(registrasiMrs.ToArray());
+                                    comm.Parameters.AddRange(biaya.ToArray());
                                     comm.Transaction = trans;
                                     comm.CommandTimeout = 0;
                                     comm.ExecuteNonQuery();
@@ -1417,6 +1417,18 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
             {
                 Message = message,
                 Code = code
+            });
+        }
+
+        private JsonResult<Metadata> ResultBatal(string message, int code)
+        {
+            return Json(new BatalResponse()
+            {
+                Metadata = new Metadata()
+                {
+                    Message = message,
+                    Code = code
+                }
             });
         }
 

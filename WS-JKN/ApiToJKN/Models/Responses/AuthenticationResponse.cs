@@ -76,6 +76,12 @@ namespace ApiToJKN.Models.Responses
         public int Code { get; set; }
     }
 
+    public class BatalResponse
+    {
+        [JsonProperty(PropertyName = "metadata")]
+        public Metadata Metadata { get; set; }
+    }
+
     public class Response
     {
         [JsonProperty(PropertyName = "token")]
