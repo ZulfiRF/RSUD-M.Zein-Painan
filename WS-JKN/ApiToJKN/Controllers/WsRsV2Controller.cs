@@ -96,7 +96,7 @@ namespace ApiToJKN.Controllers
         /// <returns></returns>
         [Route("api/V2/BatalAntrean")]
         [HttpPost]
-        public JsonResult<Metadata> BatalAntrian([FromBody] BatalAntrianRequest request)
+        public JsonResult<BatalResponse> BatalAntrian([FromBody] BatalAntrianRequest request)
         {
             try
             {
@@ -1420,7 +1420,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
             });
         }
 
-        private JsonResult<Metadata> ResultBatal(string message, int code)
+        private JsonResult<BatalResponse> ResultBatal(string message, int code)
         {
             return Json(new BatalResponse()
             {
