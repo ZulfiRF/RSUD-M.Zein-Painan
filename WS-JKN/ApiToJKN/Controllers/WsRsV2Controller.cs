@@ -829,7 +829,7 @@ FROM            Reservasi INNER JOIN
                                 //Contoh : 0000/0001/0012/0045 = D4
                                 //  var noAntrianJoin = request.KodePoli + "-" + Convert.ToInt32(noAntrian).ToString("D3");
 
-                                var hrIni = DateTime.Now;
+                                var hrIni = Convert.ToDateTime(request.TanggalPeriksa);
                                 short noAntrianTemp = 0;
                                 var kdAntrian = 0;
                                 var statusPasien = "0";
