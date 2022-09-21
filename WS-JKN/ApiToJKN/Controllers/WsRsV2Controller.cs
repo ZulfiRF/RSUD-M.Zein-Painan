@@ -343,10 +343,31 @@ namespace ApiToJKN.Controllers
                         throw new Exception("isi " + name);
                     if (string.IsNullOrEmpty(isi.ToString()) || string.IsNullOrWhiteSpace(isi.ToString()))
                         throw new Exception("isi " + name);
-                    
+
                 }
 
-                if (string.IsNullOrEmpty(request.NomorKartu) || string.IsNullOrEmpty(request.Nik))
+                if (string.IsNullOrEmpty(request.NomorKartu) || string.IsNullOrEmpty(request.Nik) || string.IsNullOrEmpty(request.NoRm))
+                    throw new Exception("Pasien baru mohon mendaftar langsung ke RSUD untuk keperluan administrasi");
+
+                var pasienBaru = true;
+                using (var db = new ContextManager(Connection))
+                {
+                    var cek = $"select top 1 * from PemakaianAsuransi where IdAsuransi = '{request.NomorKartu}'";
+                    var readerCek = db.ExecuteQuery(cek);
+                    while (readerCek.Read())
+                    {
+                        pasienBaru = false;
+                    }
+
+                    var cek2 = $"select top 1 * from Pasien where NoCm = '{request.NoRm}' or NoIdentitas = '{request.Nik}'";
+                    var readerCek2 = db.ExecuteQuery(cek2);
+                    while (readerCek2.Read())
+                    {
+                        pasienBaru = false;
+                    }
+                }
+
+                if (pasienBaru)
                     throw new Exception("Pasien baru mohon mendaftar langsung ke RSUD untuk keperluan administrasi");
 
                 var context = new ContextVclaim
@@ -1150,7 +1171,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                     //var antrianDipanggil = listAntrian.LastOrDefault(n => n.NoLoketCounter != 0);
 
                     //var waktuTunggu = Math.Round((Convert.ToDateTime(tglReservasi) - DateTime.Now).TotalSeconds, 0);
-                   
+
 
                     var kuota = 0;
                     var sisaKuota = 0;
@@ -1201,7 +1222,7 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
 
                     sisaAntrian = totalAntrian - antrianDipanggil;
 
-                    var waktuTunggu = sisaAntrian * 480 ;
+                    var waktuTunggu = sisaAntrian * 480;
 
                     var result = new SisaAntrianRespone()
                     {
