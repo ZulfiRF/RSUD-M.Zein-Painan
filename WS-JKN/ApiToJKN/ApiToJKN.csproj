@@ -215,7 +215,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\WS BPJS\WS-BPJS\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj">
+    <ProjectReference Include="..\..\..\..\WS BPJS\WS-BPJS\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj">
       <Project>{7bc3c7c4-72aa-4353-bb13-6b9092503d44}</Project>
       <Name>Jasamedika.Sdk.Vclaim</Name>
     </ProjectReference>
@@ -227,6 +227,10 @@
       <Project>{cb08cf14-ed55-43c5-bc99-9477eea3e426}</Project>
       <Name>Core.Framework.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll" />
+    <Analyzer Include="C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,7 +5,6 @@ using ApiToJKN.Utilities;
 using Core.Framework.Helper.Date;
 using Core.Framework.Helper.Extention;
 using Core.Framework.Model;
-using Jasamedika.Sdk.Vclaim;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +15,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Results;
 using NLog;
+using Jasamedika.Sdk.Vclaim;
 
 namespace ApiToJKN.Controllers
 {
@@ -326,6 +326,11 @@ namespace ApiToJKN.Controllers
             try
             {
                 VerifyToken();
+                //var nokartu = property.nokartu.ToLower();
+                //var nik = property.nik.ToLower();
+                //if (nokartu == null or nik == null ){
+                //    throw new Exception("" + "Pasien Baru Mohon Mendaftar Langsung ke RSUD M.Zein Painan untuk Keperluan Administrasi");
+                //}
 
                 var getProperties = request.GetType().GetProperties();
                 foreach (var property in getProperties)
@@ -338,6 +343,7 @@ namespace ApiToJKN.Controllers
                         throw new Exception("isi " + name);
                     if (string.IsNullOrEmpty(isi.ToString()) || string.IsNullOrWhiteSpace(isi.ToString()))
                         throw new Exception("isi " + name);
+                    
                 }
 
                 var context = new ContextVclaim
@@ -368,16 +374,16 @@ namespace ApiToJKN.Controllers
 
                 var tglSkrg = DateTime.Now;
                 var tglYgDipilih = Convert.ToDateTime(request.TanggalPeriksa);
-                if (tglYgDipilih < tglSkrg)
-                {
-                    var msg = ConfigurationManager.AppSettings["MessageMinimalAntrian"];
-                    throw new Exception(msg);
-                }
-                if (tglYgDipilih > tglSkrg.AddDays(7))
-                {
-                    var msg = ConfigurationManager.AppSettings["MessageMaksimalAntrian"];
-                    throw new Exception(msg);
-                }
+                //if (tglYgDipilih < tglSkrg)
+                //{
+                //    var msg = ConfigurationManager.AppSettings["MessageMinimalAntrian"];
+                //    throw new Exception(msg);
+                //}
+                //if (tglYgDipilih > tglSkrg.AddDays(7))
+                //{
+                //    var msg = ConfigurationManager.AppSettings["MessageMaksimalAntrian"];
+                //    throw new Exception(msg);
+                //}
 
                 var temp = new List<string>();
                 var list = new List<string[]>();
@@ -803,11 +809,8 @@ namespace ApiToJKN.Controllers
                             ////             "INNER JOIN Ruangan ON Reservasi.KdRuangan = Ruangan.KdRuangan where Reservasi.KodeBooking ='" + kodeBooking + "'";
 
                             sql = @"SELECT        RIGHT(Reservasi.NoReservasi, 3) AS NoReservasi, Reservasi.KodeBooking, Reservasi.TglReservasi, Reservasi.TglRegistrasi, Reservasi.KdRuangan, Ruangan.NamaRuangan, DetailReservasi.IdPegawai, 
-                         AliasDokter.AliasDok
-FROM            Reservasi INNER JOIN
-                         DetailReservasi ON Reservasi.KdRuangan = DetailReservasi.KdRuangan AND Reservasi.KodeBooking = DetailReservasi.KodeBooking INNER JOIN
-                         Ruangan ON Reservasi.KdRuangan = Ruangan.KdRuangan INNER JOIN
-                         AliasDokter ON DetailReservasi.IdPegawai = AliasDokter.IdDokter where Reservasi.KodeBooking ='" + kodeBooking + "'";
+                                 AliasDokter.AliasDok FROM Reservasi INNER JOIN DetailReservasi ON Reservasi.KdRuangan = DetailReservasi.KdRuangan AND Reservasi.KodeBooking = DetailReservasi.KodeBooking INNER JOIN
+                                 Ruangan ON Reservasi.KdRuangan = Ruangan.KdRuangan INNER JOIN AliasDokter ON DetailReservasi.IdPegawai = AliasDokter.IdDokter where Reservasi.KodeBooking ='" + kodeBooking + "'";
                             var noAntrian = "";
                             var estimasi = "";
                             var aliasDokter = "";
@@ -829,6 +832,10 @@ FROM            Reservasi INNER JOIN
                                 //Contoh : 0000/0001/0012/0045 = D4
                                 //  var noAntrianJoin = request.KodePoli + "-" + Convert.ToInt32(noAntrian).ToString("D3");
 
+<<<<<<< Updated upstream
+=======
+                                //var hrIni = DateTime.Now;
+>>>>>>> Stashed changes
                                 var hrIni = Convert.ToDateTime(request.TanggalPeriksa);
                                 short noAntrianTemp = 0;
                                 var kdAntrian = 0;
@@ -1143,7 +1150,8 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                     //var sisaAntrian = listAntrian.Count(n => n.NoLoketCounter == 0);
                     //var antrianDipanggil = listAntrian.LastOrDefault(n => n.NoLoketCounter != 0);
 
-                    var waktuTunggu = Math.Round((Convert.ToDateTime(tglReservasi) - DateTime.Now).TotalSeconds, 0);
+                    //var waktuTunggu = Math.Round((Convert.ToDateTime(tglReservasi) - DateTime.Now).TotalSeconds, 0);
+                   
 
                     var kuota = 0;
                     var sisaKuota = 0;
@@ -1193,6 +1201,8 @@ where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddok
                     }
 
                     sisaAntrian = totalAntrian - antrianDipanggil;
+
+                    var waktuTunggu = sisaAntrian * 480 ;
 
                     var result = new SisaAntrianRespone()
                     {
