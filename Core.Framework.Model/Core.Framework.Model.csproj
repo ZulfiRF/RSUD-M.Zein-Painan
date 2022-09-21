@@ -44,9 +44,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jasamedika.Sdk.Vclaim">
-      <HintPath>C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
       <HintPath>..\..\Git\ADD to Antrol Project\MySql.Data.dll</HintPath>
@@ -196,13 +193,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\WS BPJS\WS-BPJS\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj">
+      <Project>{7bc3c7c4-72aa-4353-bb13-6b9092503d44}</Project>
+      <Name>Jasamedika.Sdk.Vclaim</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Framework.Helper\Core.Framework.Helper.csproj">
       <Project>{e90948b9-3ceb-444a-b067-c63efcfa4fdd}</Project>
       <Name>Core.Framework.Helper</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

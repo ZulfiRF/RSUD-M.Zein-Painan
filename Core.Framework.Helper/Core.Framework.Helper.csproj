@@ -64,9 +64,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jasamedika.Sdk.Vclaim">
-      <HintPath>C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\..\Medifirst2000\packages\Newtonsoft.Json.8.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -271,7 +268,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll" />
+    <ProjectReference Include="..\..\..\WS BPJS\WS-BPJS\Jasamedika.Sdk.Vclaim\Jasamedika.Sdk.Vclaim.csproj">
+      <Project>{7bc3c7c4-72aa-4353-bb13-6b9092503d44}</Project>
+      <Name>Jasamedika.Sdk.Vclaim</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

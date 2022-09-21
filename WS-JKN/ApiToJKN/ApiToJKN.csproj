@@ -228,10 +228,6 @@
       <Name>Core.Framework.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll" />
-    <Analyzer Include="C:\SDK\Vclaim\Jasamedika.Sdk.Vclaim.dll" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

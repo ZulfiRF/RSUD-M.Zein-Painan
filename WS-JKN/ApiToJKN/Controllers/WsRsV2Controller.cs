@@ -346,6 +346,9 @@ namespace ApiToJKN.Controllers
                     
                 }
 
+                if (string.IsNullOrEmpty(request.NomorKartu) || string.IsNullOrEmpty(request.Nik))
+                    throw new Exception("Pasien baru mohon mendaftar langsung ke RSUD untuk keperluan administrasi");
+
                 var context = new ContextVclaim
                 {
                     ConsumerId = ConsumerId,
@@ -832,10 +835,6 @@ namespace ApiToJKN.Controllers
                                 //Contoh : 0000/0001/0012/0045 = D4
                                 //  var noAntrianJoin = request.KodePoli + "-" + Convert.ToInt32(noAntrian).ToString("D3");
 
-<<<<<<< Updated upstream
-=======
-                                //var hrIni = DateTime.Now;
->>>>>>> Stashed changes
                                 var hrIni = Convert.ToDateTime(request.TanggalPeriksa);
                                 short noAntrianTemp = 0;
                                 var kdAntrian = 0;
