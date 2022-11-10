@@ -874,11 +874,19 @@ namespace ApiToJKN.Controllers
                                 var queryAntrian = @"select * from antrianpasienregistrasi 
                                     where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "'";
                                 var readerAntrian = db.ExecuteQuery(queryAntrian);
+                                var isExist = false;
                                 while (readerAntrian.Read())
                                 {
+                                    isExist = true;
                                     noAntrianTemp = Convert.ToInt16(readerAntrian["NoAntrian"]);
                                     var tglAntrian = Convert.ToDateTime(readerAntrian["tglantrian"].ToString()).AddMinutes(10);
                                     estimasi = Convert.ToString(DateHelper.ToInteger(tglAntrian)) + "000";
+                                }
+
+                                if (!isExist)
+                                {
+                                    var tglReservasiNanti = (Convert.ToInt64(estimasi)).ToDatetTime().AddHours(7);
+                                    estimasi = Convert.ToString(DateHelper.ToInteger(tglReservasiNanti)) + "000";
                                 }
 
                                 queryAntrian = @"select MAX(KdAntrian) KdAntrian from antrianpasienregistrasi";
