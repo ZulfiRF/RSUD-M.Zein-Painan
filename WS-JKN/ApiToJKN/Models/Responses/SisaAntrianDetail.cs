@@ -15,7 +15,7 @@ namespace ApiToJKN.Models.Responses
         [JsonProperty("antreanpanggil")]
         public string AntrianDipanggil { get; set; }
         [JsonProperty("waktutunggu")]
-        public double WaktuTunggu { get; set; }
+        public int WaktuTunggu { get; set; }
         [JsonProperty("keterangan")]
         public string Keterangan { get; set; }
     }

@@ -1326,12 +1326,12 @@ namespace ApiToJKN.Controllers
                 //var chekJadwal = " SELECT    NamaExternal,KodeExternal, NoIBS,NoPendaftaran, JenisOperasi, NamaRuangan, case when StatusOperasi = 'Sudah' then 1 else 0 end as StatusOperasi, TglPendaftaran, KdRuangan,IdAsuransi " +
                 //                 " FROM         v_DaftarPasienIBSjkn  where NamaPenjamin  ='" + PenjaminBpjs + "' and  TglPendaftaran between  '" + request.TglAwal + "' and '" + request.TglAkhir + "' ";
 
-                var chekJadwal = " SELECT    NamaExternal,KodeExternal, NoIBS, JenisOperasi, StatusOperasi, TglPendaftaran,IdAsuransi  " +
+                var chekJadwal = " SELECT    NamaExternal,KodeExternal, NoIBS, JenisOperasi, StatusOperasi, TglPendaftaran, IdAsuransi  " +
                     "FROM         v_DaftarPasienIBSjkn  " +
-                    "where NamaPenjamin  ='" + PenjaminBpjs + "' and  TglPendaftaran between  '" + request.TglAwal + "' and '" + request.TglAkhir + "' ";
+                    "where NamaPenjamin  ='" + PenjaminBpjs + "' and  TglPendaftaran between  '" + request.TglAwal + "' and '" + request.TglAkhir + "' Order by TglPendaftaran Desc";
 
                 var readerChekJadwal = db.ExecuteQuery(chekJadwal);
-                while (readerChekJadwal.Read())
+                while (readerChekJadwal.Read()) 
                 {
                     jadwal = new JadwalOprasiResponseall();
                     jadwal.KodeBooking = readerChekJadwal["NoIBS"].ToString();

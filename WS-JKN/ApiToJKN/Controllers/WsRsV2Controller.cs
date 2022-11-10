@@ -346,7 +346,7 @@ namespace ApiToJKN.Controllers
 
                 }
 
-                if (string.IsNullOrEmpty(request.NomorKartu) || string.IsNullOrEmpty(request.Nik) || string.IsNullOrEmpty(request.NoRm))
+                if (string.IsNullOrEmpty(request.NomorKartu) || string.IsNullOrEmpty(request.Nik))
                     throw new Exception("Pasien baru mohon mendaftar langsung ke RSUD untuk keperluan administrasi");
 
                 var pasienBaru = true;
@@ -359,7 +359,7 @@ namespace ApiToJKN.Controllers
                         pasienBaru = false;
                     }
 
-                    var cek2 = $"select top 1 * from Pasien where NoCm = '{request.NoRm}' or NoIdentitas = '{request.Nik}'";
+                    var cek2 = $"select top 1 * from Pasien where NoIdentitas = '{request.Nik}'";
                     var readerCek2 = db.ExecuteQuery(cek2);
                     while (readerCek2.Read())
                     {
@@ -397,17 +397,18 @@ namespace ApiToJKN.Controllers
                     throw new Exception("isi tanggal periksa");
 
                 var tglSkrg = DateTime.Now;
+                //var tglskrgmundur = DateTime.Now.AddDays(-1);
                 var tglYgDipilih = Convert.ToDateTime(request.TanggalPeriksa);
-                //if (tglYgDipilih < tglSkrg)
-                //{
-                //    var msg = ConfigurationManager.AppSettings["MessageMinimalAntrian"];
-                //    throw new Exception(msg);
-                //}
-                //if (tglYgDipilih > tglSkrg.AddDays(7))
-                //{
-                //    var msg = ConfigurationManager.AppSettings["MessageMaksimalAntrian"];
-                //    throw new Exception(msg);
-                //}
+                    if (tglYgDipilih < tglSkrg)
+                    {
+                        var msg = ConfigurationManager.AppSettings["MessageMinimalAntrian"];
+                        throw new Exception(msg);
+                    }
+                    if (tglYgDipilih > tglSkrg.AddDays(7))
+                    {
+                        var msg = ConfigurationManager.AppSettings["MessageMaksimalAntrian"];
+                        throw new Exception(msg);
+                    }
 
                 var temp = new List<string>();
                 var list = new List<string[]>();
@@ -626,6 +627,13 @@ namespace ApiToJKN.Controllers
                         while (readerChekPeserta.Read())
                         {
                             request.NoRm = readerChekPeserta["NoCm"].ToString();
+                        }
+
+                        var chekPesertaByNik = "select top 1 NoCm from Pasien where NoIdentitas = '" + request.Nik + "'";
+                        var readerChekPesertanik = db.ExecuteQuery(chekPesertaByNik);
+                        while (readerChekPesertanik.Read())
+                        {
+                            request.NoRm = readerChekPesertanik["NoCm"].ToString();
                         }
 
                         //[20211228] ER
@@ -864,7 +872,7 @@ namespace ApiToJKN.Controllers
                                     statusPasien = "1";
 
                                 var queryAntrian = @"select * from antrianpasienregistrasi 
-where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "'";
+                                    where cast(tglantrian as date) = '" + hrIni.ToString("yyy-MM-dd") + "' and kddokterorder = '" + IdDokter + "'";
                                 var readerAntrian = db.ExecuteQuery(queryAntrian);
                                 while (readerAntrian.Read())
                                 {
