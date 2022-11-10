@@ -877,6 +877,8 @@ namespace ApiToJKN.Controllers
                                 while (readerAntrian.Read())
                                 {
                                     noAntrianTemp = Convert.ToInt16(readerAntrian["NoAntrian"]);
+                                    var tglAntrian = Convert.ToDateTime(readerAntrian["tglantrian"].ToString()).AddMinutes(10);
+                                    estimasi = Convert.ToString(DateHelper.ToInteger(tglAntrian)) + "000";
                                 }
 
                                 queryAntrian = @"select MAX(KdAntrian) KdAntrian from antrianpasienregistrasi";
